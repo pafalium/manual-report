@@ -1,0 +1,13 @@
+pdflatex report
+bibtex report
+pdflatex report
+pdflatex report
+del *.aux
+del *.bbl
+del *.blg
+del *.lof
+del *.log
+del *.lot
+del *.nlo
+del *.out
+del *.toc
