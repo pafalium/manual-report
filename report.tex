@@ -1,12 +1,16 @@
 \documentclass{./llncs2e/llncs}
 \usepackage{graphicx}
+%%%%
 \usepackage{fixltx2e}
+%%%%
 \usepackage{mathtools}
+%%%%
 \usepackage[nolist,nohyperlinks]{acronym}
-% Maintain images and tables within their respective sections
+%%%%
 \usepackage[section]{placeins}
-
+%%%% Maintain images and tables within their respective sections
 \usepackage{float}
+%%%%
 
 % 
 % Change the margins
@@ -73,6 +77,43 @@ We move on to present some of the current widely used solutions -- or environmen
 \subsection{Programming for Everyone}
 Making programming easy for everyone has been an active area of research for many years. Some examples of programming languages designed with introducing people to programming were Logo\cite{papert1999logo} -- where the programmer explains the meaning of new words to a turtle -- and Smalltalk\cite{goldberg1983smalltalk} -- where a program the way a group of objects exchanges messages to solve a problem. Their authors are great defenders of the notion that learning how to solve/understand problems with a computer is a greater way of learning since it is a dynamic medium -- an example of that is the Dynabook\cite{Kay:2011:PCC:800193.1971922} a handheld computer prototype for children where programming was a first-class citizen.
 
+A programming language is nothing if it can't be run on a machine. When a programming language is coupled with an environment specifically designed for it the programming experience improves drastically. In his essay\cite{victor2012learnable}, Bret Victor described design principles over systems for learning programming; we will enumerate and describe each one of them.
+
+\subsubsection{Learnable Programming\cite{victor2012learnable}}
+In this essay, Bret Victor starts by stating what the goals of a programming system should be: it should "support and encourage powerful ways of thinking"; and it should "enable programmers to see and understand the execution of their programs".
+
+He then states that a programming system has two parts -- the \emph{programming environment} which is installed on the computer; and the \emph{programming language} which is installed on the programmer's head -- and then presents the design principles for those parts.
+
+The principles for the environment state what it should allow the programmer to do. The environment should allow the programmer to:
+\begin{enumerate}
+	\item \label{lp:env:read} read the vocabulary 
+	\item \label{lp:env:flow} follow the flow
+	\item \label{lp:env:state} see the state
+	\item \label{lp:env:react} create by reacting
+	\item \label{lp:env:abstr} create by abstracting
+\end{enumerate}
+
+The principles for the language state what it should provide. It should provide:
+\begin{enumerate}
+	\item \label{lp:lang:id} identity and metaphor
+	\item \label{lp:lang:decom} decomposition
+	\item \label{lp:lang:recom} recomposition
+	\item \label{lp:lang:read} readability
+\end{enumerate}
+
+These principles are then further explained following the same order.
+
+The environment should allow the programmer to \emph{read the vocabulary} so that the he can quickly shift his attention to ``how the steps are weaved together''. That is, as he is reading, the environment should make it easy to understand what each word means; each word's meaning should be made clear in an appropriate context -- or more if necessary.
+%How can I say that the environment can use any means necessary to achieve it?
+
+The environment should allow the programmer to \emph{follow the flow} so that he more easily understands ``how the steps are weaved together''. Instead of just showing the code and the result of its execution, the environment must show the execution of the program and let the programmer explore it in various meaningful granularities -- from different perspectives.
+
+The environment should allow the programmer to \emph{see the state} of the program -- be it explicit, as local variables, or implicit, as library state -- so that he can feel how it changes with the execution of the program. The environment must show the state as it changes with the execution and must show meaningful comparisons over the execution -- i.e., if the it represents a color then show it as colors; if it represents a number then show it as numbers.
+%Every line of code changes something be either by returning or by having side-effects.
+
+The environment should allow the programmer to \emph{create by reacting} to the environment so that he can ``start with something, than adjust until it's right''. To make it possible, the environment must make it easy to experiment; it must make trying/adding things as fast as the programmer can think of them and also make what can be done obvious. Bret Victor clearly states that this should be like painting. When the user tries things, he doesn't completely know what he's going to get; if what he gets is not right he changes it.
+
+The environment should allow the programmer to \emph{create by abstracting} parts of the program so that he can ``Start concrete (...) then gradually generalize (...), in such a way that he still fully understands the program at each level of abstraction''. The environment must make it easy to generalize parts of the program either by introducing new variables, by introducing loops or by creating functions. In other more general words: make it easy to generalize using the language's decomposition mechanisms. 
 
 %----------------------------------------------------
 %NAVarchitecture
