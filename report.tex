@@ -39,49 +39,52 @@
 %----------------------------------------------------
 %NAVintroduction
 \section{Introduction (2/3pgs)}
+%TODO: Introduce the well established tools (ex: cads) that architects and designers use in their work.
+%TODO: Introduce the concept of Generative Design approach so it can be used later. It isn't known to everybody.
+%%%%Writing a program with a programming language is a great way to structure our thoughts. 
 
 %----------------------------------------------------
 %NAVobjectives
 \section{Objectives (1pg)}
-The aim of this project is to provide architects -- or anyone interested in creating 3D models/geometry -- with an environment that fosters the Generative Design approach while being accessible wherever they are working.
+The aim of this project is to provide architects and designers interested in creating 3D models with an environment that fosters the Generative Design approach while being accessible wherever they are working.
 
 %Why does it need to be accessible wherever the architect is?
 Architects imagine buildings and will have to move their ideas to outside of their heads wherever they are; if they don't, they might forget them forever. We have to provide a means to translate ideas and it has to be accessible wherever they are.\textsuperscript{citation needed}
+%TODO: Come up with an alternative to "translate ideas". Maybe "express ideas".
 
-How can we provide a means to translate ideas? We make them -- the architects -- translate the idea into a program, we encourage them to use Generative Design.
+How can we provide a means to translate ideas? We make them translate the idea into a program, we encourage them to use Generative Design.
 
-Writing a program can degenerate into writing a sequence of atomic instructions if the author doesn't know how to simplify it \textsuperscript{citation needed}. We can't assume that architects are taught how to program\textsuperscript{citation needed}; it is our responsibility to encourage them to follow good programming practices and to make following those practices easy.
+When architects look for an environment to program they aren't looking for a software development \ac{ide} like Eclipse or Visual Studio. They only need an environment where they can write their program and see the results. All they want is accessible programming languages and environments.
 
-There are many well established tools that architects use to translate their ideas; if we're going to come up with a solution that can rival them than it must be as easy to try out as possible; it also has to provide a way to export results into those tools.
+%TODO: Rephrase the following paragraph since the well established tools were introduced earlier.
+There are many well established tools that architects use to translate their ideas; if we're going to come up with a solution that can rival them than it must be as easy to try out as possible; and be able to integrate with them.
+%Should I say how it integrates with them? Which is by offering the possibility of producing effects on their current tools, more specifically the CADs they use.
 
 Summing up, the result of this project should:
 \begin{enumerate}
 	\item Be accessible wherever the architect is working; \label{obj:access}
-	\item Encourage the Generative Design approach, which implies: \label{obj:gen-design}
-	\begin{enumerate}
-		\item Encouraging good programming practices; \label{obj:good-prog-practs} 
-		\item Making writing programs easy; \label{obj:easy-program}
-	\end{enumerate}
+	\item Support the Generative Design approach; \label{obj:gen-design}
 	\item Be as easy to try out as possible -- without a middle step to install it; \label{obj:no-install}
-	\item Allow easy exportation of created 3D models to other modeling software -- easily integrating into the user's working process. \label{obj:inter-op}
+	\item Integrate with the tools that architects and designers already use.\label{obj:inter-op}
 \end{enumerate}
 
 
 %----------------------------------------------------
 %NAVrelatedwork
 \section{Related Work (~17pgs)}
-In this section we start by describing work done on making programming easy for everyone and extract the principles that should be followed to achieve it.
+In this section we start by describing work done on making programming accessible to everyone and extract the principles that should be followed to achieve it.
 
 We move on to present some of the current widely used solutions -- or environments -- in the Generative Design community and evaluate their conformance with the principles defined earlier.
 
-\subsection{Programming for Everyone}
-Making programming easy for everyone has been an active area of research for many years. Some examples of programming languages designed with introducing people to programming were Logo\cite{papert1999logo} -- where the programmer explains the meaning of new words to a turtle -- and Smalltalk\cite{goldberg1983smalltalk} -- where a program the way a group of objects exchanges messages to solve a problem. Their authors are great defenders of the notion that learning how to solve/understand problems with a computer is a greater way of learning since it is a dynamic medium -- an example of that is the Dynabook\cite{Kay:2011:PCC:800193.1971922} a handheld computer prototype for children where programming was a first-class citizen.
+\subsection{Making Programming Accessible}
+Making programming accessible to everyone has been an active area of research for many years. Some examples of programming languages designed with introducing people to programming were Logo\cite{papert1999logo} -- where the programmer explains the meaning of new words to a turtle -- and Smalltalk\cite{goldberg1983smalltalk} -- where the programmers expresses the way a group of objects exchanges messages to solve a problem. Their authors are great defenders of the notion that learning how to solve/understand problems with a computer is a greater way of learning since it is a dynamic medium. An example of that is the Dynabook\cite{Kay:2011:PCC:800193.1971922}, a handheld computer prototype for children where programming is an important activity.
 
-A programming language is nothing if it can't be run on a machine. When a programming language is coupled with an environment specifically designed for it the programming experience improves drastically. In his essay\cite{victor2012learnable}, Bret Victor described design principles over systems for learning programming; we will enumerate and describe each one of them.
+Writing a program in a programming language can be difficult even if it was designed to be easy to use. When a programming language is coupled with an environment specifically designed for it the programming experience improves drastically. In his essay\cite{victor2012learnable}, Bret Victor described design principles over systems for learning programming; we will enumerate and describe each one of them.
 
 \subsubsection{Learnable Programming\cite{victor2012learnable}}
-In this essay, Bret Victor starts by stating what the goals of a programming system should be: it should "support and encourage powerful ways of thinking"; and it should "enable programmers to see and understand the execution of their programs".
+In this essay, Bret Victor starts by stating what the goals of a programming system should be: it should ``support and encourage powerful ways of thinking''; and it should ``enable programmers to see and understand the execution of their programs''.
 
+%TODO: Change the type of discourse to a "synthesis" of what Bret Victor said instead of a "narration" of how he said it in his paper.
 He then states that a programming system has two parts -- the \emph{programming environment} which is installed on the computer; and the \emph{programming language} which is installed on the programmer's head -- and then presents the design principles for those parts.
 
 The principles for the environment state what it should allow the programmer to do. The environment should allow the programmer to:
@@ -101,6 +104,7 @@ The principles for the language state what it should provide. It should provide:
 	\item \label{lp:lang:read} readability
 \end{enumerate}
 
+%TODO: Change the type of discourse.
 These principles are then further explained following the same order. When talking about the principles over the environment, Bret gives examples that follow each principle; those examples aren't included here since they are solutions to a specific case. When talking about principles over the language, he gives examples of languages that follow and don't follow -- and how -- each principle; those are also not included here.
 
 The environment should allow the programmer to \emph{read the vocabulary} so that the he can quickly shift his attention to ``how the steps are weaved together''. That is, as he is reading, the environment should make it easy to understand what each word means; each word's meaning should be made clear in an appropriate context -- or more if necessary.
@@ -123,6 +127,8 @@ The language should provide \emph{recomposition} so that the programmer can safe
 
 The language should provide \emph{readability} so that the programmer can ``look at a line of code and know what it means''; the meaning of a line of code shouldn't be ambiguous. Its syntax and names matter, i.e. the syntax should provide context to its elements and the names should clearly pinpoint what they represent within their context. It should be readable even without a fancy programming environment.
 
+\subsection{Wrapping Up}
+%Summarize the parts of the related work that were major influences of the proposed architecture.
 
 %----------------------------------------------------
 %NAVarchitecture
@@ -144,6 +150,10 @@ The language should provide \emph{readability} so that the programmer can ``look
 \label{sec:attachments}
 
 %----------------------------------------------------
+%NAVacronyms
+\begin{acronym}
+\acro{ide}[IDE]{integrated development environment}
+\end{acronym}
 
 % 
 % Bibliography
