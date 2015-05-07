@@ -11,6 +11,11 @@
 %%%% Maintain images and tables within their respective sections
 \usepackage{float}
 %%%%
+\usepackage[utf8]{inputenc}
+%%%% Declare that we're using utf8 encoding
+\usepackage{listings}
+%%%% Include package for listings
+
 
 % 
 % Change the margins
@@ -121,11 +126,76 @@ The environment should allow the programmer to \emph{create by abstracting} part
 
 The language should provide a good \emph{identity and metaphor} so that the programmer can easily relate to the program he is writing. These provided enable the programmer to use his knowledge about the world to solve the problem he is trying to solve by writing a program in the language. 
 
-The language should provide \emph{decomposition} so that the programmer can ``breakdown the program into "mind-size bites"''. It should encourage him to decompose the problem because decomposing is essential for understanding it.
+The language should provide \emph{decomposition} so that the programmer can ``breakdown the program into ``mind-size bites''''. It should encourage him to decompose the problem because decomposing is essential for understanding it.
 
-The language should provide \emph{recomposition} so that the programmer can safely reuse parts. It should encourage him to ``grab parts of other programs, assemble them together, modify them, build on top of them'' thus ``giving him the initial material to "create by reacting"''.
+The language should provide \emph{recomposition} so that the programmer can safely reuse parts. It should encourage him to ``grab parts of other programs, assemble them together, modify them, build on top of them'' thus ``giving him the initial material to ``create by reacting''''.
 
 The language should provide \emph{readability} so that the programmer can ``look at a line of code and know what it means''; the meaning of a line of code shouldn't be ambiguous. Its syntax and names matter, i.e. the syntax should provide context to its elements and the names should clearly pinpoint what they represent within their context. It should be readable even without a fancy programming environment.
+
+\subsubsection{Processing\cite{reas2007processing}}
+Processing is a programming language and a development environment aimed at ``promoting software literacy in the visual arts and visual literacy within technology''.\footnote{www.processing.org} It has an heavy focus on encouraging interaction between its users and so has attracted a big community.\textsuperscript{citation needed}
+
+Processing makes it easy to start writing programs that produce visual output. The only step required to start using it is the download and installation of one of its releases. After installation one can start the \ac{pde} and start writing a new program, or a \emph{sketch} as it is referred within Processing. Its website also provides a set of tutorials to help users learn how to use it.
+
+Being aimed at producing visual output and given its success by the size of its community, it makes sense to analyze it.
+
+We start by its programming language, then move to its development environment and finish by evaluating it against \emph{\emph{our learnable programming principles}}.
+
+\subsubsubsection{Processing's programming language}
+Processing's programming language aims to provide Java-style programming while making it easy to quickly write functioning programs. 
+
+Every program written in Processing is called a \emph{sketch}. All \emph{sketches} are stored in a \emph{sketchbook}.
+
+A \emph{sketchbook} has a set of resources, such as images or videos, that can be used by \emph{sketches} that are stored in it.
+
+A \emph{sketch} is a list of instructions to draw something. Some examples instructions are drawing a shape, like a rectangle, changing the colors used for drawing lines or filling shapes, and changing the color of the background.
+
+To simplify the \emph{sketch}, it can define named functions to group instructions. These functions can then be used as instructions throughout the rest of the \emph{sketch}.
+
+A \emph{sketch} can be a static sketch or a dynamic sketch. A static sketch produces a static image while a dynamic sketch produces a series of images. A dynamic sketch includes at least a list instructions of what to do to draw each image; it can also include instruction of what to do to respond to input from the viewer of the \emph{sketch}.
+
+\begin{lstlisting}[caption={A simple Processing sketch},label={lst:simple:processing},language=Java]
+//Hello mouse.
+void setup() {
+    size(400, 400);
+    stroke(255);
+    background(192, 64, 0);
+}
+ 
+void draw() {
+    line(150, 25, mouseX, mouseY);
+}
+\end{lstlisting}
+
+The code in \ref{lst:simple:processing} shows a simple \emph{sketch} with the typical \emph{sketch} structure. The \emph{sketch} draws a white line from one point to the mouse's position. It defines the function ``setup'' and  ``draw'' that specify how to setup for drawing and specify how to draw each image. The ``setup'' is run once when the sketch is started and ``draw'' is repeatedly run afterwards.
+
+\subsubsubsection{Processing's programming environment}
+The \ac{pde} is shown in figure \ref{fig:proc:dev:env}. It is a code editor dedicated to writing Processing \emph{sketches}. It supports common tasks performed while writing Processing \emph{sketches} such as running the currently opened \emph{sketch}, adding/creating resources to the \emph{sketchbook} or exporting \emph{sketches} as executables for several platforms. It also enables the use of multiple files to structure the code of the \emph{sketches}.
+
+The \ac{pde} only aims to be an introductory environment for programming. It doesn't replace an advanced software development environment.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{img/proc_dev_env}
+    \caption{On the left: The \ac{pde} displaying an example \emph{sketch} while it is being run. On the right: The drawing window to which the \emph{sketch's} instructions are applied.}
+  \label{fig:proc:dev:env}
+\end{figure} 
+
+\subsubsection{Processing vs Programming for Everyone}
+%This is a comparison with Java. It can be seen as a limitation.
+Looking at the code in \ref{lst:simple:processing} also reveals the language's resemblance with Java. The same code fragment in Java declares two methods named ``setup'' and ``draw'' that return nothing; both methods belong to whatever class they happen to be inside of; and both have a list of statements to be executed sequentially when they are invoked. Processing's instructions, functions and sketches map to Java's statements, methods and classes.
+%Classes inside sketches are mapped into inner classes.
+
+%Describe what the language and the environment lack to improve the programming experience for its users and uses (arts). 
+	%Describe how it is just a quick start package for graphics programming in Java. 
+	%Describe how the environment not only lacks a debugger but also doesn't give proper error messages when something fails and doesn't provide other ways to follow the program execution.
+%Describe how the environment fails to be a better environment than those used in industry software production (like Eclipse).
+
+\subsubsection{Impromptu\cite{sorensen2005impromptu}}
+%"Impromptu is a new programming environment being developed to explore the manipulation of musical structure in live performance."
+%Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
+%Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
+%Maybe include link to live performance video.
 
 \subsection{Wrapping Up}
 %Summarize the parts of the related work that were major influences of the proposed architecture.
@@ -153,6 +223,7 @@ The language should provide \emph{readability} so that the programmer can ``look
 %NAVacronyms
 \begin{acronym}
 \acro{ide}[IDE]{integrated development environment}
+\acro{pde}[PDE]{Processing development environment}
 \end{acronym}
 
 % 
