@@ -139,18 +139,18 @@ Processing makes it easy to start writing programs that produce visual output. T
 
 Being aimed at producing visual output and given its success by the size of its community, it makes sense to analyze it.
 
-We start by its programming language, then move to its development environment and finish by evaluating it against \emph{\emph{our learnable programming principles}}.
+We start by analyzing its programming language, then move to its development environment and finish by evaluating it against \emph{our learnable programming principles}.
 
-\subsubsubsection{Processing's programming language}
+%\subsubsubsection{Processing's programming language}
 Processing's programming language aims to provide Java-style programming while making it easy to quickly write functioning programs. 
 
 Every program written in Processing is called a \emph{sketch}. All \emph{sketches} are stored in a \emph{sketchbook}.
 
 A \emph{sketchbook} has a set of resources, such as images or videos, that can be used by \emph{sketches} that are stored in it.
 
-A \emph{sketch} is a list of instructions to draw something. Some examples instructions are drawing a shape, like a rectangle, changing the colors used for drawing lines or filling shapes, and changing the color of the background.
+A \emph{sketch} is a list of instructions to draw something. Some examples of instructions are drawing a shape, like a rectangle, changing the colors used for drawing lines or filling shapes, and changing the color of the background.
 
-To simplify the \emph{sketch}, it can define named functions to group instructions. These functions can then be used as instructions throughout the rest of the \emph{sketch}.
+To simplify the \emph{sketch}, named functions can be defined to group instructions. These functions can then be used as instructions throughout the rest of the \emph{sketch}.
 
 A \emph{sketch} can be a static sketch or a dynamic sketch. A static sketch produces a static image while a dynamic sketch produces a series of images. A dynamic sketch includes at least a list instructions of what to do to draw each image; it can also include instruction of what to do to respond to input from the viewer of the \emph{sketch}.
 
@@ -169,8 +169,8 @@ void draw() {
 
 The code in \ref{lst:simple:processing} shows a simple \emph{sketch} with the typical \emph{sketch} structure. The \emph{sketch} draws a white line from one point to the mouse's position. It defines the function ``setup'' and  ``draw'' that specify how to setup for drawing and specify how to draw each image. The ``setup'' is run once when the sketch is started and ``draw'' is repeatedly run afterwards.
 
-\subsubsubsection{Processing's programming environment}
-The \ac{pde} is shown in figure \ref{fig:proc:dev:env}. It is a code editor dedicated to writing Processing \emph{sketches}. It supports common tasks performed while writing Processing \emph{sketches} such as running the currently opened \emph{sketch}, adding/creating resources to the \emph{sketchbook} or exporting \emph{sketches} as executables for several platforms. It also enables the use of multiple files to structure the code of the \emph{sketches}.
+%\subsubsubsection{Processing's programming environment}
+The \ac{pde} is shown in figure \ref{fig:proc:dev:env}. It is a code editor dedicated to writing Processing \emph{sketches}. It supports common tasks performed while writing Processing them such as running the currently opened \emph{sketch}, adding/creating resources to the \emph{sketchbook} or exporting \emph{sketches} as executables for several platforms. It also enables the use of multiple files to structure the \emph{sketch's} code.
 
 The \ac{pde} only aims to be an introductory environment for programming. It doesn't replace an advanced software development environment.
 
