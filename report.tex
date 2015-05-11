@@ -190,9 +190,24 @@ Looking at the code in \ref{lst:simple:processing} also reveals the language's r
 	%Describe how it is just a quick start package for graphics programming in Java. 
 	%Describe how the environment not only lacks a debugger but also doesn't give proper error messages when something fails and doesn't provide other ways to follow the program execution.
 %Describe how the environment fails to be a better environment than those used in industry software production (like Eclipse).
+	%Describe how its users are required to look for documentation when programming.
+	%Describe how little feedback the environment provides. E.g. he has to run the sketch to see if it compiles and runs as he expects. This blocks creation by reaction.
+	%Describe how trying to hide Java doesn't make it a better language for learning or producing art. For doing more advanced things, Processing still requires the programmer to know Java; why not learn Java straight away? Processing tries to hide Java's metaphors, its objects; bad idea. (Scala does a better job, I suppose)
 
 \subsubsection{Impromptu\cite{sorensen2005impromptu}}
-%"Impromptu is a new programming environment being developed to explore the manipulation of musical structure in live performance."
+Impromptu is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
+
+%What is live-performance?
+In the case of Impromptu, live performance takes place as live programming the algorithms that produce the sounds of the music.
+
+%What does it provide to support live-performance?
+To produce live programming Impromptu brings together four components: an audio synthesizer, a real-time scheduling engine, a Scheme interpreter and an \ac{ide}. The first three components make up the runtime environment while the last provides an interface to it. 
+
+%Describe live programming experience of impromptu.
+The usage of Impromptu revolves around using its \ac{ide} to send code to the Scheme interpreter. The code can schedule audio to be played later, schedule functions to run later, define or redefine functions and ``variables''. 
+One can use Impromptu to incrementally build an algorithm that produces music. He writes small parts of the algorithm, sends them to the interpreter and then uses those parts to build bigger parts. If not satisfied with a part, he can change its code and send it again to the interpreter.
+
+
 %Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
 %Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
 %Maybe include link to live performance video.
