@@ -194,7 +194,7 @@ Looking at the code in \ref{lst:simple:processing} also reveals the language's r
 	%Describe how little feedback the environment provides. E.g. he has to run the sketch to see if it compiles and runs as he expects. This blocks creation by reaction.
 	%Describe how trying to hide Java doesn't make it a better language for learning or producing art. For doing more advanced things, Processing still requires the programmer to know Java; why not learn Java straight away? Processing tries to hide Java's metaphors, its objects; bad idea. (Scala does a better job, I suppose)
 
-\subsubsection{Impromptu\cite{sorensen2005impromptu}}
+\subsubsection{Impromptu\cite{sorensen2005impromptu}\cite{sorensen2010programming}}
 Impromptu is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
 
 %What is live-performance?
@@ -207,10 +207,32 @@ To produce live programming Impromptu brings together four components: an audio 
 The usage of Impromptu revolves around using its \ac{ide} to send code to the Scheme interpreter. The code can schedule audio to be played later, schedule functions to run later, define or redefine functions and ``variables''. 
 One can use Impromptu to incrementally build an algorithm that produces music. He writes small parts of the algorithm, sends them to the interpreter and then uses those parts to build bigger parts. If not satisfied with a part, he can change its code and send it again to the interpreter.
 
-
 %Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
 %Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
 %Maybe include link to live performance video.
+
+\subsubsection{LightTable}
+LightTable is code editor for the Clojure programming language\textsuperscript{link to clojure}. It was first written in Clojure and most of its code was later moved to ClojureScript\textsuperscript{citation needed}, a subset of Clojure\textsuperscript{citation needed} that compiles to Javascript.
+
+%Why is LightTable relevant?
+%As of now, LightTable doesn't seem to be fulfilling its potential.
+LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/}. The metaphor comes from looking at the way work is done in other fields of engineering, where engineers spread all materials relevant to their work over large tables, from tools to reference information. 
+Instead of displaying the contents of entire files, LightTable devides the code into meaningful units and displays them as small editors spread over the table's surface. In one of its experimental versions, LightTable also supported displaying running programs in the table. Figure \ref{fig:lt:draft:table} shows an example of this metaphor.
+
+%Eu gosto da metáfora. Mas não consigo vendê-la aos cepticos; precisa de bastante espaço de ecrã. O que não é mau mas eles só pensam no agora.
+%Maybe I'll have to add a phrase or two to clarify that I'm not targeting software development. Although I would love to be able to come up with something like this that worked for them.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{img/lt_game_example}
+    \caption{A prototype version of LightTable. A game is being run inside it while some of its code is displayed in separate editors.}
+  \label{fig:lt:draft:table}
+\end{figure} 
+
+LightTable's interface was built on top of NodeWebkit\textsuperscript{citation needed}.
+
+The main design pattern used in LightTable is the \ac{bot} pattern. As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviours} and being tagged with a set of \emph{Tags}. The \emph{Behaviours} describe how an \emph{Object} reacts when events are raised on them. \emph{Tags} are groups of \emph{Behaviours}. When an event is raised on an \emph{Object} both its \emph{Behaviours} and those from its \emph{Tags} are notified.
+
 
 \subsection{Wrapping Up}
 %Summarize the parts of the related work that were major influences of the proposed architecture.
