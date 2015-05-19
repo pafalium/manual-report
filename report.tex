@@ -44,6 +44,45 @@
 %----------------------------------------------------
 %NAVintroduction
 \section{Introduction (2/3pgs)}
+Programming is becoming an essential way of expressing ideas in a way a computer can understand them.
+
+Once a computer can understand an idea (or process) it can apply it as many times as we want.
+
+Expressing ideas/processes in a way a computer understands requires us to specify every detail of what we have in mind (sometimes too much) which forces us to really understand what it is.
+
+Many people have understood the power that comes from having a computer (or machine) doing lots of mechanical work and so have adopted programming as a new tool.
+
+Still, programming as it is normally present requires a lot of discipline on the part of the programmer to keep what he is expressing understandable.
+
+To ease the task of programming right, programming languages such as Logo\[REF_PLZ\], Scratch\[REF_PLZ\] and Smalltalk\[REF_PLZ\] have been developed. Such languages provide environments with strong metaphors that guide the programmer as he learns and uses it to create increasingly complex programs (or express complex ideas).
+
+Although the languages referred above provide great environments to think about what is being programmed, they are also often viewed as too restrictive and haven't spread enough to be considered useful (they are too restricted, seen has ``for children'', not useful and/or not known).
+
+These languages restrict themselves to pedagogic concepts and lack functionality that is needed for real world application.
+
+Whatever the reason for not being used, they have been replaced by other more well-known languages. Some of those languages are Lua, Python and Javascript[REFs?]. These three are all dynamic languages and were designed to be easy to understand and to use by people with little programming knowledge. They are dynamic (checked on runtime, change on runtime, ...), have loose syntax and have loose typing. They are ``more forgiving''.
+
+Being aimed at beginners doesn't mean that those languages require no amount of training to be used. The basic concepts of those languages still have to be understood. A way to understand those concepts is to attend a programming course. This is usually not an option for people that ``just want to try programming'' as they already have a busy schedule.
+
+Online courses are an alternative to ``in person'' courses. They don't require people to move to a school to attend classes and their classes are often recorded. They are much more flexible and thus attractive to those that want to try programming.
+
+Many online courses have appeared on the topic of programming. Many of them use the languages from above to teach programming. Coursera\[REF or FOOTNOTE\] and Khanacademy\[REF or FOOTNOTE\] are examples of sites that provide such courses. (opinion: these courses often try to appeal ``too much'' to their audience, focusing just on the results and end up not teaching the core of programming, understanding the problem).
+
+Most online programming courses of today don't even require their attendants to install anything on their computers. The only required software is a modern web browser. More so, the languages used by them include not only Javascript (with native support from the web browser) but also any dynamic language.
+
+The concept of not needing to install anything apart from a web browser is a general trend in today's software market(ing). From common desktop tools like Google Docs[REF], available from the browser even with cloud storage, to professional software development environments like Cloud9\[REF\]. Everything is going to the browser.
+
+Following the trend of using programming in their work, architects started using programming to generate the 3D models of the buildings they ``come up with''. They use a process called Generative Design[REF].
+
+Using Generative Design enables the designer to easily create variants of his design by changing a small set of parameters. Those parameters are used by the computer to run the algorithm, written by the designer, to generate an ``instance'' of his design. \[REF paper Rita, mercado\] \[Ref Sketchpad master drawings\]
+
+There are several environments / software packages that enable people to use Generative Design to make 3D models. First, after recognizing the advantages it brings to its users\footnote{Many architecture and design projects require a lot of repetition, the \emph{forte} of programming / machines.}, all major CAD softwares used by architects support Generative Design through dedicated programming environments. There are also standalone programming environments like Processing\[REF\] or Rosetta\[REF\]; the first is a programming environment for the visual (or other) arts and the second is an environment specifically for Generative Design that aims to separate the design from the CAD its results are ``displayed'' in. As pure programming environments, these last two don't consider/provide direct manipulation as a primary tool in their approach.
+
+Like online programming courses, programing environments for Generative Design can move to the web browser. Complementarily to not requiring installation, moving to the browser (or to a website) also makes programming environments available from anywhere a browser is found, be it a computer running Windows, Mac OS X or a Linux or even an Android tablet. They would require no installation, would be ubiquitous and would be OS independent; contrasting with major CADs, like AutoCAD\footnote{Currently AutoCAD has a full-featured version running on Windows and a less feature rich version running on Mac OS}, that are tied to one OS or have serious drawbacks against using other OSs.
+
+There aren't any known Generative Design environment that run in the web browser. This is in part because until now the browser didn't have the necessary technology to support performant 3D applications. This is not the case right now. Clara.io\[REF\], an online 3D modeler (like 3ds Max) and \textbf{*insert js webapp here*} show that it is possible to build web browser based applications that are on pair with their desktop analogs.
+
+We propose a web browser based Generative Design environment. Such environment will allow architects, or anyone interested in Generative Design, to edit Generative Design programs and visualize their results while not requiring any installation. It will thus allow them to do Generative Design on any computer that has a modern browser. Not being tied to a workstation will allow them to work closer to their clients and to more swiftly change their designs to accommodate the client's needs.
 %TODO: Introduce the well established tools (ex: cads) that architects and designers use in their work.
 %TODO: Introduce the concept of Generative Design approach so it can be used later. It isn't known to everybody.
 %%%%Writing a program with a programming language is a great way to structure our thoughts. 
@@ -217,7 +256,7 @@ LightTable is code editor for the Clojure programming language\textsuperscript{l
 %Why is LightTable relevant?
 %As of now, LightTable doesn't seem to be fulfilling its potential.
 LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/}. The metaphor comes from looking at the way work is done in other fields of engineering, where engineers spread all materials relevant to their work over large tables, from tools to reference information. 
-Instead of displaying the contents of entire files, LightTable devides the code into meaningful units and displays them as small editors spread over the table's surface. In one of its experimental versions, LightTable also supported displaying running programs in the table. Figure \ref{fig:lt:draft:table} shows an example of this metaphor.
+Instead of displaying the contents of entire files, LightTable divides the code into meaningful units and displays them as small editors spread over the table's surface. In one of its experimental versions, LightTable also supported displaying running programs in the table. Figure \ref{fig:lt:draft:table} shows an example of this metaphor.
 
 %Eu gosto da metáfora. Mas não consigo vendê-la aos cepticos; precisa de bastante espaço de ecrã. O que não é mau mas eles só pensam no agora.
 %Maybe I'll have to add a phrase or two to clarify that I'm not targeting software development. Although I would love to be able to come up with something like this that worked for them.
@@ -231,7 +270,7 @@ Instead of displaying the contents of entire files, LightTable devides the code 
 
 LightTable's interface was built on top of NodeWebkit\textsuperscript{citation needed}.
 
-The main design pattern used in LightTable is the \ac{bot} pattern. As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviours} and being tagged with a set of \emph{Tags}. The \emph{Behaviours} describe how an \emph{Object} reacts when events are raised on them. \emph{Tags} are groups of \emph{Behaviours}. When an event is raised on an \emph{Object} both its \emph{Behaviours} and those from its \emph{Tags} are notified.
+The main design pattern used in LightTable is the \ac{bot} pattern. As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on them. \emph{Tags} are groups of \emph{Behaviors}. When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
 
 
 \subsection{Wrapping Up}
@@ -261,6 +300,7 @@ The main design pattern used in LightTable is the \ac{bot} pattern. As described
 \begin{acronym}
 \acro{ide}[IDE]{integrated development environment}
 \acro{pde}[PDE]{Processing development environment}
+\acro{bot}[BOT]{Behavior-Object-Tag}
 \end{acronym}
 
 % 
