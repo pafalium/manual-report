@@ -76,7 +76,7 @@ Following the trend of using programming in their work, architects started using
 
 Using Generative Design enables the designer to easily create variants of his design by changing a small set of parameters. Those parameters are used by the computer to run the algorithm, written by the designer, to generate an ``instance'' of his design. \cite{Santos20144} \textbf{Ref Sketchpad master drawings}
 
-There are several environments / software packages that enable people to use Generative Design to make 3D models. First, after recognizing the advantages it brings to its users\footnote{Many architecture and design projects require a lot of repetition, the \emph{forte} of programming / machines.}, all major CAD softwares used by architects support Generative Design through dedicated programming environments. There are also standalone programming environments like Processing\cite{reas2007processing} or Rosetta\cite{de2012modern}; the first is a programming environment for the visual (or other) arts and the second is an environment specifically for Generative Design that aims to separate the design from the CAD its results are ``displayed'' in. As pure programming environments, these last two don't consider/provide direct manipulation as a primary tool in their approach.
+There are several environments/software packages that enable people to use Generative Design to make 3D models. First, after recognizing the advantages it brings to its users\footnote{Many architecture and design projects require a lot of repetition, the \emph{forte} of programming/machines.}, all major CAD softwares used by architects support Generative Design through dedicated programming environments. There are also standalone programming environments like Processing\cite{reas2007processing} or Rosetta\cite{de2012modern}; the first is a programming environment for the visual (or other) arts and the second is an environment specifically for Generative Design that aims to separate the design from the CAD its results are ``displayed'' in. As pure programming environments, these last two don't consider/provide direct manipulation as a primary tool in their approach.
 
 Like online programming courses, programing environments for Generative Design can move to the web browser. Complementarily to not requiring installation, moving to the browser (or to a website) also makes programming environments available from anywhere a browser is found, be it a computer running Windows, Mac OS X or a Linux or even an Android tablet. They would require no installation, would be ubiquitous and would be OS independent; contrasting with major CADs, like AutoCAD\footnote{Currently AutoCAD has a full-featured version running on Windows and a less feature rich version running on Mac OS}, that are tied to one OS or have serious drawbacks against using other OSs.
 
@@ -121,7 +121,7 @@ In this section we start by describing work done on making programming accessibl
 We move on to present some of the current widely used solutions -- or environments -- in the Generative Design community and evaluate their conformance with the principles defined earlier.
 
 \subsection{Making Programming Accessible}
-Making programming accessible to everyone has been an active area of research for many years. Some examples of programming languages designed with introducing people to programming were Logo\cite{papert1999logo} -- where the programmer explains the meaning of new words to a turtle -- and Smalltalk\cite{goldberg1983smalltalk} -- where the programmers expresses the way a group of objects exchanges messages to solve a problem. Their authors are great defenders of the notion that learning how to solve/understand problems with a computer is a greater way of learning since it is a dynamic medium. An example of that is the Dynabook\cite{Kay:2011:PCC:800193.1971922}, a handheld computer prototype for children where programming is an important activity.
+Making programming accessible to everyone has been an active area of research for many years. Some examples of programming languages designed with introducing people to programming were Logo\cite{papert1999logo} -- where the programmer explains the meaning of new words to a turtle -- and Smalltalk\cite{goldberg1983smalltalk} -- where the programmer expresses the way a group of objects exchange messages to solve a problem. Their authors are great defenders of the notion that learning how to solve/understand problems with a computer is a greater way of learning since it is a dynamic medium. An example of that is the Dynabook\cite{Kay:2011:PCC:800193.1971922}, a handheld computer prototype for children where programming is an important activity.
 
 Writing a program in a programming language can be difficult even if it was designed to be easy to use. When a programming language is coupled with an environment specifically designed for it the programming experience improves drastically. In his essay\cite{victor2012learnable}, Bret Victor described design principles over systems for learning programming; we will enumerate and describe each one of them.
 
@@ -191,7 +191,7 @@ A \emph{sketch} is a list of instructions to draw something. Some examples of in
 
 To simplify the \emph{sketch}, named functions can be defined to group instructions. These functions can then be used as instructions throughout the rest of the \emph{sketch}.
 
-A \emph{sketch} can be a static sketch or a dynamic sketch. A static sketch produces a static image while a dynamic sketch produces a series of images. A dynamic sketch includes at least a list instructions of what to do to draw each image; it can also include instruction of what to do to respond to input from the viewer of the \emph{sketch}.
+A \emph{sketch} can be a static sketch or a dynamic sketch. A static sketch produces a static image while a dynamic sketch produces a series of images. A dynamic sketch includes at least a list instructions of what to do to draw each image; it can also include instructions of what to do to respond to input from the viewer of the \emph{sketch}.
 
 \begin{lstlisting}[caption={A simple Processing sketch},label={lst:simple:processing},language=Java]
 //Hello mouse.
@@ -250,8 +250,8 @@ One can use Impromptu to incrementally build an algorithm that produces music. H
 %Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
 %Maybe include link to live performance video.
 
-\subsubsection{LightTable}
-LightTable is code editor for the Clojure programming language\textsuperscript{link to clojure}. It was first written in Clojure and most of its code was later moved to ClojureScript\textsuperscript{citation needed}, a subset of Clojure\textsuperscript{citation needed} that compiles to Javascript.
+\subsection{LightTable}
+LightTable is code editor for the Clojure programming language\cite{hickey2008clojure}. It was first written in Clojure and most of its code was later moved to ClojureScript\cite{10.1109/MIC.2011.148}, a subset of Clojure that compiles to Javascript.
 
 %Why is LightTable relevant?
 %As of now, LightTable doesn't seem to be fulfilling its potential.
@@ -271,6 +271,26 @@ Instead of displaying the contents of entire files, LightTable divides the code 
 LightTable's interface was built on top of NodeWebkit\textsuperscript{citation needed}.
 
 The main design pattern used in LightTable is the \ac{bot} pattern. As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on them. \emph{Tags} are groups of \emph{Behaviors}. When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
+
+
+\subsection{Javascript and the Web browser}
+%Mainly from Brendan Eich's presentation "Javascript at 17".
+Javascript began as the Visual Basic for web browsers. It was aimed at web designers that wanted their pages pages to change dynamically. It was inspired by the programming languages Scheme and Self.
+
+Its first version was developed over ten days during May 1995. It was a quick prototype. 
+During its life it has been loved and hated; it was developed very close to HTML. Like HTML, it had to keep backwards compatibility which made it difficult to fix the bad choices from its first version.
+
+Having begun in a competitive setting (the web browser), where multiple vendors have their own implementation and coverage of the language, Javascript's standardization has had difficult periods where not all vendors offered the same compliance to the standards (even adding different features).
+
+Due to the large demands from its users Javascript and web browsers have evolved into a ``reliable platform''. 
+
+As time passed, Javascript/web standards compliance has been greatly improved. Javascript's performance has also reached the level of native machine code as a lot of effort was put into making Javascript engines fast.
+
+Currently, Javascript's (or ECMAscript as it is officially called) standards aim to make it a better compiler target language and also for writing applications and libraries. The rationale behind this being the ubiquity that Javascript currently has; every computer now supports Javascript; turning it into a platform that can run anything is very promising (compared to making a new platform from scratch).
+
+With the recent focus on becoming a target language for compilers, Javascript is sometimes metaphorically called the x86 (or the assembly) of the web.
+
+Some examples of languages compiled to Javascript are ClojureScript and CoffeeScript. There are many more languages that compile to Javascript. In fact, even C and C++ can be compiled to Javascript\footnote{e.g. with ecmscripten} (or a subset of it\footnote{like asm.js, that aims to be an Ahead-Of-Time compiler friendly subset of Javascript}) and run with speeds close (2x slower) to those gotten while running native machine code. These speeds are suitable for running complex game engines inside the web browser; in a recent demo (2013) an Unreal Engine 3 level run in the web browser without any plug-ins\footnote{https://blog.mozilla.org/futurereleases/2013/05/02/epic-citadel-demo-shows-the-power-of-the-web-as-a-platform-for-gaming/}.
 
 
 \subsection{Wrapping Up}
