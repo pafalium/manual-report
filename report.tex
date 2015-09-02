@@ -255,6 +255,9 @@
 \subsection{LightTable}
 	LightTable is code editor for the Clojure programming language\cite{hickey2008clojure}. It was first written in Clojure and most of its code was later moved to ClojureScript\cite{10.1109/MIC.2011.148}, a subset of Clojure that compiles to Javascript.
 
+	%Disclaimer
+	Most of the features described here are only present in LightTable's several experimental versions. The release version's features are not what matters. The ideas behind the experiments are.
+
 	%Why is LightTable relevant?
 	%As of now, LightTable doesn't seem to be fulfilling its potential.
 	LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/}. The metaphor comes from looking at the way work is done in other fields of engineering, where engineers spread all materials relevant to their work over large tables, from tools to reference information. 
@@ -269,6 +272,26 @@
 	    \caption{A prototype version of LightTable. A game is being run inside it while some of its code is displayed in separate editors.}
 	  \label{fig:lt:draft:table}
 	\end{figure} 
+
+	%LightTable "function navigation"
+	In Clojure functions are defined inside namespaces and all Clojure definitions (functions, variables, macros) are stored in text files. Navigating among definitions and the current namespace structure shouldn't get in the way of editing code. To make editing easier, LightTable provides a \emph{namespace browser} that eases finding functions and a \emph{code document} where functions can be added for editing without moving them out of their namespace or displaying entire files where they are defined. Figure \ref{fig:lt:clojure:table} shows an experiment where these two are used.
+
+	\begin{figure}
+	  \centering
+	  \includegraphics[width=1.0\textwidth]{img/lt_clojure_table}
+	    \caption{An experiment showing a \emph{code document} on the left and a \emph{namespace browser} on the top right.}
+	  \label{fig:lt:clojure:table}
+	\end{figure} 
+
+	%LightTable "variable substitution"
+	One interesting functionality of LightTable is its ability to show data flow in a function call. Since the main purpose of a function is to transform its input data into its output data, it helps to see what happens to the data on each step of the function. To achieve this LightTable overlays variable values and return values, respectively, on each variable occurrence and expression of the function. Figure \ref{fig:lt:val:overlay} shows an example of such functionality. This functionality is part of LightTable's \emph{instarepl}.
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/lt_val_overlay}
+			\caption{An example of LightTable's value overlaying. The occurrences of the variables \emph{a}, \emph{b} and \emph{ab} were replaced with their values while evaluating the expression \emph{(x 3 7)}; the result of the expression is also overlaid.}
+		\label{fig:lt:val:overlay}
+	\end{figure}
 
 	LightTable's interface was built on top of NodeWebkit\textsuperscript{citation needed}.
 
