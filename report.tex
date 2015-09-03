@@ -289,13 +289,13 @@
 	\begin{figure}
 		\centering
 		\includegraphics[width=1.0\textwidth]{img/lt_val_overlay}
-			\caption{An example of LightTable's value overlaying. The occurrences of the variables \emph{a}, \emph{b} and \emph{ab} were replaced with their values while evaluating the expression \emph{(x 3 7)}; the result of the expression is also overlaid.}
+			\caption{An example of LightTable's value overlaying. The occurrences of the variables \emph{a}, \emph{b} and \emph{ab} were replaced with their values while evaluating the expression \emph{(x 3 7)}; the result of this expression is also overlaid.}
 		\label{fig:lt:val:overlay}
 	\end{figure}
 
 	LightTable's interface was built on top of NodeWebkit\textsuperscript{citation needed}.
 
-	The main design pattern used in LightTable is the \ac{bot} pattern. As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on them. \emph{Tags} are groups of \emph{Behaviors}. When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
+	The main design pattern used in LightTable is the \ac{bot} pattern. As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on it. \emph{Tags} are groups of \emph{Behaviors}. When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
 
 
 \subsection{Code Bubbles, Code Canvas and Debugger Canvas}
