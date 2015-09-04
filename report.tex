@@ -23,7 +23,7 @@
 % \usepackage[margin=2.9cm]{geometry}
 
 \begin{document}
-\title{Your Thesis title}
+\title{A Browser-based Interactive Development Environment for Generative Design}
 
 \subtitle{Your Thesis subtitle}
 \author{Pedro Alfaiate, pedro.alfaiate@tecnico.ulisboa.pt}
@@ -222,7 +222,7 @@
 	  \label{fig:proc:dev:env}
 	\end{figure} 
 
-\subsection{Processing vs Programming for Everyone}
+	%\subsection{Processing vs Programming for Everyone}
 	%This is a comparison with Java. It can be seen as a limitation.
 	Looking at the code in \ref{lst:simple:processing} also reveals the language's resemblance with Java. The same code fragment in Java declares two methods named ``setup'' and ``draw'' that return nothing; both methods belong to whatever class they happen to be inside of; and both have a list of statements to be executed sequentially when they are invoked. Processing's instructions, functions and sketches map to Java's statements, methods and classes.
 	%Classes inside sketches are mapped into inner classes.
@@ -251,6 +251,38 @@
 	%Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
 	%Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
 	%Maybe include link to live performance video.
+
+\subsection{DesignScript\cite{aish2012designscript}}
+	DesignScript is a programming language that was designed to suite the needs of architecture related design and engineering.
+
+	%DesignScript programming paradigms
+	DesignScript uses concepts from multiple programming paradigms like object-oriented, functional and associative programming. Entities have properties that can be either data or functions like in object-oriented languages; functions' most important role is to take some input and produce some output without producing side-effects like in functional languages; and dependencies among variables are retained like in associative languages.
+
+	It supports both imperative (following instructions step-by-step) and associative (propagating changes in a dependency graph) control flows. The programmer can choose to have portions of the code following one type of control flow and other portions following the other.
+
+	%DesignScript primitives
+	Being a domain-specific language for architecture, DesignScript includes not only primitives to make building 3d models but also operations from the rest of the architecture process such as energy related analysis and architectural elements (like creating or editing \ac{bim} families).
+	\emph{It may be better to provide a list of example primitives and operations.}
+
+	Having modeling primitives close to those normally used in architecture software applications and combining several programming paradigms allows the designer to draw from knowledge about architecture modeling while empowering him to express the processes in which those primitives are used.
+
+	%DesignScript editor(s)
+	Editing a DesignScript program is usually done in its dedicated development environment. DesignScript development environment provides auto-complete and debugging capabilities both of which are common features among programming environments.
+	
+	DesignScript was later used as the scripting language of DynamoBIM, integrated with Autodesk Revit, where programs are edited as data-flow graphs. DesignScript was also integrated into Autodesk AutoCAD. A standalone node-based DesignScript editor was also made, it was called DesignScript Studio.
+
+	%DesignScript problems
+	There are some problems that should be pointed out:
+	\begin{itemize}
+		\item What happens when there are circular dependencies? They can generate infinite loops. It's not clear if it is possible for this to happen.
+		\item As with other programming languages being edited using nodes, there is always the risk that programs will become big enough that managing the layout of the graph gets in the way of adding new functionality. 
+	\end{itemize}
+
+
+	%It is a multiple paradigm language supporting both imperative and associative programming. At any given point in a DesignSript program, the execution is either being controlled imperatively(following instructions step-by-step) or associatively(propagating changes in a dependency graph). It also uses object-oriented concepts; entities are objects with properties and methods; each object has it's own properties and methods;
+	%
+	%One way DesignScript tries to succeed is to integrate various ways of modeling into the design process. These various ways of modeling are direct-manipulation mode present in any 3d modeling application, the associative mode present in many visual programming environments and the 
+
 
 \subsection{LightTable}
 	LightTable is code editor for the Clojure programming language\cite{hickey2008clojure}. It was first written in Clojure and most of its code was later moved to ClojureScript\cite{10.1109/MIC.2011.148}, a subset of Clojure that compiles to Javascript.
@@ -449,6 +481,7 @@
 	\acro{ide}[IDE]{integrated development environment}
 	\acro{pde}[PDE]{Processing development environment}
 	\acro{bot}[BOT]{Behavior-Object-Tag}
+	\acro{bim}[BIM]{Building Information Model}
 \end{acronym}
 
 % 
