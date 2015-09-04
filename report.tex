@@ -253,6 +253,8 @@
 	%Maybe include link to live performance video.
 
 \subsection{DesignScript\cite{aish2012designscript}}
+	%TODO collections can be used everywhere one thing can be used
+	%TODO handling collections (replication guides, etc)
 	DesignScript is a programming language that was designed to suite the needs of architecture related design and engineering.
 
 	%DesignScript programming paradigms
@@ -267,8 +269,15 @@
 	Having modeling primitives close to those normally used in architecture software applications and combining several programming paradigms allows the designer to draw from knowledge about architecture modeling while empowering him to express the processes in which those primitives are used.
 
 	%DesignScript editor(s)
-	Editing a DesignScript program is usually done in its dedicated development environment. DesignScript development environment provides auto-complete and debugging capabilities both of which are common features among programming environments.
+	Editing DesignScript programs can be done either by writing or by creating a graph. The graph is a more natural representation of the dependency graph among the variables of the program when the associative paradigm is being used; it can also be viewed as a data-flow graph. The written representation of DesignScript is a sequence of statements that specify the relationship between a variable and other variables; defining functions, using the imperative paradigm and reassigning variables is also possible; features that are less encouraged by a graph.
+
+	DesignScript is used in several environments. These include a textual editor in Autodesk AutoCAD, a dedicated graph editor called DesignScript Studio and later Dynamo. Both DesignScript Studio and Dynamo use graph based program editing.
+
+	Debugging DesignScript programs depends on the environment being used. The textual environment allowed to follow the execution of the program step-by-step while also supporting watches and breakpoints. The graph based environments allow highlighting and listing results of each node. Both the textual and the graph based environments provide a preview of the execution of programs.
+
+	%Editing a DesignScript program is usually done in its dedicated development environment. DesignScript development environment provides auto-complete and debugging capabilities both of which are common features among programming environments.
 	
+	%DesignScript history
 	DesignScript was later used as the scripting language of DynamoBIM, integrated with Autodesk Revit, where programs are edited as data-flow graphs. DesignScript was also integrated into Autodesk AutoCAD. A standalone node-based DesignScript editor was also made, it was called DesignScript Studio.
 
 	%DesignScript problems
@@ -276,6 +285,7 @@
 	\begin{itemize}
 		\item What happens when there are circular dependencies? They can generate infinite loops. It's not clear if it is possible for this to happen.
 		\item As with other programming languages being edited using nodes, there is always the risk that programs will become big enough that managing the layout of the graph gets in the way of adding new functionality. 
+		\item There is little information on how runtime errors are handled. To my knowledge, the locations where they occur is highlighted and the execution is stopped.
 	\end{itemize}
 
 
