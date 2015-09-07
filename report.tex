@@ -271,7 +271,28 @@
 	%DesignScript editor(s)
 	Editing DesignScript programs can be done either by writing or by creating a graph. The graph is a more natural representation of the dependency graph among the variables of the program when the associative paradigm is being used; it can also be viewed as a data-flow graph. The written representation of DesignScript is a sequence of statements that specify the relationship between a variable and other variables; defining functions, using the imperative paradigm and reassigning variables is also possible; features that are less encouraged by a graph.
 
-	DesignScript is used in several environments. These include a textual editor in Autodesk AutoCAD, a dedicated graph editor called DesignScript Studio and later Dynamo. Both DesignScript Studio and Dynamo use graph based program editing.
+	DesignScript is used in several environments. These include a textual editor in Autodesk AutoCAD (Figure \ref{fig:ds:autocad}), a dedicated graph editor called DesignScript Studio (Figure \ref{fig:ds:dsstudio}) and later Dynamo (Figure \ref{fig:ds:dynamo}). Both DesignScript Studio and Dynamo use graph based program editing.
+
+	\begin{figure}
+	  \centering
+	  \includegraphics[width=1.0\textwidth]{img/ds_autocad}
+	    \caption{A DesignScript program being edited in a special text editor inside AutoCAD. This text editor provides auto-complete and a debugger.}
+	  \label{fig:ds:autocad}
+	\end{figure} 
+
+	\begin{figure}
+	  \centering
+	  \includegraphics[width=1.0\textwidth]{img/ds_dsstudio}
+	    \caption{A DesignScript program as a graph in DesignScript Studio. Each node can display a preview of its results. To the bottom left corner is a preview of the whole program results and a folded library tab. The library tab contains everything that can be used in the program.}
+	  \label{fig:ds:dsstudio}
+	\end{figure} 
+
+	\begin{figure}
+	  \centering
+	  \includegraphics[width=1.0\textwidth]{img/ds_dynamo}
+	    \caption{Another DesignScript program as a graph in Dynamo. Like in DesignScript Studio a preview of the result of the program is displayed. A contrast is that there is only one preview ``canvas''; the preview from selected nodes is highlighted.}
+	  \label{fig:ds:dynamo}
+	\end{figure} 
 
 	Debugging DesignScript programs depends on the environment being used. The textual environment allowed to follow the execution of the program step-by-step while also supporting watches and breakpoints. The graph based environments allow highlighting and listing results of each node. Both the textual and the graph based environments provide a preview of the execution of programs.
 
