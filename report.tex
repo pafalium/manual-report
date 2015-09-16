@@ -492,6 +492,7 @@
 %----------------------------------------------------
 %NAVarchitecture
 \section{Architecture (2/3pgs)}
+
 \subsection{Proof-of-concept Prototype}
 	A small prototype has been assembled to test the concept of a Generative Design environment in the browser.
 
@@ -520,7 +521,20 @@
 
 	With its naive implementation, the use of the prototype has already made clear one problem: always trying to run a program while it is being changed can lead to poor responsiveness or even permanent lockup of the interface. The usual cause being the increasing complexity of the program or the presence of infinite loops in the program. This problem will have to be addressed in order to have a usable interface. Some alternatives to solve the problem could be running the program asynchronously and retrieving the results afterwards or instrumenting the program so it could be run interleaved with interface handling and stopped if necessary.
 
+\subsection{Aspects of the solution}
+	One aspect that has to be set is what is the language used to make the programs. Associative vs imperative. With side-effects vs without side-effects.
 
+	Another aspect is the amount of help or documentation or reaction the system has to support the user while he is thinking about and making the program. In an ideal scenario he is capable of either doing both at the same time or being able to switch \emph{modes} quickly without loosing context.
+
+	Another aspect is the implementation of primitives of the language like constructive solid geometry, lofts and sweeps. Many others are needed to make the system useful. Being useful is more important than the number of primitives implemented. This leads to other concern, these primitives have to have some correspondence to primitives available in other tools used in architecture.
+
+	For simplicity it is perhaps better to support only 3D modeling primitives as these can show immediate results for this thesis, e.g. energy consumption analysis is a concern in architecture but will not be immediately supported. Other modeling areas will be overlooked either because of the current lack of knowledge of the author and/or because of the added amount of effort to provide them.
+
+	Other aspect is how the system lets users document the programs they made. It is characteristic to forget how some part of the program works and so documentation is needed (or anything that is faster to understand than to interpret the program directly). The system could support having drawings juxtaposed to the program in addition to previews of results like those present in DesignScript Studio, Dynamo and Grasshopper.
+
+	Other aspect is the persistence of programs between usage sessions and in cases the system crashes. In case of persistence between sessions, the user can close the browser or the tab at any moment, it would be useful to keep record of the current program in some way. In case of persistence in case of crashes, if the user program itself crashed the page it should not be executed immediately to allow its retrieval or edition (as it could crash the page again).
+
+	Other aspect is the way programs can be applied to other modeling applications used by architects. Rosetta uses the concept of selecting a backend, a specific interface to a modeling application. After selecting a backend for a modeling application, Rosetta connects to it and results of running the program are passed to the application. The system could connect to Rosetta which would then connect to the application. This approach requires the setup of a communication channel between the browser where the system is running and Rosetta. The system could alternatively use a language that Rosetta already supports. When the user wants to pass the result of the program to the application he only has to select the desired backend and run the program inside Rosetta.
 
 %----------------------------------------------------
 %NAVevaluation
