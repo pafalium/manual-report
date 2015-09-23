@@ -485,9 +485,11 @@
 
 	OpenJSCAD provides two user interfaces, one command-line interface and one graphical user interface as a web page. The first can be used for batch processing (running programs) while the second integrates an editor to edit a program and a 3D view for viewing the results of that program.
 
-	OpenJSCAD's language supports two syntaxes, one based on message passing (or method invoking) and one based on calling functions. Both of these syntaxes are already present in javascript. Many operations provided produce a new object and don't change their parameters. This allows us to follow a functional programming approach and since there are fewer side-effects to know about it is easier to understand a program written using them.
+	OpenJSCAD's language supports two syntaxes, one based on message passing (or method invoking) and one based on calling functions. Both of these syntaxes are already present in javascript. Many operations provided produce a new object and don't change their parameters. This allows us to follow a functional programming paradigm and since there are fewer side-effects to know about it is easier to understand a program written using them.
 
 	A problem that can arise while writing and testing jscad programs is that there is no help on getting the parameters for operations right. It will be frustrating to spend more time than acceptable trying to understand why a certain operation is not producing the desired result. This problem is even more relevant when most of the operations have multiple optional parameters and parameters that replace others. Currently the only help available is OpenJSCAD's documentation (a tour on its functionality), the online community around OpenJSCAD and, since javascript is the core of the language, javascript development tools.
+
+	A problem using function call syntax. It may not provide the flexibility needed for arranging the code in a easily readable manner. This is especially true if a simple text editor is used. While assigning intermediary results to variables can help ``unnesting'' but it is sometimes inconvenient. On top of this OpenJSCAD is mainly just javascript and so javascript's strange behavior about semicolon insertion is carried over. 
 
 	Some functions in OpenJSCAD and their parameters.
 	function parameters result 
