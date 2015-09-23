@@ -476,6 +476,23 @@
 
 	Some examples of languages compiled to Javascript are ClojureScript and CoffeeScript. There are many more languages that compile to Javascript. In fact, even C and C++ can be compiled to Javascript\footnote{e.g. with ecmscripten} (or a subset of it\footnote{like asm.js, that aims to be an Ahead-Of-Time compiler friendly subset of Javascript}) and run with speeds close (2x slower) to those gotten while running native machine code. These speeds are suitable for running complex game engines inside the web browser; in a recent demo (2013) an Unreal Engine 3 level run in the web browser without any plug-ins\footnote{https://blog.mozilla.org/futurereleases/2013/05/02/epic-citadel-demo-shows-the-power-of-the-web-as-a-platform-for-gaming/}.
 
+\subsection{OpenJSCAD}
+	OpenJSCAD is a javascript application (or rather, an application based on web technologies). It aims to provide the same functionality as OpenSCAD but using javascript as a base for its language. Most of OpenSCAD functionality is implemented in OpenJSCAD. Like OpenSCAD, OpenJSCAD focuses on creating 3D models for 3D printing (e.g. they are solid).
+
+	To actually model in OpenJSCAD the user has to write a program in either OpenJSCAD's language or OpenSCAD's language.
+
+	It is also possible to import 3D models from files commonly used for 3D printing like STL and AMF files. Upon import, the file's content is converted to a jscad program that produces the same model. (I don't see the point of doing this.)
+
+	OpenJSCAD provides two user interfaces, one command-line interface and one graphical user interface as a web page. The first can be used for batch processing while the second integrates an editor to edit a program and a 3D view for viewing the results of that program.
+
+	OpenJSCAD's language supports two syntaxes, one based on message passing (or method invoking) and one based on calling functions. Both of these syntaxes are already present in javascript. Operations in either of them don't produce side-effects (at least not in native operations). 
+
+	Some functions in OpenJSCAD and their parameters.
+	function parameters result 
+	Each primitive has a lot of options on how to call it.
+	Its possible to round the edges of polyhedral primitives.
+	Non-polyhedral primitives are always converted to polyhedral approximations.
+
 \subsection{Modelo.io}
 	One tool that is sometimes requested by the 3D modeling community is a platform where 3D models can be shared and where discussions about those models can happen. Online 3D model libraries like SketchUp 3D warehouse address to some extent this request, however not completely. While they allow models to be shared online, the way comments are made does not allow natural comments on the model; it's not possible to point at a feature of the model and comment it.
 
@@ -524,7 +541,7 @@
 \subsection{Aspects of the solution}
 	One aspect that has to be set is what is the language used to make the programs. Associative vs imperative. With side-effects vs without side-effects.
 
-	Another aspect is the amount of help or documentation or reaction the system has to support the user while he is thinking about and making the program. In an ideal scenario he is capable of either doing both at the same time or being able to switch \emph{modes} quickly without loosing context.
+	Another aspect is the amount of help or documentation or reaction the system has to support the user while he is thinking about and making the program. In an ideal scenario he is capable of either doing both at the same time or being able to switch \emph{modes} quickly without losing context.
 
 	Another aspect is the implementation of primitives of the language like constructive solid geometry, lofts and sweeps. Many others are needed to make the system useful. Being useful is more important than the number of primitives implemented. This leads to other concern, these primitives have to have some correspondence to primitives available in other tools used in architecture.
 
