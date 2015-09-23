@@ -483,9 +483,9 @@
 
 	It is also possible to import 3D models from files commonly used for 3D printing like STL and AMF files. Upon import, the file's content is converted to a jscad program that produces the same model. (I don't see the point of doing this.)
 
-	OpenJSCAD provides two user interfaces, one command-line interface and one graphical user interface as a web page. The first can be used for batch processing while the second integrates an editor to edit a program and a 3D view for viewing the results of that program.
+	OpenJSCAD provides two user interfaces, one command-line interface and one graphical user interface as a web page. The first can be used for batch processing (running programs) while the second integrates an editor to edit a program and a 3D view for viewing the results of that program.
 
-	OpenJSCAD's language supports two syntaxes, one based on message passing (or method invoking) and one based on calling functions. Both of these syntaxes are already present in javascript. Operations in either of them don't produce side-effects (at least not in native operations). 
+	OpenJSCAD's language supports two syntaxes, one based on message passing (or method invoking) and one based on calling functions. Both of these syntaxes are already present in javascript. Many operations provided produce a new object and don't change their parameters. This allows us to follow a functional programming approach and since there are fewer side-effects to know about it is easier to understand a program written using them.
 
 	Some functions in OpenJSCAD and their parameters.
 	function parameters result 
