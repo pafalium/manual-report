@@ -198,6 +198,72 @@
 
 	We move on to present some of the current widely used solutions -- or environments -- in the Generative Design community and evaluate their conformance with the principles defined earlier.
 
+%Integrated development environments in the web browser.
+	%How to make IDE for GD?
+	%Let's first look at anything about IDEs.
+
+%Inspiration from anything about IDEs.
+\subsection{LightTable}
+	LightTable is code editor for the Clojure programming language\cite{hickey2008clojure}. 
+	It was first written in Clojure and most of its code was later moved to ClojureScript\cite{10.1109/MIC.2011.148}, a subset of Clojure that compiles to Javascript.
+
+	%Disclaimer
+	Most of the features described here are only present in LightTable's several experimental versions. 
+	The release version's features are not what matters. 
+	The ideas behind the experiments are.
+
+	%Why is LightTable relevant?
+	%As of now, LightTable doesn't seem to be fulfilling its potential.
+	LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/}. 
+	The metaphor comes from looking at the way work is done in other fields of engineering, where engineers spread all materials relevant to their work over large tables, from tools to reference information. 
+	Instead of displaying the contents of entire files, LightTable divides the code into meaningful units and displays them as small editors spread over the table's surface. 
+	In one of its experimental versions, LightTable also supported displaying running programs in the table. 
+	Figure \ref{fig:lt:draft:table} shows an example of this metaphor.
+
+	%Eu gosto da metáfora. Mas não consigo vendê-la aos cepticos; precisa de bastante espaço de ecrã. O que não é mau mas eles só pensam no agora.
+	%Maybe I'll have to add a phrase or two to clarify that I'm not targeting software development. Although I would love to be able to come up with something like this that worked for them.
+
+	\begin{figure}
+	  \centering
+	  \includegraphics[width=1.0\textwidth]{img/lt_game_example}
+	    \caption{A prototype version of LightTable. A game is being run inside it while some of its code is displayed in separate editors.}
+	  \label{fig:lt:draft:table}
+	\end{figure} 
+
+	%LightTable "function navigation"
+	In Clojure functions are defined inside namespaces and all Clojure definitions (functions, variables, macros) are stored in text files. 
+	Navigating among definitions and the current namespace structure shouldn't get in the way of editing code. 
+	To make editing easier, LightTable provides a \emph{namespace browser} that eases finding functions and a \emph{code document} where functions can be added for editing without moving them out of their namespace or displaying entire files where they are defined. 
+	Figure \ref{fig:lt:clojure:table} shows an experiment where these two are used.
+
+	\begin{figure}
+	  \centering
+	  \includegraphics[width=1.0\textwidth]{img/lt_clojure_table}
+	    \caption{An experiment showing a \emph{code document} on the left and a \emph{namespace browser} on the top right.}
+	  \label{fig:lt:clojure:table}
+	\end{figure} 
+
+	%LightTable "variable substitution"
+	One interesting functionality of LightTable is its ability to show data flow in a function call. 
+	Since the main purpose of a function is to transform its input data into its output data, it helps to see what happens to the data on each step of the function. 
+	To achieve this LightTable overlays variable values and return values, respectively, on each variable occurrence and expression of the function. 
+	Figure \ref{fig:lt:val:overlay} shows an example of such functionality. 
+	This functionality is part of LightTable's \emph{instarepl}.
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/lt_val_overlay}
+			\caption{An example of LightTable's value overlaying. The occurrences of the variables \emph{a}, \emph{b} and \emph{ab} were replaced with their values while evaluating the expression \emph{(x 3 7)}; the result of this expression is also overlaid.}
+		\label{fig:lt:val:overlay}
+	\end{figure}
+
+	LightTable's interface was built on top of NodeWebkit\textsuperscript{citation needed}.
+
+	The main design pattern used in LightTable is the \ac{bot} pattern. 
+	As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. 
+	The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on it. \emph{Tags} are groups of \emph{Behaviors}. 
+	When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
+
 \subsection{Making Programming Accessible}
 	\textbf{Change; reintroduce the subject; restructure the report}
 
@@ -209,7 +275,6 @@
 	Writing a program in a programming language can be difficult even if it was designed to be easy to use. 
 	When a programming language is coupled with an environment specifically designed for it the programming experience improves drastically. 
 	In his essay\cite{victor2012learnable}, Bret Victor described design principles over systems for learning programming; we will enumerate and describe each one of them.
-
 \subsection{Learnable Programming\cite{victor2012learnable}}
 	In this essay, Bret Victor starts by stating what the goals of a programming system should be: it should ``support and encourage powerful ways of thinking''; and it should ``enable programmers to see and understand the execution of their programs''.
 
@@ -273,6 +338,60 @@
 	Its syntax and names matter, i.e. the syntax should provide context to its elements and the names should clearly pinpoint what they represent within their context. 
 	It should be readable even without a fancy programming environment.
 
+%Domain-specific IDEs.
+\subsection{Impromptu\cite{sorensen2005impromptu}\cite{sorensen2010programming}}
+	Impromptu is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
+
+	%What is live-performance?
+	In the case of Impromptu, live performance takes place as live programming the algorithms that produce the sounds of the music.
+
+	%What does it provide to support live-performance?
+	To produce live programming Impromptu brings together four components: an audio synthesizer, a real-time scheduling engine, a Scheme interpreter and an \ac{ide}. 
+	The first three components make up the runtime environment while the last provides an interface to it. 
+
+	%Describe live programming experience of impromptu.
+	The usage of Impromptu revolves around using its \ac{ide} to send code to the Scheme interpreter. 
+	The code can schedule audio to be played later, schedule functions to run later, define or redefine functions and ``variables''. 
+	One can use Impromptu to incrementally build an algorithm that produces music. 
+	He writes small parts of the algorithm, sends them to the interpreter and then uses those parts to build bigger parts. 
+	If not satisfied with a part, he can change its code and send it again to the interpreter.
+
+	%Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
+	%Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
+	%Maybe include link to live performance video.
+\subsection{IPython\cite{PER-GRA:2007}}
+	IPython is a notepad-like environment directed towards providing better, more straightforward scientific computing. \emph{It makes me remember Mathematica's notebooks.} As its name suggests, IPython's main programming language is Python. 
+	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, Julia. \footnote{More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}
+
+	IPython was described as a better command line shell.
+	When using an IPython notebook -> richer output versus command line interfaces.
+	Literate computing
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/ipython_notebook}
+			\caption{An IPython notebook with rich text, mathematical notation, source code and results from executing such code.}
+		\label{fig:ipython:notebook}
+	\end{figure}
+
+	One trend in its community, one that is supported by IPython notebooks, is to make results in publications more reproducible. 
+	Instead of publishing a PDF or making a blog post the authors write whole publications as IPython notebooks which then are shared and thus allow everyone to run their source code. 
+	Having access to a working copy of the notebook, one can also experiment with it to better understand it, form own conclusions or find errors.
+
+	Since it aims to be ``A tool for managing the entire lifecycle of a scientific idea''\footnote{Quoting Fernando Perez in his Scipy 2012 Keynote.}, it also provides parallel computation primitives.
+
+	%IPython architecture
+	IPython was decomposed into ``execution kernels'', a communication protocol and several front-ends. 
+	As each type of component has a defined interface it is possible to implement new specialized components (a new frontend or a new execution kernel) that will integrate with those already implemented.
+
+	%Why is it important? I can't imagine designers using it.
+	The style of producing notebooks in IPython is one that mixes programming, writing and exploring. 
+	This style is also part of a designer's processes. 
+	Like a scientist, the designer also has to do exploration of ideas (design ideas in his case), reach conclusions (crystallized designs) and share his work with others (fellow designers, clients, friends, blog readers). 
+	IPython notebooks, more generally notebooks, are natural tools for exploration.
+	IPython notebooks don't provide domain specific functionality for architecture.
+
+%Domain-specific IDEs for graphics, games, 3d modeling and Generative Design.
 \subsection{Processing\cite{reas2007processing}}
 	Processing is a programming language and a development environment aimed at ``promoting software literacy in the visual arts and visual literacy within technology''.\footnote{www.processing.org} 
 	It has an heavy focus on encouraging interaction between its users and so has attracted a big community.\textsuperscript{citation needed}
@@ -353,27 +472,6 @@
 		%Describe how little feedback the environment provides. E.g. he has to run the sketch to see if it compiles and runs as he expects. This blocks creation by reaction.
 		%Describe how trying to hide Java doesn't make it a better language for learning or producing art. For doing more advanced things, Processing still requires the programmer to know Java; why not learn Java straight away? Processing tries to hide Java's metaphors, its objects; bad idea. (Scala does a better job, I suppose)
 
-\subsection{Impromptu\cite{sorensen2005impromptu}\cite{sorensen2010programming}}
-	Impromptu is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
-
-	%What is live-performance?
-	In the case of Impromptu, live performance takes place as live programming the algorithms that produce the sounds of the music.
-
-	%What does it provide to support live-performance?
-	To produce live programming Impromptu brings together four components: an audio synthesizer, a real-time scheduling engine, a Scheme interpreter and an \ac{ide}. 
-	The first three components make up the runtime environment while the last provides an interface to it. 
-
-	%Describe live programming experience of impromptu.
-	The usage of Impromptu revolves around using its \ac{ide} to send code to the Scheme interpreter. 
-	The code can schedule audio to be played later, schedule functions to run later, define or redefine functions and ``variables''. 
-	One can use Impromptu to incrementally build an algorithm that produces music. 
-	He writes small parts of the algorithm, sends them to the interpreter and then uses those parts to build bigger parts. 
-	If not satisfied with a part, he can change its code and send it again to the interpreter.
-
-	%Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
-	%Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
-	%Maybe include link to live performance video.
-
 \subsection{DesignScript\cite{aish2012designscript}}
 	%TODO collections can be used everywhere one thing can be used
 	%TODO handling collections (replication guides, etc)
@@ -449,135 +547,6 @@
 	%
 	%One way DesignScript tries to succeed is to integrate various ways of modeling into the design process. These various ways of modeling are direct-manipulation mode present in any 3d modeling application, the associative mode present in many visual programming environments and the 
 
-\subsection{IPython\cite{PER-GRA:2007}}
-	IPython is a notepad-like environment directed towards providing better, more straightforward scientific computing. \emph{It makes me remember Mathematica's notebooks.} As its name suggests, IPython's main programming language is Python. 
-	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, Julia. \footnote{More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}
-
-	IPython was described as a better command line shell.
-	When using an IPython notebook -> richer output versus command line interfaces.
-	Literate computing
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=1.0\textwidth]{img/ipython_notebook}
-			\caption{An IPython notebook with rich text, mathematical notation, source code and results from executing such code.}
-		\label{fig:ipython:notebook}
-	\end{figure}
-
-	One trend in its community, one that is supported by IPython notebooks, is to make results in publications more reproducible. 
-	Instead of publishing a PDF or making a blog post the authors write whole publications as IPython notebooks which then are shared and thus allow everyone to run their source code. 
-	Having access to a working copy of the notebook, one can also experiment with it to better understand it, form own conclusions or find errors.
-
-	Since it aims to be ``A tool for managing the entire lifecycle of a scientific idea''\footnote{Quoting Fernando Perez in his Scipy 2012 Keynote.}, it also provides parallel computation primitives.
-
-	%IPython architecture
-	IPython was decomposed into ``execution kernels'', a communication protocol and several front-ends. 
-	As each type of component has a defined interface it is possible to implement new specialized components (a new frontend or a new execution kernel) that will integrate with those already implemented.
-
-	%Why is it important? I can't imagine designers using it.
-	The style of producing notebooks in IPython is one that mixes programming, writing and exploring. 
-	This style is also part of a designer's processes. 
-	Like a scientist, the designer also has to do exploration of ideas (design ideas in his case), reach conclusions (crystallized designs) and share his work with others (fellow designers, clients, friends, blog readers). 
-	IPython notebooks, more generally notebooks, are natural tools for exploration.
-	IPython notebooks don't provide domain specific functionality for architecture.
-
-\subsection{LightTable}
-	LightTable is code editor for the Clojure programming language\cite{hickey2008clojure}. 
-	It was first written in Clojure and most of its code was later moved to ClojureScript\cite{10.1109/MIC.2011.148}, a subset of Clojure that compiles to Javascript.
-
-	%Disclaimer
-	Most of the features described here are only present in LightTable's several experimental versions. 
-	The release version's features are not what matters. 
-	The ideas behind the experiments are.
-
-	%Why is LightTable relevant?
-	%As of now, LightTable doesn't seem to be fulfilling its potential.
-	LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/}. 
-	The metaphor comes from looking at the way work is done in other fields of engineering, where engineers spread all materials relevant to their work over large tables, from tools to reference information. 
-	Instead of displaying the contents of entire files, LightTable divides the code into meaningful units and displays them as small editors spread over the table's surface. 
-	In one of its experimental versions, LightTable also supported displaying running programs in the table. 
-	Figure \ref{fig:lt:draft:table} shows an example of this metaphor.
-
-	%Eu gosto da metáfora. Mas não consigo vendê-la aos cepticos; precisa de bastante espaço de ecrã. O que não é mau mas eles só pensam no agora.
-	%Maybe I'll have to add a phrase or two to clarify that I'm not targeting software development. Although I would love to be able to come up with something like this that worked for them.
-
-	\begin{figure}
-	  \centering
-	  \includegraphics[width=1.0\textwidth]{img/lt_game_example}
-	    \caption{A prototype version of LightTable. A game is being run inside it while some of its code is displayed in separate editors.}
-	  \label{fig:lt:draft:table}
-	\end{figure} 
-
-	%LightTable "function navigation"
-	In Clojure functions are defined inside namespaces and all Clojure definitions (functions, variables, macros) are stored in text files. 
-	Navigating among definitions and the current namespace structure shouldn't get in the way of editing code. 
-	To make editing easier, LightTable provides a \emph{namespace browser} that eases finding functions and a \emph{code document} where functions can be added for editing without moving them out of their namespace or displaying entire files where they are defined. 
-	Figure \ref{fig:lt:clojure:table} shows an experiment where these two are used.
-
-	\begin{figure}
-	  \centering
-	  \includegraphics[width=1.0\textwidth]{img/lt_clojure_table}
-	    \caption{An experiment showing a \emph{code document} on the left and a \emph{namespace browser} on the top right.}
-	  \label{fig:lt:clojure:table}
-	\end{figure} 
-
-	%LightTable "variable substitution"
-	One interesting functionality of LightTable is its ability to show data flow in a function call. 
-	Since the main purpose of a function is to transform its input data into its output data, it helps to see what happens to the data on each step of the function. 
-	To achieve this LightTable overlays variable values and return values, respectively, on each variable occurrence and expression of the function. 
-	Figure \ref{fig:lt:val:overlay} shows an example of such functionality. 
-	This functionality is part of LightTable's \emph{instarepl}.
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=1.0\textwidth]{img/lt_val_overlay}
-			\caption{An example of LightTable's value overlaying. The occurrences of the variables \emph{a}, \emph{b} and \emph{ab} were replaced with their values while evaluating the expression \emph{(x 3 7)}; the result of this expression is also overlaid.}
-		\label{fig:lt:val:overlay}
-	\end{figure}
-
-	LightTable's interface was built on top of NodeWebkit\textsuperscript{citation needed}.
-
-	The main design pattern used in LightTable is the \ac{bot} pattern. 
-	As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. 
-	The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on it. \emph{Tags} are groups of \emph{Behaviors}. 
-	When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
-
-
-\subsection{Code Bubbles, Code Canvas and Debugger Canvas}
-	Code Bubbles and Code Canvas approach displaying and editing program code in a different way from the usual text-based code editors.
-	Instead of showing a programming project as a set of tabs (containing code) and a set of windows (containing tools), they show everything using ``bubbles'' on a virtual 2D surface. 
-	The surface view can then be panned and zoomed in and out for navigation.
-
-	As the user explores the code base -- following variables, finding declarations -- new bubbles are created containing the code they want to see.
-
-	Bubbles are laid out in the surface so that they aren't on top of each other. 
-	The user can drag the bubbles to change the layout to one that better suits his current needs (e.g. to better reflect the structure of the code or call follow).
-
-	Bubbles can contain code, notes written by the user, debugging information (call stack, local variables' values). 
-	They can be grouped together and moved like so when necessary.
-
-	After a usage session, the virtual surface can be saved for later resuming the session or for reference.
-
-	Debugger Canvas, a Visual Studio plug-in, was developed by the teams behind Code Bubbles and Code Canvas to test their approach in the industry setting. 
-	According to their results, the approach is most suitable for debugging sessions when the code base is big or when the control flow is complex. 
-	It also appeared to be best integrated into professional programmer's tools (IDEs) as a new mode rather than a replacement.
-
-	\textbf{Since we are aiming at architects we can ``assume'' that the kind of interface provided by these works is ``of some use''}.
-
-	%Distintion between Code Bubbles and Code Canvas
-	Code Bubbles picks up on the observation that programmers working on a task usually limit the amount of code they see to a working set. 
-	In Code Bubbles, the programmer builds the working set as he explores the code base; the built working set is represented as a set of bubbles.
-	Code Canvas shows an entire software project as a 2D map.
-	The map can reflect the file structure of the project and/or its semantic structure (e.g. namespaces, classes, methods in OOP projects). Several layers can be overlaid on top of the map such as search results or call stack visualization. The map can be filtered according to some criteria while maintaining positions relative to the entire, unfiltered, map.
-
-	%Why are these important for my project?
-	They both provide a metaphor where navigation around a programs code is intuitive. 
-	Having intuitive navigation enhances exploration; such exploration makes it easier to understand the code and to have new ideas (the parts bucket is on the floor as in Bret Victor's create by reacting).
-
-	%Is the debugging from these of any use to architects?
-	The debugging capabilities from these can help architects (or learners) to explore code from others, be it example code, parts of other projects or even code they wrote but have already forgot how it worked.
-
-
 \subsection{Rosetta}
 	Rosetta is a platform for Generative Design.
 	It grew from the desire to give the freedom to designers using the Generative Design to write their programs using the programming language they want and to easily switch where it takes effect.
@@ -627,34 +596,6 @@
 
 	Rosetta has been extensively used for teaching programming to architecture students at \ac{ist}. 
 
-
-\subsection{Javascript and the Web browser}
-	%Mainly from Brendan Eich's presentation "Javascript at 17".
-	Javascript began as the Visual Basic for web browsers.
-	It was aimed at web designers that wanted their pages pages to change dynamically. 
-	It was inspired by the programming languages Scheme and Self.
-
-	Its first version was developed over ten days during May 1995.
-	It was a quick prototype. 
-	During its life it has been loved and hated; it was developed very close to HTML.
-	Like HTML, it had to keep backwards compatibility which made it difficult to fix the bad choices from its first version.
-
-	Having begun in a competitive setting (the web browser), where multiple vendors have their own implementation and coverage of the language, Javascript's standardization has had difficult periods where not all vendors offered the same compliance to the standards (even adding different features).
-
-	Due to the large demands from its users Javascript and web browsers have evolved into a ``reliable platform''. 
-
-	As time passed, Javascript/web standards compliance has been greatly improved.
-	Javascript's performance has also reached the level of native machine code as a lot of effort was put into making Javascript engines fast.
-
-	Currently, Javascript's (or ECMAscript as it is officially called) standards aim to make it a better compiler target language and also for writing applications and libraries.
-	The rationale behind this being the ubiquity that Javascript currently has; every computer now supports Javascript; turning it into a platform that can run anything is very promising (compared to making a new platform from scratch).
-
-	With the recent focus on becoming a target language for compilers, Javascript is sometimes metaphorically called the x86 (or the assembly) of the web.
-
-	Some examples of languages compiled to Javascript are ClojureScript and CoffeeScript.
-	There are many more languages that compile to Javascript. 
-	In fact, even C and C++ can be compiled to Javascript\footnote{e.g. with ecmscripten} (or a subset of it\footnote{like asm.js, that aims to be an Ahead-Of-Time compiler friendly subset of Javascript}) and run with speeds close (2x slower) to those gotten while running native machine code. These speeds are suitable for running complex game engines inside the web browser; in a recent demo (2013) an Unreal Engine 3 level run in the web browser without any plug-ins\footnote{https://blog.mozilla.org/futurereleases/2013/05/02/epic-citadel-demo-shows-the-power-of-the-web-as-a-platform-for-gaming/}.
-
 \subsection{OpenJSCAD}
 	OpenJSCAD is a javascript application (or rather, an application based on web technologies).
 	It aims to provide the same functionality as OpenSCAD but using javascript as a base for its language. 
@@ -694,6 +635,74 @@
 	Its possible to round the edges of polyhedral primitives.
 	Non-polyhedral primitives are always converted to polyhedral approximations.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Code bubbles could go into "Inspiration from anything about IDEs".
+\subsection{Code Bubbles, Code Canvas and Debugger Canvas}
+	Code Bubbles and Code Canvas approach displaying and editing program code in a different way from the usual text-based code editors.
+	Instead of showing a programming project as a set of tabs (containing code) and a set of windows (containing tools), they show everything using ``bubbles'' on a virtual 2D surface. 
+	The surface view can then be panned and zoomed in and out for navigation.
+
+	As the user explores the code base -- following variables, finding declarations -- new bubbles are created containing the code they want to see.
+
+	Bubbles are laid out in the surface so that they aren't on top of each other. 
+	The user can drag the bubbles to change the layout to one that better suits his current needs (e.g. to better reflect the structure of the code or call follow).
+
+	Bubbles can contain code, notes written by the user, debugging information (call stack, local variables' values). 
+	They can be grouped together and moved like so when necessary.
+
+	After a usage session, the virtual surface can be saved for later resuming the session or for reference.
+
+	Debugger Canvas, a Visual Studio plug-in, was developed by the teams behind Code Bubbles and Code Canvas to test their approach in the industry setting. 
+	According to their results, the approach is most suitable for debugging sessions when the code base is big or when the control flow is complex. 
+	It also appeared to be best integrated into professional programmer's tools (IDEs) as a new mode rather than a replacement.
+
+	\textbf{Since we are aiming at architects we can ``assume'' that the kind of interface provided by these works is ``of some use''}.
+
+	%Distintion between Code Bubbles and Code Canvas
+	Code Bubbles picks up on the observation that programmers working on a task usually limit the amount of code they see to a working set. 
+	In Code Bubbles, the programmer builds the working set as he explores the code base; the built working set is represented as a set of bubbles.
+	Code Canvas shows an entire software project as a 2D map.
+	The map can reflect the file structure of the project and/or its semantic structure (e.g. namespaces, classes, methods in OOP projects). Several layers can be overlaid on top of the map such as search results or call stack visualization. The map can be filtered according to some criteria while maintaining positions relative to the entire, unfiltered, map.
+
+	%Why are these important for my project?
+	They both provide a metaphor where navigation around a programs code is intuitive. 
+	Having intuitive navigation enhances exploration; such exploration makes it easier to understand the code and to have new ideas (the parts bucket is on the floor as in Bret Victor's create by reacting).
+
+	%Is the debugging from these of any use to architects?
+	The debugging capabilities from these can help architects (or learners) to explore code from others, be it example code, parts of other projects or even code they wrote but have already forgot how it worked.
+
+\subsection{Javascript and the Web browser}
+	%Mainly from Brendan Eich's presentation "Javascript at 17".
+	Javascript began as the Visual Basic for web browsers.
+	It was aimed at web designers that wanted their pages pages to change dynamically. 
+	It was inspired by the programming languages Scheme and Self.
+
+	Its first version was developed over ten days during May 1995.
+	It was a quick prototype. 
+	During its life it has been loved and hated; it was developed very close to HTML.
+	Like HTML, it had to keep backwards compatibility which made it difficult to fix the bad choices from its first version.
+
+	Having begun in a competitive setting (the web browser), where multiple vendors have their own implementation and coverage of the language, Javascript's standardization has had difficult periods where not all vendors offered the same compliance to the standards (even adding different features).
+
+	Due to the large demands from its users Javascript and web browsers have evolved into a ``reliable platform''. 
+
+	As time passed, Javascript/web standards compliance has been greatly improved.
+	Javascript's performance has also reached the level of native machine code as a lot of effort was put into making Javascript engines fast.
+
+	Currently, Javascript's (or ECMAscript as it is officially called) standards aim to make it a better compiler target language and also for writing applications and libraries.
+	The rationale behind this being the ubiquity that Javascript currently has; every computer now supports Javascript; turning it into a platform that can run anything is very promising (compared to making a new platform from scratch).
+
+	With the recent focus on becoming a target language for compilers, Javascript is sometimes metaphorically called the x86 (or the assembly) of the web.
+
+	Some examples of languages compiled to Javascript are ClojureScript and CoffeeScript.
+	There are many more languages that compile to Javascript. 
+	In fact, even C and C++ can be compiled to Javascript\footnote{e.g. with ecmscripten} (or a subset of it\footnote{like asm.js, that aims to be an Ahead-Of-Time compiler friendly subset of Javascript}) and run with speeds close (2x slower) to those gotten while running native machine code. These speeds are suitable for running complex game engines inside the web browser; in a recent demo (2013) an Unreal Engine 3 level run in the web browser without any plug-ins\footnote{https://blog.mozilla.org/futurereleases/2013/05/02/epic-citadel-demo-shows-the-power-of-the-web-as-a-platform-for-gaming/}.
+
+%Modelo.io is just an example of 3D in the browser.
 \subsection{Modelo.io}
 	One tool that is sometimes requested by the 3D modeling community is a platform where 3D models can be shared and where discussions about those models can happen.
 	Online 3D model libraries like SketchUp 3D warehouse address to some extent this request, however not completely. 
