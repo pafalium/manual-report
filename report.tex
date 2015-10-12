@@ -735,39 +735,6 @@
 %NAVarchitecture
 \section{Architecture (2/3pgs)}
 
-\subsection{Proof-of-concept Prototype}
-	A small prototype has been assembled to test the concept of a Generative Design environment in the browser.
-
-	Like shown in figure \ref{fig:proto:3d:p:editor}, this prototype consists in a web page with a text editor and a 3D view.
-
-	\begin{figure}
-	  \centering
-	  \includegraphics[width=1.0\textwidth]{img/proto_3d_p_editor}
-	    \caption{The proof-of-concept prototype generating a truss. The right half contains the program used to generate the truss and the left half contains an interactive view of generated truss.}
-	  \label{fig:proto:3d:p:editor}
-	\end{figure} 
-
-	The results of running the program inside the text editor are displayed through the 3D view. 
-	When the program's text changes, it is rerun to reflect the changes in the 3D view. 
-	This enables the prototype to provide immediate feedback to changes as long as they introduce visual changes to the result.
-
-	The user can interact with the 3D view as if it contained a turntable.
-
-	The programming language that is run by the prototype is Javascript with several functions added to produce 3D primitives (such as cubes or cylinders) and to manipulate those primitives (such as moving or grouping).
-
-	The prototype is accompanied with example programs which were used to demonstrate it to a small group of potential users.
-
-	The example programs try to emphasize functional programming techniques like using higher-order functions and minimal use of side-effects.
-
-	The overall feedback from the potential users was positive (they wanted to see it on a real application).
-
-	The prototype is implemented using HTML, Javascript, CSS and two Javascript libraries; the first, Ace\footnote{http://ace.c9.io/}, provides the text editor and the second, THREE.js\footnote{http://threejs.org/}, provides a high-level interface with WebGL rendering.
-
-	With its naive implementation, the use of the prototype has already made clear one problem: always trying to run a program while it is being changed can lead to poor responsiveness or even permanent lockup of the interface.
-	The usual cause being the increasing complexity of the program or the presence of infinite loops in the program. 
-	This problem will have to be addressed in order to have a usable interface. 
-	Some alternatives to solve the problem could be running the program asynchronously and retrieving the results afterwards or instrumenting the program so it could be run interleaved with interface handling and stopped if necessary.
-
 \subsection{Aspects of the solution}
 	One aspect that has to be set is what is the language used to make the programs.
 	Associative vs imperative. 
@@ -832,6 +799,39 @@
 	Hey! This is what a description of the solution is...
 
 	%Maybe this section should state how the overall project execution will be evaluated which of course includes how to evaluate what it will produce.
+
+\subsection{Proof-of-concept Prototype}
+	A small prototype has been assembled to test the concept of a Generative Design environment in the browser.
+
+	Like shown in figure \ref{fig:proto:3d:p:editor}, this prototype consists in a web page with a text editor and a 3D view.
+
+	\begin{figure}
+	  \centering
+	  \includegraphics[width=1.0\textwidth]{img/proto_3d_p_editor}
+	    \caption{The proof-of-concept prototype generating a truss. The right half contains the program used to generate the truss and the left half contains an interactive view of generated truss.}
+	  \label{fig:proto:3d:p:editor}
+	\end{figure} 
+
+	The results of running the program inside the text editor are displayed through the 3D view. 
+	When the program's text changes, it is rerun to reflect the changes in the 3D view. 
+	This enables the prototype to provide immediate feedback to changes as long as they introduce visual changes to the result.
+
+	The user can interact with the 3D view as if it contained a turntable.
+
+	The programming language that is run by the prototype is Javascript with several functions added to produce 3D primitives (such as cubes or cylinders) and to manipulate those primitives (such as moving or grouping).
+
+	The prototype is accompanied with example programs which were used to demonstrate it to a small group of potential users.
+
+	The example programs try to emphasize functional programming techniques like using higher-order functions and minimal use of side-effects.
+
+	The overall feedback from the potential users was positive (they wanted to see it on a real application).
+
+	The prototype is implemented using HTML, Javascript, CSS and two Javascript libraries; the first, Ace\footnote{http://ace.c9.io/}, provides the text editor and the second, THREE.js\footnote{http://threejs.org/}, provides a high-level interface with WebGL rendering.
+
+	With its naive implementation, the use of the prototype has already made clear one problem: always trying to run a program while it is being changed can lead to poor responsiveness or even permanent lockup of the interface.
+	The usual cause being the increasing complexity of the program or the presence of infinite loops in the program. 
+	This problem will have to be addressed in order to have a usable interface. 
+	Some alternatives to solve the problem could be running the program asynchronously and retrieving the results afterwards or instrumenting the program so it could be run interleaved with interface handling and stopped if necessary.
 
 %----------------------------------------------------
 %NAVconclusions
