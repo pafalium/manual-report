@@ -277,13 +277,16 @@
 
 %Inspiration from anything about IDEs.
 \subsection{LightTable}
-	LightTable is code editor for the Clojure programming language\cite{hickey2008clojure}. 
-	It was first written in Clojure and most of its code was later moved to ClojureScript\cite{10.1109/MIC.2011.148}, a subset of Clojure that compiles to Javascript.
+	LightTable is an example of a desktop application that uses Web technologies.
+	More specifically, it uses node-webkit as its runtime allowing it to use html layout engine for its user interface, to use javascript as its programming language and to use node.js modules.
+	LightTable is written in ClojureScript\cite{10.1109/MIC.2011.148}, a subset of Clojure that compiles to Javascript.
+
+	LightTable is a code editor for the Clojure programming language\cite{hickey2008clojure}. 
 
 	%Disclaimer
-	Most of the features described here are only present in LightTable's several experimental versions. 
-	The release version's features are not what matters. 
-	The ideas behind the experiments are.
+	%Most of the features described here are only present in LightTable's several experimental versions. 
+	%The release version's features are not what matters. 
+	%The ideas behind the experiments are.
 
 	%Why is LightTable relevant?
 	%As of now, LightTable doesn't seem to be fulfilling its potential.
@@ -293,6 +296,10 @@
 	In one of its experimental versions, LightTable also supported displaying running programs in the table. 
 	Figure \ref{fig:lt:draft:table} shows an example of this metaphor.
 
+	This metaphor has some resemblances to node-based programming environments. 
+	The programmer still has think of how to arrange what is on the table.
+	What makes it different is allowing to choose what is on the table instead of having everything on it all the time.
+
 	\begin{figure}
 	  \centering
 	  \includegraphics[width=1.0\textwidth]{img/lt_game_example}
@@ -301,6 +308,7 @@
 	\end{figure} 
 
 	%LightTable "function navigation"
+	LightTable also helps navigating Clojure code bases.
 	In Clojure functions are defined inside namespaces and all Clojure definitions (functions, variables, macros) are stored in text files. 
 	Navigating among definitions and the current namespace structure shouldn't get in the way of editing code. 
 	To make editing easier, LightTable provides a \emph{namespace browser} that eases finding functions and a \emph{code document} where functions can be added for editing without moving them out of their namespace or displaying entire files where they are defined. 
@@ -326,8 +334,6 @@
 			\caption{An example of LightTable's value overlaying. The occurrences of the variables \emph{a}, \emph{b} and \emph{ab} were replaced with their values while evaluating the expression \emph{(x 3 7)}; the result of this expression is also overlaid.}
 		\label{fig:lt:val:overlay}
 	\end{figure}
-
-	LightTable's interface was built on top of NodeWebkit\textsuperscript{citation needed}.
 
 	The main design pattern used in LightTable is the \ac{bot} pattern. 
 	As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. 
