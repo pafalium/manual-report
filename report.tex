@@ -745,36 +745,6 @@
 	%Is the debugging from these of any use to architects?
 	The debugging capabilities from these can help architects (or learners) to explore code from others, be it example code, parts of other projects or even code they wrote but have already forgot how it worked.
 
-\subsection{Javascript and the Web browser}
-	%Mainly from Brendan Eich's presentation "Javascript at 17".
-	Javascript began as the Visual Basic for web browsers.
-	It was aimed at web designers that wanted their pages pages to change dynamically. 
-	It was inspired by the programming languages Scheme and Self.
-
-	Its first version was developed over ten days during May 1995.
-	It was a quick prototype. 
-	During its life it has been loved and hated; it was developed very close to HTML.
-	Like HTML, it had to keep backwards compatibility which made it difficult to fix the bad choices from its first version.
-
-	Having begun in a competitive setting (the web browser), where multiple vendors have their own implementation and coverage of the language, Javascript's standardization has had difficult periods where not all vendors offered the same compliance to the standards (even adding different features).
-
-	Due to the large demands from its users Javascript and web browsers have evolved into a ``reliable platform''. 
-
-	As time passed, Javascript/web standards compliance has been greatly improved.
-	Javascript's performance has also reached the level of native machine code as a lot of effort was put into making Javascript engines fast.
-
-	Currently, Javascript's (or ECMAscript as it is officially called) standards aim to make it a better compiler target language and also for writing applications and libraries.
-	The rationale behind this being the ubiquity that Javascript currently has; every computer now supports Javascript; turning it into a platform that can run anything is very promising (compared to making a new platform from scratch).
-
-	With the recent focus on becoming a target language for compilers, Javascript is sometimes metaphorically called the x86 (or the assembly) of the web.
-
-	Some examples of languages compiled to Javascript are ClojureScript and CoffeeScript.
-	There are many more languages that compile to Javascript. 
-	In fact, even C and C++ can be compiled to Javascript\footnote{e.g. with ecmscripten} (or a subset of it\footnote{like asm.js, that aims to be an Ahead-Of-Time compiler friendly subset of Javascript}) and run with speeds close (2x slower) to those gotten while running native machine code. These speeds are suitable for running complex game engines inside the web browser; in a recent demo (2013) an Unreal Engine 3 level run in the web browser without any plug-ins\footnote{https://blog.mozilla.org/futurereleases/2013/05/02/epic-citadel-demo-shows-the-power-of-the-web-as-a-platform-for-gaming/}.
-
-\subsection{More work on CAD done in the web}
-
-
 \subsection{Wrapping Up}
 	%Summarize the parts of the related work that were major influences of the proposed architecture.
 
