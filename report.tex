@@ -334,79 +334,19 @@
 	The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on it. \emph{Tags} are groups of \emph{Behaviors}. 
 	When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
 
-\subsection{Making Programming Accessible}
-	\textbf{Change; reintroduce the subject; restructure the report}
-
-	Making programming accessible to everyone has been an active area of research for many years. 
-	Some examples of programming languages designed with introducing people to programming were Logo\cite{papert1999logo} -- where the programmer explains the meaning of new words to a turtle -- and Smalltalk\cite{goldberg1983smalltalk} -- where the programmer expresses the way a group of objects exchange messages to solve a problem. 
-	Their authors are great defenders of the notion that learning how to solve/understand problems with a computer is a greater way of learning since it is a dynamic medium. 
-	An example of that is the Dynabook\cite{Kay:2011:PCC:800193.1971922}, a handheld computer prototype for children where programming is an important activity.
-
+\subsection{Learnable Programming\cite{victor2012learnable}}
 	Writing a program in a programming language can be difficult even if it was designed to be easy to use. 
 	When a programming language is coupled with an environment specifically designed for it the programming experience improves drastically. 
-	In his essay\cite{victor2012learnable}, Bret Victor described design principles over systems for learning programming; we will enumerate and describe each one of them.
-\subsection{Learnable Programming\cite{victor2012learnable}}
-	In this essay, Bret Victor starts by stating what the goals of a programming system should be: it should ``support and encourage powerful ways of thinking''; and it should ``enable programmers to see and understand the execution of their programs''.
+	In his essay\cite{victor2012learnable}, Bret Victor described design principles over systems for learning programming.
 
-	%TODO: Change the type of discourse to a "synthesis" of what Bret Victor said instead of a "narration" of how he said it in his paper.
-	He then states that a programming system has two parts -- the \emph{programming environment} which is installed on the computer; and the \emph{programming language} which is installed on the programmer's head -- and then presents the design principles for those parts.
+	The programming language and the programming environment are essential parts of the programming experience.
+	The programming language is allows the programmer to express himself in a clear, specific way; the programming environment allows him to write programs and understand what they actually do.
 
-	The principles for the environment state what it should allow the programmer to do. 
-	The environment should allow the programmer to:
-	\begin{enumerate}
-		\item \label{lp:env:read} read the vocabulary 
-		\item \label{lp:env:flow} follow the flow
-		\item \label{lp:env:state} see the state
-		\item \label{lp:env:react} create by reacting
-		\item \label{lp:env:abstr} create by abstracting
-	\end{enumerate}
+	Programs written in the programming language need to reflect something from the programmer that is useful for programming.
+	They should be about things the programmer can identify with (something that he knows); should allow him to talk about different parts of the problem separately; should allow him to bring those parts together; and should be readable.
 
-	The principles for the language state what it should provide. 
-	It should provide:
-	\begin{enumerate}
-		\item \label{lp:lang:id} identity and metaphor
-		\item \label{lp:lang:decom} decomposition
-		\item \label{lp:lang:recom} recomposition
-		\item \label{lp:lang:read} readability
-	\end{enumerate}
-
-	%TODO: Change the type of discourse.
-	These principles are then further explained following the same order. 
-	When talking about the principles over the environment, Bret gives examples that follow each principle; those examples aren't included here since they are solutions to a specific case. 
-	When talking about principles over the language, he gives examples of languages that follow and don't follow -- and how -- each principle; those are also not included here.
-
-	The environment should allow the programmer to \emph{read the vocabulary} so that the he can quickly shift his attention to ``how the steps are weaved together''. 
-	That is, as he is reading, the environment should make it easy to understand what each word means; each word's meaning should be made clear in an appropriate context -- or more if necessary.
-	%How can I say that the environment can use any means necessary to achieve it?
-
-	The environment should allow the programmer to \emph{follow the flow} so that he more easily understands ``how the steps are weaved together''. 
-	Instead of just showing the code and the result of its execution, the environment must show the execution of the program and let the programmer explore it in various meaningful granularities -- from different perspectives.
-
-	The environment should allow the programmer to \emph{see the state} of the program -- be it explicit, as local variables, or implicit, as library state -- so that he can feel how it changes with the execution of the program. 
-	The environment must show the state as it changes with the execution and must show meaningful comparisons over the execution -- i.e., if the it represents a color then show it as colors; if it represents a number then show it as numbers.
-	%Every line of code changes something be either by returning or by having side-effects.
-
-	The environment should allow the programmer to \emph{create by reacting} to the environment so that he can ``start with something, than adjust until it's right''. 
-	To make it possible, the environment must make it easy to experiment; it must make trying/adding things as fast as the programmer can think of them and also make what can be done obvious. 
-	Bret Victor clearly states that this should be like painting. 
-	When the user tries things, he doesn't completely know what he's going to get; if what he gets is not right he changes it.
-
-	The environment should allow the programmer to \emph{create by abstracting} parts of the program so that he can start by writing a concrete case, then generalizing it. 
-	The environment must ``provide ways to gradually and seamlessly transitioning constant expressions'' and also ``provide ways of using those variable expressions at a higher level''. 
-	In other more general words: make it easy to generalize using the language's decomposition mechanisms. 
-
-	The language should provide a good \emph{identity and metaphor} so that the programmer can easily relate to the program he is writing. 
-	These provided enable the programmer to use his knowledge about the world to solve the problem he is trying to solve by writing a program in the language. 
-
-	The language should provide \emph{decomposition} so that the programmer can ``breakdown the program into ``mind-size bites''''. 
-	It should encourage him to decompose the problem because decomposing is essential for understanding it.
-
-	The language should provide \emph{recomposition} so that the programmer can safely reuse parts. 
-	It should encourage him to ``grab parts of other programs, assemble them together, modify them, build on top of them'' thus ``giving him the initial material to ``create by reacting''''.
-
-	The language should provide \emph{readability} so that the programmer can ``look at a line of code and know what it means''; the meaning of a line of code shouldn't be ambiguous. 
-	Its syntax and names matter, i.e. the syntax should provide context to its elements and the names should clearly pinpoint what they represent within their context. 
-	It should be readable even without a fancy programming environment.
+	The environment needs to help understand the meaning of the parts of the program; understand the way the program execution evolves; understand the way the state evolves; assemble parts together; and create new parts from existing ones.
+	It should make these things easy to do, after all these can be done by the programmer alone if he is willing to.
 
 %Domain-specific IDEs.
 \subsection{Impromptu\cite{sorensen2005impromptu}\cite{sorensen2010programming}}
