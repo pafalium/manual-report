@@ -48,34 +48,33 @@
 	Programming is becoming an essential way of expressing ideas in a way a computer can understand them.
 	Once a computer can understand an idea (or process) it can apply it as many times as we want.
 
-	Expressing ideas/processes in a way a computer understands requires us to specify every detail of what we have in mind (sometimes too much) which forces us to really understand what it is.
+	Expressing ideas or processes in a way a computer understands requires us to specify every detail of what we have in mind (sometimes too much) which forces us to really understand what it is.
 
 	Many people have understood the power that comes from having a computer (or machine) doing lots of mechanical work and so have adopted programming as a new tool.
 
 	%Introduce the need for IDEs. Introduce the demand for IDEs.
 	Still, programming requires a lot of discipline from the programmer.
-	The program has to be written using a programming language.
-	It might have to be stored following a specific file structure.
-	If a specific API is used a lot of documentation may have to be read to understand it.
-	The program may have to be compiled and only then run.
+	He has to write the program in a programming language.
+	He has to store it following a specific file structure.
+	If he uses a specific API, he will have to have its documentation at hand for quick reference.
+	He may have to compile the program in order to run it.
 	The compiler might detect syntactical errors that have to be corrected.
-	If there is a bug, a debugging session has to be started to find the bug.
-	When the bug is found the corresponding part of program has to corrected.
+	If he notices that the program is misbehaving, he will have find the reason which normally involves starting the program and attaching a debugger to it.
+	When he finds the reason, he will have to make corrections and test the program.
 	And so on and so forth.
 
 	All of this demands great time and effort from the programmer.
-	All those small steps have to be learned.
-	All those small steps have to be articulated by the programmer.
+	All those small steps have to be learned and articulated by the programmer.
 	It is an inevitably complex activity.
 	And the programmer's productivity and enjoyment suffers from it.
 	There has to be some way of lifting some of the work from the programmer.
 	That is where integrated programming environments come in.
 
-	Integrated programming environments bring together all the tools needed while programming and automates all its small steps.
+	Integrated development environments bring together all the tools needed while programming and automates all its small steps.
 	They might do it so well that the programmer might forget that those steps still exist.
 	We can imagine that novice programmers using these environments would simply be unaware of them.
-	Programmers still have to write, run and debug their programs but they do so without losing time performing all those little steps.
-	And so integrated programming environments have become essential everywhere there is programming.
+	Programmers still have to write, run and debug their programs but they do so without losing time performing all those steps.
+	And so integrated development environments have become essential to programming.
 	
 	%Go from software production IDEs to architecture specific IDEs.
 	%Software development -> dynamic languages -> domain specific -> architecture specific
@@ -83,28 +82,27 @@
 	These IDEs support many programming languages and provide many tools needed for software production.
 	They help programmers navigate big software projects and let them configure complex building processes.
 	They also help them organizing the work on their software projects.
-	They are good for large scale software projects but not as good for small projects such as prototypes and ``gluing programs together''.
+	They are good for large scale software projects but not as good for smaller projects such as making prototypes or merging programs together.
 	They still require a lot of configuration before the programmer can start using them to make a program.
 	Again, a programmer is being burdened with small steps that could be automated.
 	This is where dynamic languages and their integrated programming environments can be useful.
 
 	%IDEs dynamic languages.
 	Integrated programming environments for dynamic programming languages can go a step further in shortening the cycle between editing the program and seeing its effects.
-	They allow programmer to quickly run their programs and provide ways to interact with them like REPLs.
+	They allow programmers to quickly run their programs and provide ways to interact with them like REPLs.
 	The programmer can now write his program and then start experimenting with it in the REPL, quickly testing some areas or quickly sketching new portions of the program.
 	All this without having to write a separate program and compiling both.
 	Dynamic languages also play a part.
 	They start to blur the line between programming language and programming environment.
-	Being less strict and providing higher level concepts allows them to free programmers from having the state every detail of the program.
+	Being less strict and providing higher level concepts allows them to free programmers from having to state every detail of the program.
 	They allow the missing details to be implicit.
 
 	%IDEs domain specific.
-	Integrated programming environments for dynamic languages are better but they are still too general purpose.
+	Integrated development environments for dynamic languages are better but they are still too general.
 	They stop at helping to program without covering problems specific to the bigger activities of their users.
 	They don't automate the small repetitive steps present in activities where programming is used as a tool.
-	Integrated programming environments like IPython and Impromptu are another step further.
-	IPython helps scientists.
-	Scientists can use IPython to program to get what matters to them, automating gathering of data, transforming and visualizing it in order to draw conclusions.
+	Integrated development environments like IPython and Impromptu are another step further.
+	IPython helps scientists by providing them what is relevant to their work, such as automating gathering of data, transforming and visualizing it in order to draw conclusions.
 	It integrates taking notes and programming.
 	They no longer have to join the pieces of information into a single space, it is already done by the environment.
 	Impromptu helps musicians.
@@ -113,24 +111,24 @@
 	He just starts his program and hears it.
 
 	Here programming is no longer the main activity, it is used as a way to make computers do something we want.
-	The results and ways to visualize (or hear) the results are integrated into the environment.
+	The results and ways to visualize (or hear) them are integrated into the environment.
 
 	%IDEs architecture specific.
 	As with scientists and musicians, architects can benefit from having integrated programming environments specific to their programming needs.
-	They too can benefit from automating small steps and integrating all tools needed to making their programs.
-	In their case there needs to be a direct correspondence between the program and the 3D geometry that it creates.
+	They can also benefit from automating small steps and integrating all tools needed to making their programs.
+	In their case it requires a direct correspondence between the program and the 3D geometry that it creates.
 	
 	Following the trend of using programming in their work, architects started using programming to generate the 3D models of the buildings they ``come up with''. 
 	They use a process called Generative Design\cite{terzidis2003expressive}\cite{Maeda:2001:DN:559503}.
-	Using Generative Design enables them to easily create variants of their designs by changing a small sets of parameters. 
+	By using Generative Design, they can easily create variants of their designs by changing a small sets of parameters. 
 	Those parameters are used by the computer to run the algorithm to generate an ``instance'' of their designs. \cite{Santos20144}
 
 	There are several integrated programming environments that make it easier to program for Generative Design. 
 	%\footnote{In case of Generative Design it is a necessity to have a dedicated programming environment as architects may not be willing to program if it is too hard, too unknown.
 	%After all, their work is not developing software, they will only program if it is a easier alternative for designing a building.}
 	First, many CAD software packages used by architects have support for Generative Design provided by a plug-in or a set of plug-ins.
-	In these software packages Generative Design isn't the main way to model.
-	Second, there are standalone programming environments like Processing\cite{reas2007processing} or Rosetta\cite{de2012modern}; the first is a programming environment for the visual arts and the second is an environment thought specifically for Generative Design that aims to separate the design from the CAD its results are ``displayed'' in. 
+	In these software packages Generative Design is not the main way to model.
+	Second, there are standalone programming environments like Processing\cite{reas2007processing} or Rosetta\cite{de2012modern}; the first is a programming environment for the visual arts and the second is an environment thought specifically for Generative Design. 
 	As they come from textual programming community, these don't provide direct manipulation as a primary tool.
 
 	Although these integrated programming environments already enable architects to do Generative Design there is still room for improvement.
@@ -179,7 +177,9 @@
 	All they want is accessible programming languages and environments.
 
 	%TODO: Rephrase the following paragraph since the well established tools were introduced earlier.
-	There are many well established tools that architects use to translate their ideas; if we're going to come up with a solution that can rival them then it must be as easy to try out as possible; and be able to integrate with them.
+	There are many well established tools that architects use to translate their ideas; 
+	if we're going to come up with a solution that can rival them then it must be as easy to try out as possible; 
+	and be able to integrate with them.
 	%Should I say how it integrates with them? Which is by offering the possibility of producing effects on their current tools, more specifically the CADs they use.
 
 	Summing up, the result of this project should:
@@ -379,9 +379,10 @@
 	IPython is a notepad-like environment directed towards providing better, more straightforward scientific computing. \emph{It makes me remember Mathematica's notebooks.} As its name suggests, IPython's main programming language is Python. 
 	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, Julia. \footnote{More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}
 
+	\textbf{
 	IPython was described as a better command line shell.
 	When using an IPython notebook -> richer output versus command line interfaces.
-	Literate computing
+	Literate computing}
 
 	\begin{figure}
 		\centering
