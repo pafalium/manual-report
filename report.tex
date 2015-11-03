@@ -226,6 +226,265 @@
 	Designers and visual artists use Processing and its IDE, the PDE, to program for their projects.
 	Others can use IPython to document and inform their experiments by using Python's many libraries.
 	All of these provide inspiration for an IDE for Generative Design.
+	
+	%Domain-specific IDEs.
+	\subsection{Impromptu\cite{sorensen2005impromptu}\cite{sorensen2010programming}}
+	Impromptu is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
+	
+	%What is live-performance?
+	In the case of Impromptu, live performance takes place as live programming the algorithms that produce the sounds of the music.
+	
+	%What does it provide to support live-performance?
+	To produce live programming Impromptu brings together four components: an audio synthesizer, a real-time scheduling engine, a Scheme interpreter and an \ac{ide}. 
+	The first three components make up the runtime environment while the last provides an interface to it. 
+	
+	%Describe live programming experience of impromptu.
+	The usage of Impromptu revolves around using its \ac{ide} to send code to the Scheme interpreter. 
+	The code can schedule audio to be played later, schedule functions to run later, define or redefine functions and ``variables''. 
+	One can use Impromptu to incrementally build an algorithm that produces music. 
+	He writes small parts of the algorithm, sends them to the interpreter and then uses those parts to build bigger parts. 
+	If not satisfied with a part, he can change its code and send it again to the interpreter.
+	
+	%Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
+	%Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
+	%Maybe include link to live performance video.
+	\subsection{IPython\cite{PER-GRA:2007}}
+	IPython is a notepad-like environment directed towards providing better, more straightforward scientific computing. \emph{It makes me remember Mathematica's notebooks.} As its name suggests, IPython's main programming language is Python. 
+	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, Julia. \footnote{More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}
+	
+	\textbf{
+		IPython was described as a better command line shell.
+		When using an IPython notebook -> richer output versus command line interfaces.
+		Literate computing}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/ipython_notebook}
+		\caption{An IPython notebook with rich text, mathematical notation, source code and results from executing such code.}
+		\label{fig:ipython:notebook}
+	\end{figure}
+	
+	One trend in its community, one that is supported by IPython notebooks, is to make results in publications more reproducible. 
+	Instead of publishing a PDF or making a blog post the authors write whole publications as IPython notebooks which then are shared and thus allow everyone to run their source code. 
+	Having access to a working copy of the notebook, one can also experiment with it to better understand it, form own conclusions or find errors.
+	
+	Since it aims to be ``A tool for managing the entire lifecycle of a scientific idea''\footnote{Quoting Fernando Perez in his Scipy 2012 Keynote.}, it also provides parallel computation primitives.
+	
+	%IPython architecture
+	IPython was decomposed into ``execution kernels'', a communication protocol and several front-ends. 
+	As each type of component has a defined interface it is possible to implement new specialized components (a new frontend or a new execution kernel) that will integrate with those already implemented.
+	
+	%Why is it important? I can't imagine designers using it.
+	The style of producing notebooks in IPython is one that mixes programming, writing and exploring. 
+	This style is also part of a designer's processes. 
+	Like a scientist, the designer also has to do exploration of ideas (design ideas in his case), reach conclusions (crystallized designs) and share his work with others (fellow designers, clients, friends, blog readers). 
+	IPython notebooks, more generally notebooks, are natural tools for exploration.
+	IPython notebooks don't provide domain specific functionality for architecture.
+	
+	%Domain-specific IDEs for graphics, games, 3d modeling and Generative Design.
+	\subsection{Processing\cite{reas2007processing}}
+	Processing is a programming language and a development environment aimed at ``promoting software literacy in the visual arts and visual literacy within technology''.\footnote{www.processing.org} 
+	It has an heavy focus on encouraging interaction between its users and so has attracted a big community.\textsuperscript{citation needed}
+	
+	Processing makes it easy to start writing programs that produce visual output. 
+	The only step required to start using it is the download and installation of one of its releases. 
+	After installation one can start the \ac{pde} and start writing a new program, or a \emph{sketch} as it is referred within Processing. 
+	Its website also provides a set of tutorials to help users learn how to use it.
+	
+	Being aimed at producing visual output and given its success by the size of its community, it makes sense to analyze it.
+	
+	We start by analyzing its programming language, then move to its development environment and finish by evaluating it against \emph{our learnable programming principles}.
+	
+	%\subsubsubsection{Processing's programming language}
+	Processing's programming language aims to provide Java-style programming while making it easy to quickly write functioning programs. 
+	
+	Every program written in Processing is called a \emph{sketch}. 
+	All \emph{sketches} are stored in a \emph{sketchbook}.
+	
+	A \emph{sketchbook} has a set of resources, such as images or videos, that can be used by \emph{sketches} that are stored in it.
+	
+	A \emph{sketch} is a list of instructions to draw something. 
+	Some examples of instructions are drawing a shape, like a rectangle, changing the colors used for drawing lines or filling shapes, and changing the color of the background.
+	
+	To simplify the \emph{sketch}, named functions can be defined to group instructions. 
+	These functions can then be used as instructions throughout the rest of the \emph{sketch}.
+	
+	A \emph{sketch} can be a static sketch or a dynamic sketch. 
+	A static sketch produces a static image while a dynamic sketch produces a series of images. 
+	A dynamic sketch includes at least a list instructions of what to do to draw each image; it can also include instructions of what to do to respond to input from the viewer of the \emph{sketch}.
+	
+	\begin{lstlisting}[caption={A simple Processing sketch},label={lst:simple:processing},language=Java]
+	//Hello mouse.
+	void setup() {
+	size(400, 400);
+	stroke(255);
+	background(192, 64, 0);
+	}
+	
+	void draw() {
+	line(150, 25, mouseX, mouseY);
+	}
+	\end{lstlisting}
+	
+	The code in \ref{lst:simple:processing} shows a simple \emph{sketch} with the typical \emph{sketch} structure. 
+	The \emph{sketch} draws a white line from one point to the mouse's position. 
+	It defines the function ``setup'' and  ``draw'' that specify how to setup for drawing and specify how to draw each image. 
+	The ``setup'' is run once when the sketch is started and ``draw'' is repeatedly run afterwards.
+	
+	%\subsubsubsection{Processing's programming environment}
+	The \ac{pde} is shown in figure \ref{fig:proc:dev:env}. 
+	It is a code editor dedicated to writing Processing \emph{sketches}. 
+	It supports common tasks performed while writing Processing them such as running the currently opened \emph{sketch}, adding/creating resources to the \emph{sketchbook} or exporting \emph{sketches} as executables for several platforms. 
+	It also enables the use of multiple files to structure the \emph{sketch's} code.
+	
+	The \ac{pde} only aims to be an introductory environment for programming. 
+	It doesn't replace an advanced software development environment.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/proc_dev_env}
+		\caption{On the left: The \ac{pde} displaying an example \emph{sketch} while it is being run. On the right: The drawing window to which the \emph{sketch's} instructions are applied.}
+		\label{fig:proc:dev:env}
+	\end{figure} 
+	
+	%\subsection{Processing vs Programming for Everyone}
+	%This is a comparison with Java. It can be seen as a limitation.
+	Looking at the code in \ref{lst:simple:processing} also reveals the language's resemblance with Java. 
+	The same code fragment in Java declares two methods named ``setup'' and ``draw'' that return nothing; both methods belong to whatever class they happen to be inside of; and both have a list of statements to be executed sequentially when they are invoked. 
+	Processing's instructions, functions and sketches map to Java's statements, methods and classes.
+	%Classes inside sketches are mapped into inner classes.
+	
+	%Describe what the language and the environment lack to improve the programming experience for its users and uses (arts). 
+	%Describe how it is just a quick start package for graphics programming in Java. 
+	%Describe how the environment not only lacks a debugger but also doesn't give proper error messages when something fails and doesn't provide other ways to follow the program execution.
+	%Describe how the environment fails to be a better environment than those used in industry software production (like Eclipse).
+	%Describe how its users are required to look for documentation when programming.
+	%Describe how little feedback the environment provides. E.g. he has to run the sketch to see if it compiles and runs as he expects. This blocks creation by reaction.
+	%Describe how trying to hide Java doesn't make it a better language for learning or producing art. For doing more advanced things, Processing still requires the programmer to know Java; why not learn Java straight away? Processing tries to hide Java's metaphors, its objects; bad idea. (Scala does a better job, I suppose)
+
+\subsection{DesignScript\cite{aish2012designscript}}
+	%TODO collections can be used everywhere one thing can be used
+	%TODO handling collections (replication guides, etc)
+	DesignScript is a programming language that was designed to suite the needs of architecture related design and engineering.
+	
+	%DesignScript programming paradigms
+	DesignScript uses concepts from multiple programming paradigms like object-oriented, functional and associative programming. 
+	Entities have properties that can be either data or functions like in object-oriented languages; functions' most important role is to take some input and produce some output without producing side-effects like in functional languages; and dependencies among variables are retained like in associative languages.
+	
+	It supports both imperative (following instructions step-by-step) and associative (propagating changes in a dependency graph) control flows. 
+	The programmer can choose to have portions of the code following one type of control flow and other portions following the other.
+	
+	%DesignScript primitives
+	Being a domain-specific language for architecture, DesignScript includes not only primitives to make building 3d models but also operations from the rest of the architecture process such as energy related analysis and architectural elements (like creating or editing \ac{bim} families).
+	\emph{It may be better to provide a list of example primitives and operations.}
+	
+	Having modeling primitives close to those normally used in architecture software applications and combining several programming paradigms allows the designer to draw from knowledge about architecture modeling while empowering him to express the processes in which those primitives are used.
+	
+	%DesignScript editor(s)
+	Editing DesignScript programs can be done either by writing or by creating a graph. 
+	The graph is a more natural representation of the dependency graph among the variables of the program when the associative paradigm is being used; it can also be viewed as a data-flow graph. 
+	The written representation of DesignScript is a sequence of statements that specify the relationship between a variable and other variables; defining functions, using the imperative paradigm and reassigning variables is also possible; features that are less encouraged by a graph.
+	
+	DesignScript is used in several environments. 
+	These include a textual editor in Autodesk AutoCAD (Figure \ref{fig:ds:autocad}), a dedicated graph editor called DesignScript Studio (Figure \ref{fig:ds:dsstudio}) and later Dynamo (Figure \ref{fig:ds:dynamo}). 
+	Both DesignScript Studio and Dynamo use graph based program editing.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/ds_autocad}
+		\caption{A DesignScript program being edited in a special text editor inside AutoCAD. This text editor provides auto-complete and a debugger.}
+		\label{fig:ds:autocad}
+	\end{figure} 
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/ds_dsstudio}
+		\caption{A DesignScript program as a graph in DesignScript Studio. Each node can display a preview of its results. To the bottom left corner is a preview of the whole program results and a folded library tab. The library tab contains everything that can be used in the program.}
+		\label{fig:ds:dsstudio}
+	\end{figure} 
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/ds_dynamo}
+		\caption{Another DesignScript program as a graph in Dynamo. Like in DesignScript Studio a preview of the result of the program is displayed. A contrast is that there is only one preview ``canvas''; the preview from selected nodes is highlighted.}
+		\label{fig:ds:dynamo}
+	\end{figure} 
+	
+	Debugging DesignScript programs depends on the environment being used. 
+	The textual environment allowed to follow the execution of the program step-by-step while also supporting watches and breakpoints. 
+	The graph based environments allow highlighting and listing results of each node. 
+	Both the textual and the graph based environments provide a preview of the execution of programs.
+	
+	%Editing a DesignScript program is usually done in its dedicated development environment. DesignScript development environment provides auto-complete and debugging capabilities both of which are common features among programming environments.
+	
+	%DesignScript history
+	DesignScript was later used as the scripting language of DynamoBIM, integrated with Autodesk Revit, where programs are edited as data-flow graphs. 
+	DesignScript was also integrated into Autodesk AutoCAD. 
+	A standalone node-based DesignScript editor was also made, it was called DesignScript Studio.
+	
+	%DesignScript problems
+	There are some problems that should be pointed out:
+	\begin{itemize}
+		\item What happens when there are circular dependencies? They can generate infinite loops. 
+		It's not clear if it is possible for this to happen.
+		\item As with other programming languages being edited using nodes, there is always the risk that programs will become big enough that managing the layout of the graph gets in the way of adding new functionality. 
+		\item There is little information on how runtime errors are handled. 
+		To my knowledge, the locations where they occur is highlighted and the execution is stopped.
+	\end{itemize}
+	
+	
+	%It is a multiple paradigm language supporting both imperative and associative programming. At any given point in a DesignSript program, the execution is either being controlled imperatively(following instructions step-by-step) or associatively(propagating changes in a dependency graph). It also uses object-oriented concepts; entities are objects with properties and methods; each object has it's own properties and methods;
+	%
+	%One way DesignScript tries to succeed is to integrate various ways of modeling into the design process. These various ways of modeling are direct-manipulation mode present in any 3d modeling application, the associative mode present in many visual programming environments and the 
+
+\subsection{Rosetta}
+	Rosetta is a platform for Generative Design.
+	It grew from the desire to give the freedom to designers using the Generative Design to write their programs using the programming language they want and to easily switch where it takes effect.
+	
+	Its authors argue that most environments for Generative Design, developed for a specific CAD, don't provide portability of programs developed inside them.
+	They also argue that visual programming languages, based on data-flow graphs, don't provide good abstraction mechanisms; programs on such languages are therefore hard to understand and modify.
+	
+	It is also stated that general purpose programming languages, like C, C++, Java and C\#, don't provide domain-specific abstractions from Generative Design and so they are inadequate.
+	
+	A survey of the most used GD systems showed that the most popular TPLs for GD, like AutoLisp, RhinoScript, and GDL, are old, provide little domain-specific features and make it difficult to define them.
+	It also showed that VPLs for GD, like Grasshopper and GenerativeComponents, enforce a very restricted programming paradigm and programs scale poorly with size and complexity, making them suitable only for small throwaway prototypes. 
+	It also showed that CAD applications, being based on direct user interaction and imposing their own programming environments and languages, lock their users to the application's product family and make it difficult to achieve correctness, performance and portability.
+	
+	The design principles followed by Rosetta are:
+	\begin{itemize}
+		\item portability (program independence from CAD applications) (enabling reuse of programs across different CAD application communities)
+		\item parametric elements (don't require designers to manually transform parametric elements into geometric shapes CADs understand)
+		\item functional operations (operations don't consume their arguments) (don't leak CAD implementation details into Generative Design languages)
+		\item dimension independent operations (uniform, predictable treatment of shapes of different dimensions)
+		\item algebra of sets (shapes as point sets in three dimensional sets) (support for operations on sets)
+		\item algebraic equivalences (to handle support discrepancies of set operations across CADs and for optimization)
+		\item traceability (between the parts of the program and their results)
+		\item immediate feedback (to changes made to the program and its input)
+	\end{itemize}
+	
+	A modern programming environment for Generative Design should:
+	\begin{itemize}
+		\item be pedagogic
+		\item provide domain-specific features
+		\item provide multiple Programming Languages
+		\item provide multiple CAD applications
+	\end{itemize}
+	
+	Generative Design needs:
+	\begin{itemize}
+		\item Portability
+		\item Mathematical and geometric strictness
+		\item Correlation between programs and models
+		\item Multiple paradigms and techniques
+		\item Modern and pedagogic system
+	\end{itemize}
+	
+	It enables this by providing several ``frontend'' programming languages and several ``backends'' which take the results of the program. 
+	The programs written in a ``frontend'' language are compiled into an intermediate language which them translates its semantics to the selected ``backend''.
+	
+	Some ``frontends'' supported by Rosetta are AutoLisp, Javascript, Racket and Python; some of the supported ``backends'' include Autodesk AutoCAD, Autodesk Revit, Sketchup, Rhinoceros 3D, TikZ and OpenGL.
+	
+	Rosetta has been extensively used for teaching programming to architecture students at \ac{ist}. 
 
 \subsection{Moving to the Web}
 	Web browsers didn't start as feature-rich and performant as they are now.
@@ -353,265 +612,6 @@
 
 	The environment needs to help understand the meaning of the parts of the program; understand the way the program execution evolves; understand the way the state evolves; assemble parts together; and create new parts from existing ones.
 	It should make these things easy to do, after all these can be done by the programmer alone if he is willing to.
-
-%Domain-specific IDEs.
-\subsection{Impromptu\cite{sorensen2005impromptu}\cite{sorensen2010programming}}
-	Impromptu is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
-
-	%What is live-performance?
-	In the case of Impromptu, live performance takes place as live programming the algorithms that produce the sounds of the music.
-
-	%What does it provide to support live-performance?
-	To produce live programming Impromptu brings together four components: an audio synthesizer, a real-time scheduling engine, a Scheme interpreter and an \ac{ide}. 
-	The first three components make up the runtime environment while the last provides an interface to it. 
-
-	%Describe live programming experience of impromptu.
-	The usage of Impromptu revolves around using its \ac{ide} to send code to the Scheme interpreter. 
-	The code can schedule audio to be played later, schedule functions to run later, define or redefine functions and ``variables''. 
-	One can use Impromptu to incrementally build an algorithm that produces music. 
-	He writes small parts of the algorithm, sends them to the interpreter and then uses those parts to build bigger parts. 
-	If not satisfied with a part, he can change its code and send it again to the interpreter.
-
-	%Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
-	%Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
-	%Maybe include link to live performance video.
-\subsection{IPython\cite{PER-GRA:2007}}
-	IPython is a notepad-like environment directed towards providing better, more straightforward scientific computing. \emph{It makes me remember Mathematica's notebooks.} As its name suggests, IPython's main programming language is Python. 
-	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, Julia. \footnote{More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}
-
-	\textbf{
-	IPython was described as a better command line shell.
-	When using an IPython notebook -> richer output versus command line interfaces.
-	Literate computing}
-
-	\begin{figure}
-		\centering
-		\includegraphics[width=1.0\textwidth]{img/ipython_notebook}
-			\caption{An IPython notebook with rich text, mathematical notation, source code and results from executing such code.}
-		\label{fig:ipython:notebook}
-	\end{figure}
-
-	One trend in its community, one that is supported by IPython notebooks, is to make results in publications more reproducible. 
-	Instead of publishing a PDF or making a blog post the authors write whole publications as IPython notebooks which then are shared and thus allow everyone to run their source code. 
-	Having access to a working copy of the notebook, one can also experiment with it to better understand it, form own conclusions or find errors.
-
-	Since it aims to be ``A tool for managing the entire lifecycle of a scientific idea''\footnote{Quoting Fernando Perez in his Scipy 2012 Keynote.}, it also provides parallel computation primitives.
-
-	%IPython architecture
-	IPython was decomposed into ``execution kernels'', a communication protocol and several front-ends. 
-	As each type of component has a defined interface it is possible to implement new specialized components (a new frontend or a new execution kernel) that will integrate with those already implemented.
-
-	%Why is it important? I can't imagine designers using it.
-	The style of producing notebooks in IPython is one that mixes programming, writing and exploring. 
-	This style is also part of a designer's processes. 
-	Like a scientist, the designer also has to do exploration of ideas (design ideas in his case), reach conclusions (crystallized designs) and share his work with others (fellow designers, clients, friends, blog readers). 
-	IPython notebooks, more generally notebooks, are natural tools for exploration.
-	IPython notebooks don't provide domain specific functionality for architecture.
-
-%Domain-specific IDEs for graphics, games, 3d modeling and Generative Design.
-\subsection{Processing\cite{reas2007processing}}
-	Processing is a programming language and a development environment aimed at ``promoting software literacy in the visual arts and visual literacy within technology''.\footnote{www.processing.org} 
-	It has an heavy focus on encouraging interaction between its users and so has attracted a big community.\textsuperscript{citation needed}
-
-	Processing makes it easy to start writing programs that produce visual output. 
-	The only step required to start using it is the download and installation of one of its releases. 
-	After installation one can start the \ac{pde} and start writing a new program, or a \emph{sketch} as it is referred within Processing. 
-	Its website also provides a set of tutorials to help users learn how to use it.
-
-	Being aimed at producing visual output and given its success by the size of its community, it makes sense to analyze it.
-
-	We start by analyzing its programming language, then move to its development environment and finish by evaluating it against \emph{our learnable programming principles}.
-
-	%\subsubsubsection{Processing's programming language}
-	Processing's programming language aims to provide Java-style programming while making it easy to quickly write functioning programs. 
-
-	Every program written in Processing is called a \emph{sketch}. 
-	All \emph{sketches} are stored in a \emph{sketchbook}.
-
-	A \emph{sketchbook} has a set of resources, such as images or videos, that can be used by \emph{sketches} that are stored in it.
-
-	A \emph{sketch} is a list of instructions to draw something. 
-	Some examples of instructions are drawing a shape, like a rectangle, changing the colors used for drawing lines or filling shapes, and changing the color of the background.
-
-	To simplify the \emph{sketch}, named functions can be defined to group instructions. 
-	These functions can then be used as instructions throughout the rest of the \emph{sketch}.
-
-	A \emph{sketch} can be a static sketch or a dynamic sketch. 
-	A static sketch produces a static image while a dynamic sketch produces a series of images. 
-	A dynamic sketch includes at least a list instructions of what to do to draw each image; it can also include instructions of what to do to respond to input from the viewer of the \emph{sketch}.
-
-	\begin{lstlisting}[caption={A simple Processing sketch},label={lst:simple:processing},language=Java]
-	//Hello mouse.
-	void setup() {
-	    size(400, 400);
-	    stroke(255);
-	    background(192, 64, 0);
-	}
-	 
-	void draw() {
-	    line(150, 25, mouseX, mouseY);
-	}
-	\end{lstlisting}
-
-	The code in \ref{lst:simple:processing} shows a simple \emph{sketch} with the typical \emph{sketch} structure. 
-	The \emph{sketch} draws a white line from one point to the mouse's position. 
-	It defines the function ``setup'' and  ``draw'' that specify how to setup for drawing and specify how to draw each image. 
-	The ``setup'' is run once when the sketch is started and ``draw'' is repeatedly run afterwards.
-
-	%\subsubsubsection{Processing's programming environment}
-	The \ac{pde} is shown in figure \ref{fig:proc:dev:env}. 
-	It is a code editor dedicated to writing Processing \emph{sketches}. 
-	It supports common tasks performed while writing Processing them such as running the currently opened \emph{sketch}, adding/creating resources to the \emph{sketchbook} or exporting \emph{sketches} as executables for several platforms. 
-	It also enables the use of multiple files to structure the \emph{sketch's} code.
-
-	The \ac{pde} only aims to be an introductory environment for programming. 
-	It doesn't replace an advanced software development environment.
-
-	\begin{figure}
-	  \centering
-	  \includegraphics[width=1.0\textwidth]{img/proc_dev_env}
-	    \caption{On the left: The \ac{pde} displaying an example \emph{sketch} while it is being run. On the right: The drawing window to which the \emph{sketch's} instructions are applied.}
-	  \label{fig:proc:dev:env}
-	\end{figure} 
-
-	%\subsection{Processing vs Programming for Everyone}
-	%This is a comparison with Java. It can be seen as a limitation.
-	Looking at the code in \ref{lst:simple:processing} also reveals the language's resemblance with Java. 
-	The same code fragment in Java declares two methods named ``setup'' and ``draw'' that return nothing; both methods belong to whatever class they happen to be inside of; and both have a list of statements to be executed sequentially when they are invoked. 
-	Processing's instructions, functions and sketches map to Java's statements, methods and classes.
-	%Classes inside sketches are mapped into inner classes.
-
-	%Describe what the language and the environment lack to improve the programming experience for its users and uses (arts). 
-		%Describe how it is just a quick start package for graphics programming in Java. 
-		%Describe how the environment not only lacks a debugger but also doesn't give proper error messages when something fails and doesn't provide other ways to follow the program execution.
-	%Describe how the environment fails to be a better environment than those used in industry software production (like Eclipse).
-		%Describe how its users are required to look for documentation when programming.
-		%Describe how little feedback the environment provides. E.g. he has to run the sketch to see if it compiles and runs as he expects. This blocks creation by reaction.
-		%Describe how trying to hide Java doesn't make it a better language for learning or producing art. For doing more advanced things, Processing still requires the programmer to know Java; why not learn Java straight away? Processing tries to hide Java's metaphors, its objects; bad idea. (Scala does a better job, I suppose)
-
-\subsection{DesignScript\cite{aish2012designscript}}
-	%TODO collections can be used everywhere one thing can be used
-	%TODO handling collections (replication guides, etc)
-	DesignScript is a programming language that was designed to suite the needs of architecture related design and engineering.
-
-	%DesignScript programming paradigms
-	DesignScript uses concepts from multiple programming paradigms like object-oriented, functional and associative programming. 
-	Entities have properties that can be either data or functions like in object-oriented languages; functions' most important role is to take some input and produce some output without producing side-effects like in functional languages; and dependencies among variables are retained like in associative languages.
-
-	It supports both imperative (following instructions step-by-step) and associative (propagating changes in a dependency graph) control flows. 
-	The programmer can choose to have portions of the code following one type of control flow and other portions following the other.
-
-	%DesignScript primitives
-	Being a domain-specific language for architecture, DesignScript includes not only primitives to make building 3d models but also operations from the rest of the architecture process such as energy related analysis and architectural elements (like creating or editing \ac{bim} families).
-	\emph{It may be better to provide a list of example primitives and operations.}
-
-	Having modeling primitives close to those normally used in architecture software applications and combining several programming paradigms allows the designer to draw from knowledge about architecture modeling while empowering him to express the processes in which those primitives are used.
-
-	%DesignScript editor(s)
-	Editing DesignScript programs can be done either by writing or by creating a graph. 
-	The graph is a more natural representation of the dependency graph among the variables of the program when the associative paradigm is being used; it can also be viewed as a data-flow graph. 
-	The written representation of DesignScript is a sequence of statements that specify the relationship between a variable and other variables; defining functions, using the imperative paradigm and reassigning variables is also possible; features that are less encouraged by a graph.
-
-	DesignScript is used in several environments. 
-	These include a textual editor in Autodesk AutoCAD (Figure \ref{fig:ds:autocad}), a dedicated graph editor called DesignScript Studio (Figure \ref{fig:ds:dsstudio}) and later Dynamo (Figure \ref{fig:ds:dynamo}). 
-	Both DesignScript Studio and Dynamo use graph based program editing.
-
-	\begin{figure}
-	  \centering
-	  \includegraphics[width=1.0\textwidth]{img/ds_autocad}
-	    \caption{A DesignScript program being edited in a special text editor inside AutoCAD. This text editor provides auto-complete and a debugger.}
-	  \label{fig:ds:autocad}
-	\end{figure} 
-
-	\begin{figure}
-	  \centering
-	  \includegraphics[width=1.0\textwidth]{img/ds_dsstudio}
-	    \caption{A DesignScript program as a graph in DesignScript Studio. Each node can display a preview of its results. To the bottom left corner is a preview of the whole program results and a folded library tab. The library tab contains everything that can be used in the program.}
-	  \label{fig:ds:dsstudio}
-	\end{figure} 
-
-	\begin{figure}
-	  \centering
-	  \includegraphics[width=1.0\textwidth]{img/ds_dynamo}
-	    \caption{Another DesignScript program as a graph in Dynamo. Like in DesignScript Studio a preview of the result of the program is displayed. A contrast is that there is only one preview ``canvas''; the preview from selected nodes is highlighted.}
-	  \label{fig:ds:dynamo}
-	\end{figure} 
-
-	Debugging DesignScript programs depends on the environment being used. 
-	The textual environment allowed to follow the execution of the program step-by-step while also supporting watches and breakpoints. 
-	The graph based environments allow highlighting and listing results of each node. 
-	Both the textual and the graph based environments provide a preview of the execution of programs.
-
-	%Editing a DesignScript program is usually done in its dedicated development environment. DesignScript development environment provides auto-complete and debugging capabilities both of which are common features among programming environments.
-	
-	%DesignScript history
-	DesignScript was later used as the scripting language of DynamoBIM, integrated with Autodesk Revit, where programs are edited as data-flow graphs. 
-	DesignScript was also integrated into Autodesk AutoCAD. 
-	A standalone node-based DesignScript editor was also made, it was called DesignScript Studio.
-
-	%DesignScript problems
-	There are some problems that should be pointed out:
-	\begin{itemize}
-		\item What happens when there are circular dependencies? They can generate infinite loops. 
-		It's not clear if it is possible for this to happen.
-		\item As with other programming languages being edited using nodes, there is always the risk that programs will become big enough that managing the layout of the graph gets in the way of adding new functionality. 
-		\item There is little information on how runtime errors are handled. 
-		To my knowledge, the locations where they occur is highlighted and the execution is stopped.
-	\end{itemize}
-
-
-	%It is a multiple paradigm language supporting both imperative and associative programming. At any given point in a DesignSript program, the execution is either being controlled imperatively(following instructions step-by-step) or associatively(propagating changes in a dependency graph). It also uses object-oriented concepts; entities are objects with properties and methods; each object has it's own properties and methods;
-	%
-	%One way DesignScript tries to succeed is to integrate various ways of modeling into the design process. These various ways of modeling are direct-manipulation mode present in any 3d modeling application, the associative mode present in many visual programming environments and the 
-
-\subsection{Rosetta}
-	Rosetta is a platform for Generative Design.
-	It grew from the desire to give the freedom to designers using the Generative Design to write their programs using the programming language they want and to easily switch where it takes effect.
-
-	Its authors argue that most environments for Generative Design, developed for a specific CAD, don't provide portability of programs developed inside them.
-	They also argue that visual programming languages, based on data-flow graphs, don't provide good abstraction mechanisms; programs on such languages are therefore hard to understand and modify.
-
-	It is also stated that general purpose programming languages, like C, C++, Java and C\#, don't provide domain-specific abstractions from Generative Design and so they are inadequate.
-
-	A survey of the most used GD systems showed that the most popular TPLs for GD, like AutoLisp, RhinoScript, and GDL, are old, provide little domain-specific features and make it difficult to define them.
-	It also showed that VPLs for GD, like Grasshopper and GenerativeComponents, enforce a very restricted programming paradigm and programs scale poorly with size and complexity, making them suitable only for small throwaway prototypes. 
-	It also showed that CAD applications, being based on direct user interaction and imposing their own programming environments and languages, lock their users to the application's product family and make it difficult to achieve correctness, performance and portability.
-
-	The design principles followed by Rosetta are:
-	\begin{itemize}
-		\item portability (program independence from CAD applications) (enabling reuse of programs across different CAD application communities)
-		\item parametric elements (don't require designers to manually transform parametric elements into geometric shapes CADs understand)
-		\item functional operations (operations don't consume their arguments) (don't leak CAD implementation details into Generative Design languages)
-		\item dimension independent operations (uniform, predictable treatment of shapes of different dimensions)
-		\item algebra of sets (shapes as point sets in three dimensional sets) (support for operations on sets)
-		\item algebraic equivalences (to handle support discrepancies of set operations across CADs and for optimization)
-		\item traceability (between the parts of the program and their results)
-		\item immediate feedback (to changes made to the program and its input)
-	\end{itemize}
-
-	A modern programming environment for Generative Design should:
-	\begin{itemize}
-		\item be pedagogic
-		\item provide domain-specific features
-		\item provide multiple Programming Languages
-		\item provide multiple CAD applications
-	\end{itemize}
-
-	Generative Design needs:
-	\begin{itemize}
-		\item Portability
-		\item Mathematical and geometric strictness
-		\item Correlation between programs and models
-		\item Multiple paradigms and techniques
-		\item Modern and pedagogic system
-	\end{itemize}
-
-	It enables this by providing several ``frontend'' programming languages and several ``backends'' which take the results of the program. 
-	The programs written in a ``frontend'' language are compiled into an intermediate language which them translates its semantics to the selected ``backend''.
-
-	Some ``frontends'' supported by Rosetta are AutoLisp, Javascript, Racket and Python; some of the supported ``backends'' include Autodesk AutoCAD, Autodesk Revit, Sketchup, Rhinoceros 3D, TikZ and OpenGL.
-
-	Rosetta has been extensively used for teaching programming to architecture students at \ac{ist}. 
 
 \subsection{OpenJSCAD}
 	OpenJSCAD is a javascript application (or rather, an application based on web technologies).
