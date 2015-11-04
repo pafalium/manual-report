@@ -56,7 +56,7 @@
 	Still, programming requires a lot of discipline from the programmer.
 	He has to write the program in a programming language.
 	He has to store it following a specific file structure.
-	If he uses a specific API, he will have to have its documentation at hand for quick reference.
+	If he uses a specific \ac{api}, he will have to have its documentation at hand for quick reference.
 	He may have to compile the program in order to run it.
 	The compiler might detect syntactical errors that have to be corrected.
 	If he notices that the program is misbehaving, he will have find the reason which normally involves starting the program and attaching a debugger to it.
@@ -78,8 +78,8 @@
 	
 	%Go from software production IDEs to architecture specific IDEs.
 	%Software development -> dynamic languages -> domain specific -> architecture specific
-	There are IDEs dedicated to supporting software production, like Eclipse and Visual Studio.
-	These IDEs support many programming languages and provide many tools needed for software production.
+	There are \ac{ide}s dedicated to supporting software production, like Eclipse and Visual Studio.
+	These \ac{ide}s support many programming languages and provide many tools needed for software production.
 	They help programmers navigate big software projects and let them configure complex building processes.
 	They also help them organizing the work on their software projects.
 	They are good for large scale software projects but not as good for smaller projects such as making prototypes or merging programs together.
@@ -89,8 +89,8 @@
 
 	%IDEs dynamic languages.
 	Integrated programming environments for dynamic programming languages can go a step further in shortening the cycle between editing the program and seeing its effects.
-	They allow programmers to quickly run their programs and provide ways to interact with them like REPLs.
-	The programmer can now write his program and then start experimenting with it in the REPL, quickly testing some areas or quickly sketching new portions of the program.
+	They allow programmers to quickly run their programs and provide ways to interact with them like \ac{repl}s.
+	The programmer can now write his program and then start experimenting with it in the \ac{repl}, quickly testing some areas or quickly sketching new portions of the program.
 	All this without having to write a separate program and compiling both.
 	Dynamic languages also play a part.
 	They start to blur the line between programming language and programming environment.
@@ -126,7 +126,7 @@
 	There are several integrated programming environments that make it easier to program for Generative Design. 
 	%\footnote{In case of Generative Design it is a necessity to have a dedicated programming environment as architects may not be willing to program if it is too hard, too unknown.
 	%After all, their work is not developing software, they will only program if it is a easier alternative for designing a building.}
-	First, many CAD software packages used by architects have support for Generative Design provided by a plug-in or a set of plug-ins.
+	First, many \ac{cad} software packages used by architects have support for Generative Design provided by a plug-in or a set of plug-ins.
 	In these software packages Generative Design is not the main way to model.
 	Second, there are standalone programming environments like Processing\cite{reas2007processing} or Rosetta\cite{de2012modern}; the first is a programming environment for the visual arts and the second is an environment thought specifically for Generative Design. 
 	As they come from textual programming community, these don't provide direct manipulation as a primary tool.
@@ -197,31 +197,31 @@
 	Things like generating diagrams from source code (like class hierarchy diagrams and control-flow diagrams), source code versioning and management, testing frameworks, issue trackers, refactoring, debuggers and code editors with syntax highlighting and code completion are some of them.
 
 	Using all of these tools in conjunction can be a difficult task since the developer needs to know the specific way to use each of them, both separately and together.
-	This difficulty gave rise to IDEs that integrate all of these tools in one user interface.
-	The IDE connects all the tools together so that developers don't have to worry about it and thus decreases the difficulty of using them all.
-	Overall IDEs decrease the complexity of developing large software.
+	This difficulty gave rise to \ac{ide}s that integrate all of these tools in one user interface.
+	The \ac{ide} connects all the tools together so that developers don't have to worry about it and thus decreases the difficulty of using them all.
+	Overall \ac{ide}s decrease the complexity of developing large software.
 
-	What IDEs don't do is to decrease the amount of knowledge that their users have to have about software development.
+	What \ac{ide}s don't do is to decrease the amount of knowledge that their users have to have about software development.
 	The tools they provide are still the same that developers would use.
 	This is a problem that new software developers face and have to cope with.
-	Even with this problem, the gain software developers get when they know how to use IDEs outweighs it and so IDEs are popular among software developers.
+	Even with this problem, the gain software developers get when they know how to use \ac{ide}s outweighs it and so \ac{ide}s are popular among software developers.
 
-	Bringing more success to software developers makes one wonder whether IDEs can do the same to people programming for other purposes, such as Generative Design.
-	It is not as simple as showing the IDE to those people and hoping they will know how to use it.
-	Most probably they will just be scared off by the sheer amount of buttons and menus the IDE has.
+	Bringing more success to software developers makes one wonder whether \ac{ide}s can do the same to people programming for other purposes, such as Generative Design.
+	It is not as simple as showing the \ac{ide} to those people and hoping they will know how to use it.
+	Most probably they will just be scared off by the sheer amount of buttons and menus the \ac{ide} has.
 	The amount of time they would need to learn how to use it would be too much and they would rather do something else.
 	All those buttons and menus would act as a barrier, a barrier that would obscure the power hidden behind it.
-	They need different IDEs with tools adapted to their concerns.
-	The tools these IDEs should provide don't have to touch so many software development concerns and instead should focus on the specific needs of the area.
+	They need different \ac{ide}s with tools adapted to their concerns.
+	The tools these \ac{ide}s should provide don't have to touch so many software development concerns and instead should focus on the specific needs of the area.
 
 	In Generative Design, for example, displaying 3D models is an absolute necessity as 3D models are a great part of the final product of a program.
-	IDEs like Dynamo and Rosetta already provide this and have gone further.
-	Developing a new IDE for Generative Design requires us to study such IDEs.
-	It is also helpful to look at other IDEs that focus on concerns of people from yet other areas that still share a certain lack of knowledge of software development.
-	Tech savvy musicians use computers in live performances as their instruments and take advantage of their programmability through IDEs like Impromptu.
-	Designers and visual artists use Processing and its IDE, the PDE, to program for their projects.
+	\ac{ide}s like Dynamo and Rosetta already provide this and have gone further.
+	Developing a new \ac{ide} for Generative Design requires us to study such \ac{ide}s.
+	It is also helpful to look at other \ac{ide}s that focus on concerns of people from yet other areas that still share a certain lack of knowledge of software development.
+	Tech savvy musicians use computers in live performances as their instruments and take advantage of their programmability through \ac{ide}s like Impromptu.
+	Designers and visual artists use Processing and its \ac{ide}, the \ac{pde}, to program for their projects.
 	Others can use IPython to document and inform their experiments by using Python's many libraries.
-	All of these provide inspiration for an IDE for Generative Design.
+	All of these provide inspiration for an \ac{ide} for Generative Design.
 	
 %Domain-specific IDEs.
 \subsubsection{Impromptu\cite{sorensen2005impromptu}\cite{sorensen2010programming}}
@@ -435,36 +435,36 @@
 	%One way DesignScript tries to succeed is to integrate various ways of modeling into the design process. These various ways of modeling are direct-manipulation mode present in any 3d modeling application, the associative mode present in many visual programming environments and the 
 
 \subsubsection{Rosetta\cite{de2012modern}}
-	Rosetta is a platform for Generative Design.
+	Rosetta is a platform for \ac{gd}.
 	It grew from the desire to give the freedom to designers using the Generative Design to write their programs using the programming language they want and to easily switch where it takes effect.
 	
-	Its authors argue that most environments for Generative Design, developed for a specific CAD, don't provide portability of programs developed inside them.
+	Its authors argue that most environments for Generative Design, developed for a specific \ac{cad}, don't provide portability of programs developed inside them.
 	They also argue that visual programming languages, based on data-flow graphs, don't provide good abstraction mechanisms; programs on such languages are therefore hard to understand and modify.
 	
 	It is also stated that general purpose programming languages, like C, C++, Java and C\#, don't provide domain-specific abstractions from Generative Design and so they are inadequate.
 	
-	A survey of the most used GD systems showed that the most popular TPLs for GD, like AutoLisp, RhinoScript, and GDL, are old, provide little domain-specific features and make it difficult to define them.
-	It also showed that VPLs for GD, like Grasshopper and GenerativeComponents, enforce a very restricted programming paradigm and programs scale poorly with size and complexity, making them suitable only for small throwaway prototypes. 
-	It also showed that CAD applications, being based on direct user interaction and imposing their own programming environments and languages, lock their users to the application's product family and make it difficult to achieve correctness, performance and portability.
+	A survey of the most used \ac{gd} systems showed that the most popular \ac{tpl}s for \ac{gd}, like AutoLisp, RhinoScript, and GDL, are old, provide little domain-specific features and make it difficult to define them.
+	It also showed that \ac{vpl}s for \ac{gd}, like Grasshopper and GenerativeComponents, enforce a very restricted programming paradigm and programs scale poorly with size and complexity, making them suitable only for small throwaway prototypes. 
+	It also showed that \ac{cad} applications, being based on direct user interaction and imposing their own programming environments and languages, lock their users to the application's product family and make it difficult to achieve correctness, performance and portability.
 	
 	The design principles followed by Rosetta are:
 	\begin{itemize}
-		\item portability (program independence from CAD applications) (enabling reuse of programs across different CAD application communities)
-		\item parametric elements (don't require designers to manually transform parametric elements into geometric shapes CADs understand)
-		\item functional operations (operations don't consume their arguments) (don't leak CAD implementation details into Generative Design languages)
+		\item portability (program independence from \ac{cad} applications) (enabling reuse of programs across different \ac{cad} application communities)
+		\item parametric elements (don't require designers to manually transform parametric elements into geometric shapes \ac{cad}s understand)
+		\item functional operations (operations don't consume their arguments) (don't leak \ac{cad} implementation details into \ac{gd} languages)
 		\item dimension independent operations (uniform, predictable treatment of shapes of different dimensions)
 		\item algebra of sets (shapes as point sets in three dimensional sets) (support for operations on sets)
-		\item algebraic equivalences (to handle support discrepancies of set operations across CADs and for optimization)
+		\item algebraic equivalences (to handle support discrepancies of set operations across \ac{cad}s and for optimization)
 		\item traceability (between the parts of the program and their results)
 		\item immediate feedback (to changes made to the program and its input)
 	\end{itemize}
 	
-	A modern programming environment for Generative Design should:
+	A modern programming environment for \ac{gd} should:
 	\begin{itemize}
 		\item be pedagogic
 		\item provide domain-specific features
 		\item provide multiple Programming Languages
-		\item provide multiple CAD applications
+		\item provide multiple \ac{cad} applications
 	\end{itemize}
 	
 	Generative Design needs:
@@ -500,7 +500,7 @@
 \subsection{Moving to the Web}
 	Web browsers didn't start as feature-rich and performant as they are now.
 	They started as hypertext browsers that made it easier to read hypertext.
-	They could display images and text and could jump from page to page by following hyperlinks or following URLs.
+	They could display images and text and could jump from page to page by following hyperlinks or following \ac{url}s.
 	Only with the development of new features and the demand for more performance and features did they slowly get into the shape they are now.
 
 	The number of devices connected to the internet is big enough to say that internet access is almost ubiquitous.
@@ -520,7 +520,7 @@
 
 	And this has caught on.
 	More and more people are replacing their desktop applications with web based ones.
-	Web browsers are effectively replacing OS-level applications.
+	Web browsers are effectively replacing \ac{os}-level applications.
 	And this also comes as an advantage for developers as the browser acts an uniform platform across all different devices they want to develop for.
 
 	It is in this time where web browsers are so capable that it becomes possible to develop a Generative Design IDE for the web.
@@ -529,7 +529,7 @@
 	%How to make IDE for GD?
 	%Let's first look at anything about IDEs.
 
-	Making a browser based integrated development environment for Generative Design poses several challenges.
+	Making a browser based integrated development environment for \ac{gd} poses several challenges.
 	To overcome these challenges we can start by looking at how others have solved similar problems.
 	In our context there are several problems for which we can look for how others solved them.
 	These problems include:
@@ -543,7 +543,7 @@
 	We start by looking at LightTable, a code editor that is implemented on top of web technologies.
 	We then to enumerate some guidelines for making a programming environment.
 	Two domain specific integrated programming environments are presented.
-	Then we progress to integrated programming environments more closely related to graphics followed by those related to CAD and finally those specific to architectural design.
+	Then we progress to integrated programming environments more closely related to graphics followed by those related to \ac{cad} and finally those specific to architectural design.
 
 %Inspiration from anything about IDEs.
 \subsection{LightTable}
@@ -672,7 +672,7 @@
 
 	Debugger Canvas, a Visual Studio plug-in, was developed by the teams behind Code Bubbles and Code Canvas to test their approach in the industry setting. 
 	According to their results, the approach is most suitable for debugging sessions when the code base is big or when the control flow is complex. 
-	It also appeared to be best integrated into professional programmer's tools (IDEs) as a new mode rather than a replacement.
+	It also appeared to be best integrated into professional programmer's tools (\ac{ide}s) as a new mode rather than a replacement.
 
 	\textbf{Since we are aiming at architects we can ``assume'' that the kind of interface provided by these works is ``of some use''}.
 
@@ -680,7 +680,7 @@
 	Code Bubbles picks up on the observation that programmers working on a task usually limit the amount of code they see to a working set. 
 	In Code Bubbles, the programmer builds the working set as he explores the code base; the built working set is represented as a set of bubbles.
 	Code Canvas shows an entire software project as a 2D map.
-	The map can reflect the file structure of the project and/or its semantic structure (e.g. namespaces, classes, methods in OOP projects). Several layers can be overlaid on top of the map such as search results or call stack visualization. The map can be filtered according to some criteria while maintaining positions relative to the entire, unfiltered, map.
+	The map can reflect the file structure of the project and/or its semantic structure (e.g. namespaces, classes, methods in \ac{oop} projects). Several layers can be overlaid on top of the map such as search results or call stack visualization. The map can be filtered according to some criteria while maintaining positions relative to the entire, unfiltered, map.
 
 	%Why are these important for my project?
 	They both provide a metaphor where navigation around a programs code is intuitive. 
@@ -732,11 +732,11 @@
 \subsection{General Solution}
 	Taking into account the aspects described above a temporary version of the architecture of the solution was made.
 	
-	As shown in Figure \ref{fig:gen:sol}, there are three main components, the local program editor, where the programs are edited and executed, the remote repository, which handles persistent storage of programs, and the external execution backend, which is responsible for translating programs to other CAD software.
+	As shown in Figure \ref{fig:gen:sol}, there are three main components, the local program editor, where the programs are edited and executed, the remote repository, which handles persistent storage of programs, and the external execution backend, which is responsible for translating programs to other \ac{cad} software.
 	
 	The local code editor communicates with the remote code repository to ``post'' or ``get'' code from the repository.
 	
-	The local code editor communicates with the CAD execution backend to request the execution of programs and manages their results.
+	The local code editor communicates with the \ac{cad} execution backend to request the execution of programs and manages their results.
 	
 	\begin{figure}
 		\centering
@@ -746,19 +746,19 @@
 	\end{figure}	
 	
 	\paragraph{Remote code repository}
-		This component will be responsible for keeping programs from the users of the IDE.
+		This component will be responsible for keeping programs from the users of the \ac{ide}.
 		It is to be installed on a server connected to the internet to allow users to access their programs as long as they have a connection to the internet.
 		It will also support version control and will have a model of programs it stores.
 		
 	\paragraph{Local code editor}
 		The local code editor is the component that actually interacts with the users of the system.
 		It will be responsible of allowing the user to view and edit programs as well as viewing their results.
-		By communicating with the CAD execution backend, it will also allow users to run programs inside external CAD software.
+		By communicating with the \ac{cad} execution backend, it will also allow users to run programs inside external \ac{cad} software.
 		
 	\paragraph{CAD execution backend}
-		The CAD execution backend will be responsible for executing programs inside the CAD software they are connected to.
+		The CAD execution backend will be responsible for executing programs inside the \ac{cad} software they are connected to.
 		This component will have to be installed in the user's computer.
-		It will use Rosetta\cite{de2012modern} to actually connect to CADs and will translate the received programs into Rosetta primitives.
+		It will use Rosetta\cite{de2012modern} to actually connect to \ac{cad}s and will translate the received programs into Rosetta primitives.
 
 %----------------------------------------------------
 %NAVevaluation
@@ -786,7 +786,7 @@
 	%Maybe this section should state how the overall project execution will be evaluated which of course includes how to evaluate what it will produce.
 
 \subsection{Proof-of-concept Prototype}
-	A small prototype has been assembled to test the concept of a Generative Design environment in the browser.
+	A small prototype has been assembled to test the concept of a \ac{gd} environment in the browser.
 
 	Like shown in figure \ref{fig:proto:3d:p:editor}, this prototype consists in a web page with a text editor and a 3D view.
 
@@ -837,10 +837,17 @@
 %----------------------------------------------------
 %NAVacronyms
 \begin{acronym}
+	\acro{api}[API]{application programming interface}
 	\acro{ide}[IDE]{integrated development environment}
 	\acro{pde}[PDE]{Processing development environment}
 	\acro{bot}[BOT]{Behavior-Object-Tag}
 	\acro{bim}[BIM]{Building Information Model}
+	\acro{ist}[IST]{Instituto Superior Técnico}
+	\acro{gd}[GD]{Generative Design}
+	\acro{repl}[REPL]{Read-Eval-Print-Loop}
+	\acro{cad}[CAD]{Computer-Aided-Design}
+	\acro{tpl}[TPL]{Textual Programming Language}
+	\acro{vpl}[VPL]{Visual Programming Language}
 \end{acronym}
 
 % 
