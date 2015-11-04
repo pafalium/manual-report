@@ -734,12 +734,31 @@
 	
 	As shown in Figure \ref{fig:gen:sol}, there are three main components, the local program editor, where the programs are edited and executed, the remote repository, which handles persistent storage of programs, and the external execution backend, which is responsible for translating programs to other CAD software.
 	
+	The local code editor communicates with the remote code repository to ``post'' or ``get'' code from the repository.
+	
+	The local code editor communicates with the CAD execution backend to request the execution of programs and manages their results.
+	
 	\begin{figure}
 		\centering
 		\includegraphics[width=1.0\textwidth]{img/gen_sol}
-		\caption{A diagram of the architecture of the solution.}
+		\caption{A diagram of the architecture of the solution. Rectangles represent components and lines represent communication between components.}
 		\label{fig:gen:sol}
-	\end{figure}
+	\end{figure}	
+	
+	\paragraph{Remote code repository}
+		This component will be responsible for keeping programs from the users of the IDE.
+		It is to be installed on a server connected to the internet to allow users to access their programs as long as they have a connection to the internet.
+		It will also support version control and will have a model of programs it stores.
+		
+	\paragraph{Local code editor}
+		The local code editor is the component that actually interacts with the users of the system.
+		It will be responsible of allowing the user to view and edit programs as well as viewing their results.
+		By communicating with the CAD execution backend, it will also allow users to run programs inside external CAD software.
+		
+	\paragraph{CAD execution backend}
+		The CAD execution backend will be responsible for executing programs inside the CAD software they are connected to.
+		This component will have to be installed in the user's computer.
+		It will use Rosetta\cite{de2012modern} to actually connect to CADs and will translate the received programs into Rosetta primitives.
 
 %----------------------------------------------------
 %NAVevaluation
