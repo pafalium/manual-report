@@ -729,6 +729,18 @@
 
 	%It should enumerate the various aspects of concern to be considered while making the solution. It may as well provide some alternatives to some aspects that are already known. These alternatives can refer to products already available.
 
+\subsection{General Solution}
+	Taking into account the aspects described above a temporary version of the architecture of the solution was made.
+	
+	As shown in Figure \ref{fig:gen:sol}, there are three main components, the local program editor, where the programs are edited and executed, the remote repository, which handles persistent storage of programs, and the external execution backend, which is responsible for translating programs to other CAD software.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/gen_sol}
+		\caption{A diagram of the architecture of the solution.}
+		\label{fig:gen:sol}
+	\end{figure}
+
 %----------------------------------------------------
 %NAVevaluation
 \section{Evaluation (1/2pgs)}
