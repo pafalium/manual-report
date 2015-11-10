@@ -628,46 +628,6 @@
 	Its possible to round the edges of polyhedral primitives.
 	Non-polyhedral primitives are always converted to polyhedral approximations.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%Code bubbles could go into "Inspiration from anything about IDEs".
-\subsection{Code Bubbles, Code Canvas and Debugger Canvas}
-	Code Bubbles and Code Canvas approach displaying and editing program code in a different way from the usual text-based code editors.
-	Instead of showing a programming project as a set of tabs (containing code) and a set of windows (containing tools), they show everything using ``bubbles'' on a virtual 2D surface. 
-	The surface view can then be panned and zoomed in and out for navigation.
-
-	As the user explores the code base -- following variables, finding declarations -- new bubbles are created containing the code they want to see.
-
-	Bubbles are laid out in the surface so that they aren't on top of each other. 
-	The user can drag the bubbles to change the layout to one that better suits his current needs (e.g. to better reflect the structure of the code or call follow).
-
-	Bubbles can contain code, notes written by the user, debugging information (call stack, local variables' values). 
-	They can be grouped together and moved like so when necessary.
-
-	After a usage session, the virtual surface can be saved for later resuming the session or for reference.
-
-	Debugger Canvas, a Visual Studio plug-in, was developed by the teams behind Code Bubbles and Code Canvas to test their approach in the industry setting. 
-	According to their results, the approach is most suitable for debugging sessions when the code base is big or when the control flow is complex. 
-	It also appeared to be best integrated into professional programmer's tools (\ac{ide}s) as a new mode rather than a replacement.
-
-	\textbf{Since we are aiming at architects we can ``assume'' that the kind of interface provided by these works is ``of some use''}.
-
-	%Distintion between Code Bubbles and Code Canvas
-	Code Bubbles picks up on the observation that programmers working on a task usually limit the amount of code they see to a working set. 
-	In Code Bubbles, the programmer builds the working set as he explores the code base; the built working set is represented as a set of bubbles.
-	Code Canvas shows an entire software project as a 2D map.
-	The map can reflect the file structure of the project and/or its semantic structure (e.g. namespaces, classes, methods in \ac{oop} projects). Several layers can be overlaid on top of the map such as search results or call stack visualization. The map can be filtered according to some criteria while maintaining positions relative to the entire, unfiltered, map.
-
-	%Why are these important for my project?
-	They both provide a metaphor where navigation around a programs code is intuitive. 
-	Having intuitive navigation enhances exploration; such exploration makes it easier to understand the code and to have new ideas (the parts bucket is on the floor as in Bret Victor's create by reacting).
-
-	%Is the debugging from these of any use to architects?
-	The debugging capabilities from these can help architects (or learners) to explore code from others, be it example code, parts of other projects or even code they wrote but have already forgot how it worked.
-
 %----------------------------------------------------
 %NAVarchitecture
 \section{Architecture (2/3pgs)}
