@@ -632,32 +632,39 @@
 %NAVarchitecture
 \section{Architecture (2/3pgs)}
 
-\subsection{Aspects of the solution}
-	One aspect that has to be set is \textbf{what is the language} used to make the programs.
+\subsection{Decomposing the problem}
+	To better understand how to solve the problem of helping to make programs for GD, we decomposed it into several parts that can be more or less thought about and solved separately.
+	
+	\paragraph{The programming language}
+	One part that has to be set is \textbf{what is the language} used to make the programs.
 	This aspect involves things like what control flow mechanisms are available, whether side-effects exist or not, and what is the syntax for each component of the language.
 	It deals with how the language works.
 
-	Another aspect is the \textbf{amount of help, documentation or reaction} the system has to support the user while he is thinking about and making the program.
+	\paragraph{Help when writing and reading}
+	Another part is the \textbf{amount of help, documentation or reaction} the system has to support the user while he is thinking about and making the program.
 	In the light of \cite{victor2012learnable}, the system should have good answers to the questions proposed on what is a good programming environment.
 
-	Another aspect is the \textbf{implementation of primitives} of the language like constructive solid geometry, lofts and sweeps. 
-	Many others are needed to make the system useful. 
-	Being useful is more important than the number of primitives implemented. 
-	This leads to other concern, these primitives have to have some correspondence to primitives available in other tools used in architecture.
+	\paragraph{Primitive operations}
+	Another part is the \textbf{implementation of primitives} of the language like constructive solid geometry, lofts, sweeps and many other 3D modeling operations.
+	Without them architects won't be able to make any Generative Design.
+	One thing to keep in mind is that these operations have to be translated into other tools used in architecture.
 
-	Other aspect is how the system lets users \textbf{document the programs} they made. 
-	It is characteristic to forget how some part of the program works and so documentation is needed (or anything that is faster to understand than to interpret the program directly). 
+	\paragraph{Documenting programs}
+	Other part is how the system lets users \textbf{document their programs}. 
+	It is normal to forget how some part of the program works and so documentation is needed (or anything that is faster to understand than interpreting the program manually).
 	The system could support having drawings juxtaposed to the program in addition to previews of results like those present in DesignScript Studio, Dynamo and Grasshopper. 
 	It will also be useful to look at how current programming languages are usually documented. 
 
-	Other aspect is the \textbf{persistence of programs} between usage sessions and in cases the system crashes.
+	\paragraph{Persisting programs}
+	Other part is the \textbf{persistence of programs} between usage sessions, in cases the system crashes or even across multiple devices.
 	In case of persistence between sessions, the user can close the browser or the tab at any moment, it would be useful to keep record of the current program in some way. 
 	In case of persistence in case of crashes, if the user program itself crashed the page it should not be executed immediately to allow its retrieval or edition (as it could crash the page again). 
-	With persistence of programs also comes the need for holding versions of the same program. 
+	With persistence of programs also comes the need for holding different versions of the same program. 
 	These become useful as the user makes changes and wants to look back in time for some reason. 
 	Maybe because he did not anticipate the need for something he deleted or maybe because he wants to see how his programs have progressed.
 
-	Other aspect is the way programs can be \textbf{applied to other modeling applications} used by architects.
+	\paragraph{Passing results on}
+	Other part is the way programs can be \textbf{applied to other modeling applications} used by architects.
 	Without a way to do this the system is rendered useless as it can hardly be integrated into the architect's normal process. 
 	Rosetta uses the concept of selecting a backend, a specific interface to a modeling application. 
 	After selecting a backend for a modeling application, Rosetta connects to it and results of running the program are passed to the application. 
