@@ -697,15 +697,15 @@
 		\label{fig:gen:sol}
 	\end{figure}	
 	
-	\paragraph{Remote code repository}
-		This component will be responsible for keeping programs from the users of the \ac{ide}.
-		It is to be installed on a server connected to the internet to allow users to access their programs as long as they have a connection to the internet.
-		It will also support version control and will have a model of programs it stores.
-		
 	\paragraph{Local code editor}
 		The local code editor is the component that actually interacts with the users of the system.
 		It will be responsible of allowing the user to view and edit programs as well as viewing their results.
 		By communicating with the \ac{cad} execution backend, it will also allow users to run programs inside external \ac{cad} software.
+	
+	\paragraph{Remote code repository}
+		This component will be responsible for keeping programs from the users of the \ac{ide}.
+		It is to be installed on a server connected to the internet to allow users to access their programs as long as they have a connection to the internet.
+		It will also support version control and will have a model of programs it stores.
 		
 	\paragraph{CAD execution backend}
 		The CAD execution backend will be responsible for executing programs inside the \ac{cad} software they are connected to.
