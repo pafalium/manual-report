@@ -25,7 +25,7 @@
 \begin{document}
 \title{A Browser-based Interactive Development Environment for Generative Design}
 
-\subtitle{Your Thesis subtitle}
+%\subtitle{Your Thesis subtitle}
 \author{Pedro Alfaiate, pedro.alfaiate@tecnico.ulisboa.pt}
 \institute{Instituto Superior Técnico}
 
@@ -45,7 +45,7 @@
 %----------------------------------------------------
 %NAVkeywords
 \begin{keywords}
-
+web browser, Generative Design, integrated development environment, javascript
 \end{keywords}
 %----------------------------------------------------
 %NAVintroduction
@@ -254,11 +254,6 @@
 	IPython is a notepad-like environment (Figure \ref{fig:ipython:notebook}) directed towards providing better, more straightforward scientific computing. \emph{It makes me remember Mathematica's notebooks.} As its name suggests, IPython's main programming language is Python. 
 	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, Julia. \footnote{More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}
 	
-	\textbf{
-		IPython was described as a better command line shell.
-		When using an IPython notebook -> richer output versus command line interfaces.
-		Literate computing}
-	
 	\begin{figure}
 		\centering
 		\includegraphics[width=1.0\textwidth]{img/ipython_notebook}
@@ -286,7 +281,7 @@
 %Domain-specific IDEs for graphics, games, 3d modeling and Generative Design.
 \subsubsection{Processing\cite{reas2007processing}}
 	Processing is a programming language and a development environment aimed at ``promoting software literacy in the visual arts and visual literacy within technology''.\footnote{Quoting www.processing.org, 9/Nov/2015.}
-	It has an heavy focus on encouraging interaction between its users and so has attracted a big community.\textsuperscript{citation needed}
+	It has an heavy focus on encouraging interaction between its users and so has attracted a big community.
 	
 	Processing makes it easy to start writing programs that produce visual output. 
 	The only step required to start using it is the download and installation of one of its releases. 
@@ -596,16 +591,17 @@
 	The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on it. \emph{Tags} are groups of \emph{Behaviors}. 
 	When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
 
-\subsubsection{OpenJSCAD}
+\subsubsection{OpenJSCAD\cite{openjscad2015site}}
 	OpenJSCAD is a javascript application (or rather, an application based on web technologies).
 	It aims to provide the same functionality as OpenSCAD but using javascript as a base for its language. 
 	Most of OpenSCAD functionality is implemented in OpenJSCAD. 
-	Like OpenSCAD, OpenJSCAD focuses on creating 3D models for 3D printing (e.g. they are solid).
+	Like OpenSCAD, it focuses on creating 3D models for 3D printing (e.g. they are solid).
 
 	To actually model in OpenJSCAD the user has to write a program in either OpenJSCAD's language or OpenSCAD's language.
 
 	It is also possible to import 3D models from files commonly used for 3D printing like STL and AMF files.
-	Upon import, the file's content is converted to a jscad program that produces the same model. (I don't see the point of doing this.)
+	Upon import, the file's content is converted to a jscad program that produces the same model. 
+	%(I don't see the point of doing this.)
 
 	OpenJSCAD provides two user interfaces, one command-line interface and one graphical user interface as a web page.
 	The first can be used for batch processing (running programs) while the second integrates an editor to edit a program and a 3D view for viewing the results of that program.
@@ -618,7 +614,7 @@
 	A problem that can arise while writing and testing jscad programs is that there is no help on getting the parameters for operations right.
 	It will be frustrating to spend more time than acceptable trying to understand why a certain operation is not producing the desired result. 
 	This problem is even more relevant when most of the operations have multiple optional parameters and parameters that replace others. 
-	Currently the only help available is OpenJSCAD's documentation (a tour on its functionality), the online community around OpenJSCAD and, since javascript is the core of the language, javascript development tools.
+	Currently the only help available is OpenJSCAD's documentation (a tour on its functionality), the online community around OpenJSCAD and, since javascript is the core of the language, web browsers' javascript developer tools.
 
 	A problem using function call syntax.
 	It may not provide the flexibility needed for arranging the code in a easily readable manner. 
