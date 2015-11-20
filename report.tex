@@ -84,7 +84,7 @@ web browser, Generative Design, integrated development environment, javascript
 	
 	%Go from software production IDEs to architecture specific IDEs.
 	%Software development -> dynamic languages -> domain specific -> architecture specific
-	There are \ac{ide}s dedicated to supporting software production, like Eclipse and Visual Studio.
+	There are \ac{ide}s dedicated to supporting software production, like Eclipse\cite{eclipse2007eclipse} and Visual Studio\cite{mvs2002mvs}.
 	These \ac{ide}s support many programming languages and provide many tools needed for software production.
 	They help programmers navigate big software projects and let them configure complex building processes.
 	They also help them organizing the work on their software projects.
@@ -124,7 +124,7 @@ web browser, Generative Design, integrated development environment, javascript
 	In their case it requires a direct correspondence between the program and the 3D geometry that it creates.
 	
 	Following the trend of using programming in their work, architects started using programming to generate the 3D models of the buildings they are designing. 
-	They use a process called \ac{gd}\cite{terzidis2003expressive}\cite{Maeda:2001:DN:559503}.
+	They use a process called \ac{gd}\cite{terzidis2003expressive,Maeda:2001:DN:559503}.
 	By using \ac{gd}, they can easily create variants of their designs by changing a small set of parameters. 
 	Those parameters are used by the computer to run the algorithm to generate an ``instance'' of their designs. \cite{Santos20144}
 
@@ -148,7 +148,7 @@ web browser, Generative Design, integrated development environment, javascript
 
 	Web browser applications with heavy use of 3D graphics are now becoming common.
 	There are 3D modeling applications, game editors and procedural 3D modeling applications.
-	\footnote{Some examples are Clara.io, a 3D modeling application, GooCreate, a game engine paired with a game editor, and OpenJSCAD, a procedural 3D modeling language with a browser based program editor.}
+	\footnote{Some examples are Clara.io\cite{houston2013clara}, a 3D modeling application, GooCreate\cite{goocreate2015site}, a game engine paired with a game editor, and OpenJSCAD\cite{openjscad2015site}, a procedural 3D modeling language with a browser based program editor.}
 	These applications tend to be more independent from the details of the machine where they are running.
 	They all share the same platform, the web browser.
 
@@ -374,7 +374,7 @@ web browser, Generative Design, integrated development environment, javascript
 	
 	%DesignScript primitives
 	Being a domain-specific language for architecture, DesignScript includes not only primitives to make building 3d models but also operations from the rest of the architecture process such as energy related analysis and architectural elements (like creating or editing \ac{bim} families).
-	\emph{It may be better to provide a list of example primitives and operations.}
+	%\emph{It may be better to provide a list of example primitives and operations.}
 	
 	Having modeling primitives close to those normally used in architecture software applications and combining several programming paradigms allows the designer to draw from knowledge about architecture modeling while empowering him to express the processes in which those primitives are used.
 	
@@ -541,7 +541,7 @@ web browser, Generative Design, integrated development environment, javascript
 
 	%Why is LightTable relevant?
 	%As of now, LightTable doesn't seem to be fulfilling its potential.
-	LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/}. 
+	LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/ at Nov/2015}. 
 	The metaphor comes from looking at the way work is done in other fields of engineering, where engineers spread all materials relevant to their work over large tables, from tools to reference information. 
 	Instead of displaying the contents of entire files, LightTable divides the code into meaningful units and displays them as small editors spread over the table's surface. 
 	In one of its experimental versions, LightTable also supported displaying running programs in the table. 
@@ -587,7 +587,7 @@ web browser, Generative Design, integrated development environment, javascript
 	\end{figure}
 
 	The main design pattern used in LightTable is the \ac{bot} pattern. 
-	As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. 
+	As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/ at Nov/2015.}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. 
 	The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on it. \emph{Tags} are groups of \emph{Behaviors}. 
 	When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
 
@@ -625,11 +625,11 @@ web browser, Generative Design, integrated development environment, javascript
 	A good thing about being based on javascript is the possibility of using higher order functions for modeling tasks.
 	Examples of this advantage can be found in \textbf{leitao abstract geometry n high order programming}.
 
-	Some functions in OpenJSCAD and their parameters.
-	function parameters result 
-	Each primitive has a lot of options on how to call it.
-	Its possible to round the edges of polyhedral primitives.
-	Non-polyhedral primitives are always converted to polyhedral approximations.
+	%Some functions in OpenJSCAD and their parameters.
+	%function parameters result 
+	%Each primitive has a lot of options on how to call it.
+	%Its possible to round the edges of polyhedral primitives.
+	%Non-polyhedral primitives are always converted to polyhedral approximations.
 
 %----------------------------------------------------
 %NAVarchitecture
