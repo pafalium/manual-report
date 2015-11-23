@@ -675,10 +675,19 @@ void draw() {
 \subsection{General Solution}
 	Taking into account the aspects described above a temporary version of the architecture of the solution was made.
 	
-	As shown in Figure \ref{fig:gen:sol}, there are three main components, the local program editor, where the programs are edited and executed, the remote repository, which handles persistent storage of programs, and the external execution backend, which is responsible for translating programs to other \ac{cad} software.
+	The center of the \ac{ide} is composed by an editing environment, where source code is edited, and a result visualizer, where results of running a program are visualized in 3D.
+	Both of these are hosted within the web browser of the user and like so after the \ac{ide}'s web page is served to the browser it is no longer dependent on external computers.
 	
-	The local code editor and the remote code repository communicate to ``post'' new code to or ``get'' code from the repository.
-	The local code editor communicates with the \ac{cad} execution backend to request the execution of programs and manages their results.
+	As starting ideas for features that will help users understand programs there is highlighting the 3D objects in the resulting scene that were ``affected'' by a part of the program and also letting users change the value of constants in source code using widgets, like sliders, to see their effects on results.
+	
+	Interacting with programs and their results will only be possible if the \ac{ide} can display results or update them fast enough so a great part of our work will be in making sure it is.
+	This may involve compromising the quality of the 3D scene that represents the results to get faster.
+	
+	Since there is no dependency on other machines, supporting program persistence and allowing the results of programs to get to other software are limited to what a web browser can do.
+	Since web browsers allow some local storage to web pages, programs can be persisted there, at least temporarily.
+	On the side of getting results into other software, without communication with the outside we are limited to either using a programming language supported by Rosetta or exporting to a widely supported file format.
+	
+	The editing environment and the result visualizer together with program persistence and result exportation can be visualized in Figure \ref{fig:gen:sol}.
 	
 	\begin{figure}
 		\centering
@@ -686,21 +695,6 @@ void draw() {
 		\caption{A diagram of the architecture of the solution. Rectangles represent components, dashed rectangles represent where components will run and lines represent communication between components.}
 		\label{fig:gen:sol}
 	\end{figure}	
-	
-	\paragraph{Local code editor}
-		The local code editor is the component that actually interacts with the users of the system.
-		It will be responsible of allowing the user to view and edit programs as well as viewing their results.
-		By communicating with the \ac{cad} execution backend, it will also allow users to run programs inside external \ac{cad} software.
-	
-	\paragraph{Remote code repository}
-		This component will be responsible for keeping programs from the users of the \ac{ide}.
-		It is to be installed on a server connected to the internet to allow users to access their programs as long as they have a connection to the internet.
-		It will also support version control and will have a model of programs it stores.
-		
-	\paragraph{CAD execution backend}
-		The CAD execution backend will be responsible for executing programs inside the \ac{cad} software they are connected to.
-		This component will have to be installed in the user's computer.
-		It will use Rosetta\cite{de2012modern} to actually connect to \ac{cad}s and will translate the received programs into Rosetta primitives.
 
 %----------------------------------------------------
 %NAVevaluation
