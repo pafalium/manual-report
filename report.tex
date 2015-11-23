@@ -274,7 +274,7 @@ web browser, Generative Design, integrated development environment, javascript
 	%Why is it important? I can't imagine designers using it.
 	The style of producing notebooks in IPython is one that mixes programming, writing and exploring. 
 	This style is also part of a designer's processes. 
-	Like a scientist, the designer also has to do exploration of ideas (design ideas in his case), reach conclusions (crystallized designs) and share his work with others (fellow designers, clients, friends, blog readers). 
+	Like a scientist, the designer also has to do exploration of ideas (design ideas in his case), reach conclusions (finalized designs) and share his work with others (fellow designers, clients, friends, blog readers). 
 	IPython notebooks, more generally notebooks, are natural tools for exploration.
 	IPython notebooks don't provide domain specific functionality for architecture.
 	
@@ -341,7 +341,7 @@ void draw() {
 	It also enables the use of multiple files to structure the \emph{sketch's} code.
 	
 	The \ac{pde} only aims to be an introductory environment for programming. 
-	It doesn't replace an advanced software development environment.
+	It doesn't replace an advanced software development \ac{ide}.
 	
 	\begin{figure}
 		\centering
@@ -368,7 +368,7 @@ void draw() {
 \subsubsection{DesignScript\cite{aish2012designscript}}
 	%TODO collections can be used everywhere one thing can be used
 	%TODO handling collections (replication guides, etc)
-	DesignScript is a programming language that was designed to suite the needs of architecture related design and engineering.
+	DesignScript is a programming language that was designed to suit the needs of architecture related design and engineering.
 	
 	%DesignScript programming paradigms
 	DesignScript uses concepts from multiple programming paradigms like object-oriented, functional and associative programming. 
@@ -381,7 +381,7 @@ void draw() {
 	Being a domain-specific language for architecture, DesignScript includes not only primitives to make building 3d models but also operations from the rest of the architecture process such as energy related analysis and architectural elements (like creating or editing \ac{bim} families).
 	%\emph{It may be better to provide a list of example primitives and operations.}
 	
-	Having modeling primitives close to those normally used in architecture software applications and combining several programming paradigms allows the designer to draw from knowledge about architecture modeling while empowering him to express the processes in which those primitives are used.
+	Having modeling primitives close to those normally used in architecture software and combining several programming paradigms allows the designer to draw from knowledge about architecture modeling while empowering him to express the processes in which those primitives are used.
 	
 	%DesignScript editor(s)
 	Editing DesignScript programs can be done either by writing or by creating a graph. 
@@ -425,17 +425,6 @@ void draw() {
 	DesignScript was also integrated into Autodesk AutoCAD. 
 	A standalone node-based DesignScript editor was also made, it was called DesignScript Studio.
 	
-	%DesignScript problems
-	There are some problems that should be pointed out:
-	\begin{itemize}
-		\item What happens when there are circular dependencies? They can generate infinite loops. 
-		It's not clear if it is possible for this to happen.
-		\item As with other programming languages being edited using nodes, there is always the risk that programs will become big enough that managing the layout of the graph gets in the way of adding new functionality. 
-		\item There is little information on how runtime errors are handled. 
-		To my knowledge, the locations where they occur is highlighted and the execution is stopped.
-	\end{itemize}
-	
-	
 	%It is a multiple paradigm language supporting both imperative and associative programming. At any given point in a DesignSript program, the execution is either being controlled imperatively(following instructions step-by-step) or associatively(propagating changes in a dependency graph). It also uses object-oriented concepts; entities are objects with properties and methods; each object has it's own properties and methods;
 	%
 	%One way DesignScript tries to succeed is to integrate various ways of modeling into the design process. These various ways of modeling are direct-manipulation mode present in any 3d modeling application, the associative mode present in many visual programming environments and the 
@@ -444,8 +433,8 @@ void draw() {
 	Rosetta is a platform for \ac{gd}.
 	It grew from the desire to give the freedom to designers using the \ac{gd} to write their programs using the programming language they want and to easily switch where it takes effect.
 	
-	Its authors argue that most environments for Generative Design, developed for a specific \ac{cad}, don't provide portability of programs developed inside them.
-	They also argue that visual programming languages, based on data-flow graphs, don't provide good abstraction mechanisms; programs on such languages are therefore hard to understand and modify.
+	Its authors argue that most environments for \ac{gd}, developed for a specific \ac{cad}, don't provide portability of programs developed inside them.
+	They also argue that \ac{vpl}s, based on data-flow graphs, don't provide good abstraction mechanisms; programs on such languages are therefore hard to understand and modify.
 	
 	It is also stated that general purpose programming languages, like C, C++, Java and C\#, don't provide domain-specific abstractions from \ac{gd} and so they are inadequate.
 	
@@ -487,7 +476,7 @@ void draw() {
 	
 	Some ``frontends'' supported by Rosetta are AutoLisp, Javascript, Racket and Python; some of the supported ``backends'' include Autodesk AutoCAD, Autodesk Revit, Sketchup, Rhinoceros 3D, TikZ and OpenGL.
 	
-	Rosetta has been extensively used for teaching programming to architecture students at \ac{ist}. 
+	%Rosetta has been extensively used for teaching programming to architecture students at \ac{ist}. 
 
 \subsubsection{Learnable Programming\cite{victor2012learnable}}
 	Writing a program in a programming language can be difficult even if it was designed to be easy to use. 
@@ -546,7 +535,7 @@ void draw() {
 
 	%Why is LightTable relevant?
 	%As of now, LightTable doesn't seem to be fulfilling its potential.
-	LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/ at Nov/2015}. 
+	LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/ at Nov/2015.}. 
 	The metaphor comes from looking at the way work is done in other fields of engineering, where engineers spread all materials relevant to their work over large tables, from tools to reference information. 
 	Instead of displaying the contents of entire files, LightTable divides the code into meaningful units and displays them as small editors spread over the table's surface. 
 	In one of its experimental versions, LightTable also supported displaying running programs in the table. 
@@ -767,7 +756,7 @@ void draw() {
 
 	The overall feedback from the potential users was positive (they wanted to see it on a real application).
 
-	The prototype is implemented using HTML, Javascript, CSS and two Javascript libraries; the first, Ace\footnote{http://ace.c9.io/}, provides the text editor and the second, THREE.js\footnote{http://threejs.org/}, provides a high-level interface with WebGL rendering.
+	The prototype is implemented using HTML, javascript, CSS and also two javascript libraries; the first, Ace\footnote{http://ace.c9.io/}, provides the text editor and the second, THREE.js\footnote{http://threejs.org/}, provides a high-level interface with WebGL rendering.
 
 	With its naive implementation, the use of the prototype has already made clear one problem: always trying to run a program while it is being changed can lead to poor responsiveness or even permanent lockup of the interface.
 	The usual cause being the increasing complexity of the program or the presence of infinite loops in the program. 
