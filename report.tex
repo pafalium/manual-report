@@ -310,18 +310,23 @@ web browser, Generative Design, integrated development environment, javascript
 	A static sketch produces a static image while a dynamic sketch produces a series of images. 
 	A dynamic sketch includes at least a list instructions of what to do to draw each image; it can also include instructions of what to do to respond to input from the viewer of the \emph{sketch}.
 	
-	\lstset{basicstyle=\ttfamily,breaklines=true}
+	\lstset{ %
+		basicstyle=\tt\small,
+		numbers=left,
+		numberstyle=\tt\small,
+		frame=lines,
+	}
 	\begin{lstlisting}[caption={A simple Processing sketch.},label={lst:simple:processing}]
-	//Hello mouse.
-	void setup() {
-		size(400, 400);
-		stroke(255);
-		background(192, 64, 0);
-	}
-	
-	void draw() {
-		line(150, 25, mouseX, mouseY);
-	}
+//Hello mouse.
+void setup() {
+	size(400, 400);
+	stroke(255);
+	background(192, 64, 0);
+}
+
+void draw() {
+	line(150, 25, mouseX, mouseY);
+}
 	\end{lstlisting}
 	
 	The code in \ref{lst:simple:processing} shows a simple \emph{sketch} with the typical \emph{sketch} structure. 
