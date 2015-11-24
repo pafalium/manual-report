@@ -672,10 +672,10 @@ void draw() {
 
 	%It should enumerate the various aspects of concern to be considered while making the solution. It may as well provide some alternatives to some aspects that are already known. These alternatives can refer to products already available.
 
-\subsection{General Solution}
-	Taking into account the aspects described above a temporary version of the architecture of the solution was made.
+\subsection{General Architecture of the Solution}
+	Taking into account the aspects described above a version of the architecture of the solution was made.
 	
-	The center of the \ac{ide} is composed by an editing environment, where source code is edited, and a result visualizer, where results of running a program are visualized in 3D.
+	The center of the \ac{ide} is composed by an editing environment, where source code is edited, and a visualizer, where results of running a program are visualized in 3D.
 	Both of these are hosted within the web browser of the user and like so after the \ac{ide}'s web page is served to the browser it is no longer dependent on external computers.
 	
 	As starting ideas for features that will help users understand programs there is highlighting the 3D objects in the resulting scene that were ``affected'' by a part of the program and also letting users change the value of constants in source code using widgets, like sliders, to see their effects on results.
@@ -687,7 +687,7 @@ void draw() {
 	Since web browsers allow some local storage to web pages, programs can be persisted there, at least temporarily.
 	On the side of getting results into other software, without communication with the outside we are limited to either using a programming language supported by Rosetta or exporting to a widely supported file format.
 	
-	The editing environment and the result visualizer together with program persistence and result exportation can be visualized in Figure \ref{fig:gen:sol}.
+	The architecture of the editing environment and the visualizer together with program persistence and result exportation can be visualized in Figure \ref{fig:gen:sol}.
 	
 	\begin{figure}
 		\centering
@@ -770,7 +770,7 @@ void draw() {
 		\label{fig:schedule}
 	\end{figure}
 	
-	The editing environment and the result visualizer are the components where must implementation work is since they are the central part of the architecture.
+	The editing environment and the visualizer are the components where must implementation work is since they are the central part of the architecture.
 	The implementation of program persistence and result exportation will be in the background.
 	As these implementation tasks are complex, they need to be further decomposed.
 	
@@ -803,7 +803,7 @@ void draw() {
 	With the need for a different \ac{ide} for people doing \ac{gd} and the possibility of running applications in the browser, it is not only possible to build an \ac{ide} for \ac{gd} in the web browser but it is also advantageous for users.
 	With it, they can quickly open up a web browser on its web page, start to write down their \ac{gd} ideas and immediately run them.
 	
-	To have a working \ac{ide} for \ac{gd} in the browser there need to be at least two components, a source code editor and a results visualizer.
+	To have a working \ac{ide} for \ac{gd} in the browser there need to be at least two components, a source code editor and a visualizer.
 	This way people will be able to make programs and see their results with just a web browser.
 	
 	Special care will have to be taken to make sure that the user experience is good. 
