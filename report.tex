@@ -673,12 +673,19 @@ void draw() {
 	%It should enumerate the various aspects of concern to be considered while making the solution. It may as well provide some alternatives to some aspects that are already known. These alternatives can refer to products already available.
 
 \subsection{General Architecture of the Solution}
-	Taking into account the aspects described above a version of the architecture of the solution was made.
+	%Taking into account the aspects described above a version of the architecture of the solution was made.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=1.0\textwidth]{img/ui_mock}
+		\caption{A mock-up of the user interface. The results of the source code selected in (a) are highlighted (b) in the 3D view of the results. (c) shows sliders can be used to change the value of constants.}
+		\label{fig:ui:mock}
+	\end{figure}
 	
 	The center of the \ac{ide} is composed by an editing environment, where source code is edited, and a visualizer, where results of running a program are visualized in 3D.
 	Both of these are hosted within the web browser of the user and like so after the \ac{ide}'s web page is served to the browser it is no longer dependent on external computers.
 	
-	As starting ideas for features that will help users understand programs there is highlighting the 3D objects in the resulting scene that were ``affected'' by a part of the program and also letting users change the value of constants in source code using widgets, like sliders, to see their effects on results.
+	As starting ideas for features that will help users understand programs there is highlighting the 3D objects in the resulting scene that were ``affected'' by a part of the program (Figure \ref{fig:ui:mock} (a) and (b)) and also letting users change the value of constants in source code using widgets, like sliders, to see their effects on results (Figure \ref{fig:ui:mock} (c)).
 	
 	Interacting with programs and their results will only be possible if the \ac{ide} can display results or update them fast enough so a great part of our work will be in making sure it is.
 	This may involve compromising the quality of the 3D scene that represents the results to get faster.
