@@ -246,6 +246,13 @@ web browser, Generative Design, integrated development environment, javascript
 	He writes small parts of the algorithm, sends them to the interpreter and then uses those parts to build bigger parts. 
 	If not satisfied with a part, he can change its code and send it again to the interpreter.
 	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/impromptu_example}
+		\caption{An running session of Impromptu.}
+		\label{fig:ex:impromptu}
+	\end{figure}
+	
 	%Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
 	%Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
 	%Maybe include link to live performance video.
@@ -256,7 +263,7 @@ web browser, Generative Design, integrated development environment, javascript
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=1.0\textwidth]{img/ipython_notebook}
+		\includegraphics[width=0.8\textwidth]{img/ipython_notebook}
 		\caption{An IPython notebook with rich text, mathematical notation, source code and results from executing such code.}
 		\label{fig:ipython:notebook}
 	\end{figure}
@@ -316,7 +323,7 @@ web browser, Generative Design, integrated development environment, javascript
 		numberstyle=\tt\small,
 		frame=lines,
 	}
-	\begin{lstlisting}[caption={A simple Processing sketch.},label={lst:simple:processing}]
+	\begin{lstlisting}[caption={A simple Processing sketch.},label={lst:simple:processing},float]
 //Hello mouse.
 void setup() {
 	size(400, 400);
@@ -394,21 +401,21 @@ void draw() {
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=1.0\textwidth]{img/ds_autocad}
+		\includegraphics[width=0.8\textwidth]{img/ds_autocad}
 		\caption{A DesignScript program being edited in a special text editor inside AutoCAD. This text editor provides auto-complete and a debugger.}
 		\label{fig:ds:autocad}
 	\end{figure} 
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=1.0\textwidth]{img/ds_dsstudio}
+		\includegraphics[width=0.8\textwidth]{img/ds_dsstudio}
 		\caption{A DesignScript program as a graph in DesignScript Studio. Each node can display a preview of its results. To the bottom left corner is a preview of the whole program results and a folded library tab. The library tab contains everything that can be used in the program.}
 		\label{fig:ds:dsstudio}
 	\end{figure} 
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=1.0\textwidth]{img/ds_dynamo}
+		\includegraphics[width=0.8\textwidth]{img/ds_dynamo}
 		\caption{Another DesignScript program as a graph in Dynamo. Like in DesignScript Studio a preview of the result of the program is displayed. A contrast is that there is only one preview ``canvas''; the preview from selected nodes is highlighted.}
 		\label{fig:ds:dynamo}
 	\end{figure} 
@@ -432,6 +439,13 @@ void draw() {
 \subsubsection{Rosetta\cite{de2012modern}}
 	Rosetta is a platform for \ac{gd}.
 	It grew from the desire to give the freedom to designers using the \ac{gd} to write their programs using the programming language they want and to easily switch where it takes effect.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{img/rosetta_js_autocad}
+		\caption{A Rosetta program in DrRacket (left) and AutoCAD displaying its results (right). The program is written in javascript.}
+		\label{fig:rosetta:ex}
+	\end{figure} 
 	
 	Its authors argue that most environments for \ac{gd}, developed for a specific \ac{cad}, don't provide portability of programs developed inside them.
 	They also argue that \ac{vpl}s, based on data-flow graphs, don't provide good abstraction mechanisms; programs on such languages are therefore hard to understand and modify.
