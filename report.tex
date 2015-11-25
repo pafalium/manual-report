@@ -126,7 +126,7 @@ web browser, Generative Design, integrated development environment, javascript
 	Following the trend of using programming in their work, architects started using programming to generate the 3D models of the buildings they are designing. 
 	They use a process called \ac{gd}\cite{terzidis2003expressive,Maeda:2001:DN:559503}.
 	By using \ac{gd}, they can easily create variants of their designs by changing a small set of parameters. 
-	Those parameters are used by the computer to run the algorithm to generate an ``instance'' of their designs. \cite{Santos20144}
+	Those parameters are used by the computer to run the algorithm to generate an ``instance'' of their designs\cite{Santos20144}. 
 
 	There are several \ac{ide}s that make it easier to program for \ac{gd}. 
 	%\footnote{In case of Generative Design it is a necessity to have a dedicated programming environment as architects may not be willing to program if it is too hard, too unknown.
@@ -177,7 +177,6 @@ web browser, Generative Design, integrated development environment, javascript
 	They only need an environment where they can write their program and see the results. 
 	All they want is accessible programming languages and environments.
 
-	%TODO: Rephrase the following paragraph since the well established tools were introduced earlier.
 	There are many well established tools that architects use to translate their ideas; 
 	if we're going to come up with a solution that can rival them then \textbf{it must be as easy to try out as possible}; 
 	and \textbf{be able to integrate with them}.
@@ -230,14 +229,14 @@ web browser, Generative Design, integrated development environment, javascript
 	
 %Domain-specific IDEs.
 \subsubsection{Impromptu}
-	Impromptu\cite{sorensen2005impromptu,sorensen2010programming} is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
+	Impromptu\cite{sorensen2005impromptu,sorensen2010programming}(Figure \ref{fig:ex:impromptu}) is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
 	
 	%What is live-performance?
 	In the case of Impromptu, live performance takes place as live programming the algorithms that produce the sounds of the music.
 	
 	%What does it provide to support live-performance?
 	To produce live programming Impromptu brings together four components: an audio synthesizer, a real-time scheduling engine, a Scheme interpreter and an \ac{ide}. 
-	The first three components make up the runtime environment while the last provides an interface to it. 
+	The first three components make up the runtime environment while the last provides an interface to it\cite{sorensen2005impromptu}. 
 	
 	%Describe live programming experience of impromptu.
 	The usage of Impromptu revolves around using its \ac{ide} to send code to the Scheme interpreter. 
@@ -249,7 +248,7 @@ web browser, Generative Design, integrated development environment, javascript
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.8\textwidth]{img/impromptu_example}
-		\caption{An running session of Impromptu.}
+		\caption{A running session of Impromptu.}
 		\label{fig:ex:impromptu}
 	\end{figure}
 	
@@ -373,8 +372,8 @@ void draw() {
 	%Describe how trying to hide Java doesn't make it a better language for learning or producing art. For doing more advanced things, Processing still requires the programmer to know Java; why not learn Java straight away? Processing tries to hide Java's metaphors, its objects; bad idea. (Scala does a better job, I suppose)
 
 \subsubsection{DesignScript}
-	%TODO collections can be used everywhere one thing can be used
-	%TODO handling collections (replication guides, etc)
+	%collections can be used everywhere one thing can be used
+	%handling collections (replication guides, etc)
 	DesignScript\cite{aish2012designscript} is a programming language that was designed to suit the needs of architecture related design and engineering.
 	
 	%DesignScript programming paradigms
@@ -437,8 +436,8 @@ void draw() {
 	%One way DesignScript tries to succeed is to integrate various ways of modeling into the design process. These various ways of modeling are direct-manipulation mode present in any 3d modeling application, the associative mode present in many visual programming environments and the 
 
 \subsubsection{Rosetta}
-	Rosetta\cite{de2012modern} is a platform for \ac{gd}.
-	It grew from the desire to give the freedom to designers using the \ac{gd} to write their programs using the programming language they want and to easily switch where it takes effect.
+	Rosetta\cite{de2012modern,lopes2011portable}, shown in Figure \ref{fig:rosetta:ex}, is a platform for \ac{gd}.
+	It grew from the desire to give the freedom to architects using the \ac{gd} to write their programs using the programming language they want and to easily switch where it takes effect.
 	
 	\begin{figure}
 		\centering
@@ -452,20 +451,20 @@ void draw() {
 	
 	It is also stated that general purpose programming languages, like C, C++, Java and C\#, don't provide domain-specific abstractions from \ac{gd} and so they are inadequate.
 	
-	A survey of the most used \ac{gd} systems showed that the most popular \ac{tpl}s for \ac{gd}, like AutoLisp, RhinoScript, and GDL, are old, provide little domain-specific features and make it difficult to define them.
+	A survey of the most used \ac{gd} systems showed that the most popular \ac{tpl}s for \ac{gd}, like AutoLisp, RhinoScript, and GDL, are old, provide little domain-specific features and make it difficult to define them\cite{de2012modern,leitao2012programming}.
 	It also showed that \ac{vpl}s for \ac{gd}, like Grasshopper and GenerativeComponents, enforce a very restricted programming paradigm and programs scale poorly with size and complexity, making them suitable only for small throwaway prototypes. 
 	It also showed that \ac{cad} applications, being based on direct user interaction and imposing their own programming environments and languages, lock their users to the application's product family and make it difficult to achieve correctness, performance and portability.
 	
 	The design principles followed by Rosetta are:
 	\begin{itemize}
-		\item portability (program independence from \ac{cad} applications) (enabling reuse of programs across different \ac{cad} application communities)
-		\item parametric elements (don't require designers to manually transform parametric elements into geometric shapes \ac{cad}s understand)
-		\item functional operations (operations don't consume their arguments) (don't leak \ac{cad} implementation details into \ac{gd} languages)
-		\item dimension independent operations (uniform, predictable treatment of shapes of different dimensions)
-		\item algebra of sets (shapes as point sets in three dimensional sets) (support for operations on sets)
-		\item algebraic equivalences (to handle support discrepancies of set operations across \ac{cad}s and for optimization)
-		\item traceability (between the parts of the program and their results)
-		\item immediate feedback (to changes made to the program and its input)
+		\item portability: program independence from \ac{cad} applications; enabling reuse of programs across different \ac{cad} application communities.
+		\item parametric elements: don't require designers to manually transform parametric elements into geometric shapes \ac{cad}s understand.
+		\item functional operations: operations don't consume their arguments; don't leak \ac{cad} implementation details into \ac{gd} languages.
+		\item dimension independent operations: uniform, predictable treatment of shapes of different dimensions.
+		\item algebra of sets: shapes as point sets in three dimensional sets; support for operations on sets.
+		\item algebraic equivalences: to handle support discrepancies of set operations across \ac{cad}s and for optimization.
+		\item traceability: between the parts of the program and their results.
+		\item immediate feedback: to changes made to the program and its input.
 	\end{itemize}
 	
 	A modern programming environment for \ac{gd} should:
@@ -486,7 +485,7 @@ void draw() {
 	\end{itemize}
 	
 	It enables this by providing several ``frontend'' programming languages and several ``backends'' which take the results of the program. 
-	The programs written in a ``frontend'' language are compiled into an intermediate language which then translates its semantics to the selected ``backend''.
+	The programs written in a ``frontend'' language are compiled into an intermediate language which then translates its semantics to the selected ``backend''\cite{lopes2011portable}.
 	
 	Some ``frontends'' supported by Rosetta are AutoLisp, Javascript, Racket and Python; some of the supported ``backends'' include Autodesk AutoCAD, Autodesk Revit, Sketchup, Rhinoceros 3D, TikZ and OpenGL.
 	
@@ -630,8 +629,11 @@ void draw() {
 	While assigning intermediary results to variables can help ``unnesting'' but it is sometimes inconvenient. 
 	On top of this OpenJSCAD is mainly just javascript and so javascript's strange behavior about semicolon insertion is carried over. 
 
-	A good thing about being based on javascript is the possibility of using higher order functions for modeling tasks.
-	Examples of this advantage can be found in \textbf{leitao abstract geometry n high order programming}.
+	%A good thing about being based on javascript is that functions are first-class citizens.
+	%It enables the programmer to specify parameters of functions as other functions 
+	%Examples of this advantage can be found in \textbf{leitao abstract geometry n high order programming}.
+
+	%For example, one can have a function describing how to make a building which receives functions describing how  as parameters.
 
 	%Some functions in OpenJSCAD and their parameters.
 	%function parameters result 
