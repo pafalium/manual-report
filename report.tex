@@ -23,6 +23,17 @@
 % \usepackage[margin=2.9cm]{geometry}
 
 \begin{document}
+	
+%%%%% Remove title and author from TOC
+% make a proper TOC despite llncs
+\setcounter{tocdepth}{2}
+\makeatletter
+\renewcommand*\l@author[2]{}
+\renewcommand*\l@title[2]{}
+\makeatother
+%%%%%
+	
+	
 \title{A Browser-based Interactive Development Environment for Generative Design}
 
 %\subtitle{Your Thesis subtitle}
@@ -49,6 +60,7 @@ web browser, Generative Design, integrated development environment, Javascript
 \end{keywords}
 
 \tableofcontents
+
 %----------------------------------------------------
 %NAVintroduction
 \section{Introduction}
