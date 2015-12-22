@@ -176,7 +176,7 @@ web application, Generative Design, integrated development environment
 
 \subsection{IDE for GD}
 	Developing and maintaining large software systems is a complex task.
-	To deal with this complexity, software developers have many tools at their disposal and many of them are software themselves.
+	To deal with this complexity, software developers have many tools at their disposal and many of them are software systems themselves.
 	Things like generating diagrams from source code (like class hierarchy diagrams and control-flow diagrams), source code versioning and management, testing frameworks, issue trackers, refactoring, debuggers and code editors with syntax highlighting and code completion are some of them.
 
 	Using all of these tools in conjunction can be a difficult task since the developer needs to know the specific way to use each of them, both separately and together.
@@ -184,23 +184,23 @@ web application, Generative Design, integrated development environment
 	The \ac{ide} connects all the tools together so that developers do not have to worry about it and thus decreases the difficulty of using them.
 	Overall \ac{ide}s decrease the complexity of developing large software.
 
-	What \ac{ide}s do not do is decreasing the amount of knowledge that their users need to have about software development.
-	The tools they provide are still the same that developers would use.
-	This is a problem that new software developers face and have to cope with.
-	Even with this problem, the benefit software developers get when they know how to use \ac{ide}s outweighs it and so \ac{ide}s are popular among software developers.
-
-	Bringing more success to software developers makes one wonder whether \ac{ide}s can do the same to people programming for other purposes, such as \ac{gd}.
-	It is not as simple as showing the \ac{ide} to those people and hoping they will know how to use it.
+	Reducing the complexity of developing large software makes one wonder whether \acp{ide} can do the same to people programming for other purpose, such as \ac{gd}.
+	It is not as simple as showing the \ac{ide} to them and hoping they will know how to use it.
 	In all likelihood they will be scared off by the sheer amount of buttons and menus the \ac{ide} has.
-	The amount of time they would need to learn how to use it would be too much and they would rather do something else.
+	The amount of time they would need to learn how to use it would be too much and they would rather solve their problem without programming.
 	All those buttons and menus would act as a barrier; a barrier that would obscure the power hidden behind it.
+	
 	In order to be able to effectively use an \ac{ide}, architects need different \acp{ide} with tools adapted to their concerns.
-	The tools these \ac{ide}s should provide do not have to touch so many software development concerns and instead should focus on the specific needs of the area.
-
-	In \ac{gd}, for example, displaying 3D models is an absolute necessity as 3D models are a great part of the final product of a program.
-	\ac{ide}s like DynamoBIM\cite{dynamo2015site} and Rosetta already provide this and have gone further.
+	Since they are not concerned with making programs as complex as the ones from software development, the \ac{ide} does not have to be as complex.
+	Without this complexity, the \ac{ide} can then provide tools that make programming for \ac{gd} easier.
+	Displaying 3D models, for example, is essential as most \ac{gd} programs produce 3D models.
+	
+	\ac{ide}s like Dynamo\cite{dynamo2015site} and Rosetta\cite{de2012modern} already provide this and have gone further.
+	Apart from being able to display 3D models, they have expressive programming languages and mechanisms to show the relation between the program and its results.
+	They also have means to transfer the results of programs to \ac{cad} software normally used by architects.
+	
 	Developing a new \ac{ide} for \ac{gd} requires us to study such \ac{ide}s.
-	It is also helpful to look at other \ac{ide}s that focus on concerns of people from yet other areas that still share a lack of knowledge of software development.
+	We can also look at \acp{ide} from other areas where programming is less complex than in software development.
 	Tech savvy musicians use computers in live performances as their instruments and take advantage of their programmability through \ac{ide}s like Impromptu.
 	Designers and visual artists use Processing and its \ac{ide}, the \ac{pde}, to program for their projects.
 	Others can use IPython to document and inform their experiments by using Python's many libraries.
@@ -406,7 +406,7 @@ void draw() {
 	%Editing a DesignScript program is usually done in its dedicated development environment. DesignScript development environment provides auto-complete and debugging capabilities both of which are common features among programming environments.
 	
 	%DesignScript history
-	DesignScript was later used as the scripting language of DynamoBIM, integrated with Autodesk Revit, where programs are edited as data-flow graphs. 
+	DesignScript was later used as the scripting language of Dynamo, integrated with Autodesk Revit, where programs are edited as data-flow graphs. 
 	DesignScript was also integrated into Autodesk AutoCAD. 
 	A standalone node-based DesignScript editor was also made, it was called DesignScript Studio.
 	
