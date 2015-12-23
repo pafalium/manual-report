@@ -236,8 +236,11 @@ web application, Generative Design, integrated development environment
 	
 	
 \subsubsection{IPython.}
-	IPython\cite{PER-GRA:2007} is a notepad-like environment (Fig. \ref{fig:ipython:notebook}) directed towards providing better, more straightforward scientific computing. \emph{It makes me remember Mathematica's notebooks.} As its name suggests, IPython's main programming language is Python. 
-	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, or Julia\footnote{More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}.
+	IPython\cite{PER-GRA:2007} is a notepad-like environment (Fig. \ref{fig:ipython:notebook}) directed towards providing better, more straightforward scientific computing. 
+	%\emph{It makes me remember Mathematica's notebooks.} 
+	As its name suggests, IPython's main programming language is Python. 
+	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, or Julia\footnote{
+		More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}.
 		
 	\begin{figure}
 		\centering
@@ -247,20 +250,19 @@ web application, Generative Design, integrated development environment
 	\end{figure}
 	
 	One trend in its community, one that is supported by IPython notebooks, is to make results in publications more reproducible. 
-	Instead of publishing a PDF or making a blog post the authors write whole publications as IPython notebooks which then are shared and thus allow everyone to run their source code. 
+	Instead of publishing a PDF or making a blog post, the authors write whole publications as IPython notebooks which then are shared and thus allow everyone to run their source code. 
 	Having access to a working copy of the notebook, one can also experiment with it to better understand it, form own conclusions or find errors.
 	
-	%Since it aims to be ``A tool for managing the entire lifecycle of a scientific idea''\footnote{Quoting Fernando Perez in his Scipy 2012 Keynote.}, it also provides parallel computation primitives.
-	
 	%IPython architecture
-	IPython was decomposed into ``execution kernels'', a communication protocol and several front-ends. 
+	IPython was decomposed into execution kernels, a communication protocol and several front-ends. 
 	As each type of component has a defined interface it is possible to implement new specialized components (a new front-end or a new execution kernel) that will integrate with those already implemented.
 	
 	%Why is it important? I cannot imagine designers using it.
 	The style of producing notebooks in IPython is one that mixes programming, writing and exploring. 
 	This style is also part of a designer's processes. 
-	Like a scientist, the designer also has to do exploration of ideas (design ideas in his case), reach conclusions (finalized designs) and share his work with others (fellow designers, clients, friends, blog readers). 
+	Like a scientist, the designer also has to do exploration of ideas (design ideas in his case), reach conclusions (finished designs) and share his work with others (fellow designers, clients, friends, blog readers). 
 	IPython notebooks are natural tools for exploration but they do not provide domain specific functionality for architecture.
+	
 	
 %Domain-specific IDEs for graphics, games, 3d modeling and Generative Design.
 \subsubsection{Processing.}
