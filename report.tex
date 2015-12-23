@@ -208,22 +208,24 @@ web application, Generative Design, integrated development environment
 	
 %Domain-specific IDEs.
 \subsubsection{Impromptu.}
-	%TODO Redo Impromptu section
 	Impromptu\cite{sorensen2005impromptu,sorensen2010programming}(Fig. \ref{fig:ex:impromptu}) is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
 	
 	%What is live-performance?
-	In the case of Impromptu, live performance takes place as live programming the algorithms that produce the sounds of the music.
+	In the case of Impromptu, live performance takes place as a musician programs algorithms that produce music in front of an audience.
+	During his performance, he writes the program that produces the sounds and chooses the right moments to change it to move between different parts of the music.
 	
 	%What does it provide to support live-performance?
-	To produce live programming Impromptu brings together four components: an audio synthesizer, a real-time scheduling engine, a Scheme interpreter and an \ac{ide}. 
-	The first three components make up the runtime environment while the last provides an interface to it\cite{sorensen2005impromptu}. 
+	To enable live programming Impromptu brings together four components: an audio synthesizer, a real-time scheduling engine, a Scheme interpreter and an \ac{ide}. 
+	The first three components make up the runtime environment, responsible for producing the sound, while the last provides an user interface, where the musician writes programs and sends them to the runtime. 
 	
 	%Describe live programming experience of impromptu.
-	The usage of Impromptu revolves around using its \ac{ide} to send code to the Scheme interpreter. 
-	The code can schedule audio to be played later, schedule functions to run later, define or redefine functions and ``variables''. 
-	One can use Impromptu to incrementally build an algorithm that produces music. 
-	The programmer writes small parts of the algorithm, sends them to the interpreter and then uses those parts to build bigger parts. 
-	If not satisfied with a part, he can change its code and send it again to the interpreter.
+	As he sends code, the musician builds the algorithm that produces the music incrementally\footnote{
+		The code sent to the runtime can define/redefine functions or variables, and schedule audio or functions to be played or run later.}.
+	To be able to keep producing sound for the audience he can program simple patterns, send them to the runtime and then change them as he programs more elements to compose the music.
+	As he adds more elements he can start to make small changes to some of them which will be audible immediately.
+	
+	The immediacy from program changes to audible ones also lets the musician experiment with new ideas.
+	Someone doing \ac{gd} will also benefit from having this immediacy in his \ac{ide}.
 	
 	\begin{figure}
 		\centering
@@ -232,14 +234,11 @@ web application, Generative Design, integrated development environment
 		\label{fig:ex:impromptu}
 	\end{figure}
 	
-	%Describe it as a creative tool. As a try of bringing live coding back to the stage (it states that it happened during late 80s and early 90s). It states that live coding performances are extensions to what is called laptop performances.
-	%Describe it as being a tool for people interested in making music.  probably have experience with synthesizer software but little programming experience.
-	%Maybe include link to live performance video.
 	
 \subsubsection{IPython.}
 	IPython\cite{PER-GRA:2007} is a notepad-like environment (Fig. \ref{fig:ipython:notebook}) directed towards providing better, more straightforward scientific computing. \emph{It makes me remember Mathematica's notebooks.} As its name suggests, IPython's main programming language is Python. 
 	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, or Julia\footnote{More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}.
-	
+		
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.8\textwidth]{img/ipython_notebook}
