@@ -429,7 +429,7 @@ void draw() {
 	Its authors argue that most environments for \ac{gd}, developed for a specific \ac{cad}, do not provide portability of programs developed inside them.
 	They also argue that \ac{vpl}s, based on data-flow graphs, do not provide good abstraction mechanisms; programs on such languages are therefore hard to understand and modify.
 	
-	It is also stated that general purpose programming languages, like C, C++, Java and C\#, do not provide domain-specific abstractions from \ac{gd} and so they are inadequate.
+	It is also stated that industrial programming languages, like C, C++, Java and C\#, do not provide domain-specific abstractions from \ac{gd} and so they are inadequate.
 	
 	A survey of the most used \ac{gd} systems showed that the most popular \ac{tpl}s for \ac{gd}, like AutoLisp, RhinoScript, and GDL, are old, provide little domain-specific features and make it difficult to define them\cite{de2012modern,leitao2012programming}.
 	It also showed that \ac{vpl}s for \ac{gd}, like Grasshopper and GenerativeComponents, enforce a very restricted programming paradigm and programs scale poorly with size and complexity, making them suitable only for small throwaway prototypes. 
@@ -482,8 +482,8 @@ void draw() {
 	Programs written in the programming language need to reflect something from the programmer that is useful for programming.
 	They should be about things the programmer can identify with (something that he knows); should allow him to talk about different parts of the problem separately; should allow him to bring those parts together; and should be readable.
 	
-	The environment needs to help understand the meaning of the parts of the program; understand the way the program execution evolves; understand the way the state evolves; assemble parts together; and create new parts from existing ones.
-	It should make these things easy to do, after all these can be done by the programmer alone if he is willing to.
+	The environment needs to help understand the meaning of the parts of the program; understand the way the program execution evolves; understand the way the state of the program evolves; assemble parts together; and create new parts from existing ones.
+	It should make these things easy to do, after all these can be done by the programmer himself if he is willing to.
 
 \subsection{Moving to the Web}
 	Web browsers did not start as feature-rich and performant as they are now.
@@ -493,10 +493,10 @@ void draw() {
 
 	The number of devices connected to the internet is big enough to say that internet access is almost ubiquitous.
 	People no longer have to rely on a single device because many of the things they do on that device can be migrated to the internet as distributed systems.
-	If viewed this way, devices can become windows to distributed systems over the internet.
+	If viewed this way, devices can become interfaces to distributed systems on the internet.
 	With such idea people can start to use any device to access those distributed systems.
 
-	There must be a platform to support (as in display) such windows and Web browsers are a good possibility.
+	There must be a platform to support (as in display) such interfaces and Web browsers are a good possibility.
 	Almost any of these devices have web browsers.
 	These not only include the traditional desktop and laptop computers but also the new smartphones, tablets, gaming consoles, smart appliances and the list goes on and on.
 
@@ -580,9 +580,9 @@ void draw() {
 
 \subsubsection{OpenJSCAD.}
 	OpenJSCAD\cite{openjscad2015site} is a Javascript application (or rather, an application based on web technologies).
-	It aims to provide the same functionality as OpenSCAD but using Javascript as a base for its language. 
+	It aims to provide the same functionality as OpenSCAD\cite{kintel2011openscad} but using Javascript as a base for its language. 
 	Most of OpenSCAD functionality is implemented in OpenJSCAD. 
-	Like OpenSCAD, it focuses on creating 3D models for 3D printing (e.g. they are solid).
+	Like OpenSCAD, it focuses on creating 3D models for 3D printing.
 
 	To actually model in OpenJSCAD the user has to write a program in either OpenJSCAD's language or OpenSCAD's language.
 
