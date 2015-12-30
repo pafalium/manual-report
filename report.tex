@@ -47,16 +47,17 @@
 %----------------------------------------------------
 %NAVabstract
 \begin{abstract}
-	User interfaces can be built using web pages.
-	With modern web standards they are no longer limited to server-generated web pages, they can be as flexible as desktop user interfaces.
-	As they are web pages, this also means that they can be used in any computer connected to the internet.
+	%User interfaces can be built using web pages.
+	%With modern web standards they are no longer limited to server-generated web pages, they can be as flexible as desktop user interfaces.
+	%As they are web pages, this also means that they can be used in any computer connected to the internet.
 	
 	With \ac{gd} architects use algorithms to describe their designs and leave the work of generating concrete instances to the computer.
 	It is extremely helpful when the design has plenty of repetition and it is necessary to explore variations.
 	The development of \ac{gd} designs is greatly simplified by \acp{ide} such as Dynamo or Rosetta that provide a framework for writing programs that represent the design.
 
 	Unfortunately, these \acp{ide} are only available in the computers where they were installed and for specific \acp{os}.
-	Web-based applications do not suffer as much from this as they are developed for web browsers that run in most \acp{os}.
+	Web-based applications do not suffer as much from this as they are developed for web browsers that run in most \acp{os} and that can be accessed from anywhere. 
+	Moreover, modern web standards allow web-based applications to provide user interfaces as rich as those available for desktop applications.
 
 	In this report we will look at examples of both desktop and web applications and will use them as a basis for proposing a web-based \ac{ide} for \ac{gd}.
 \end{abstract}
@@ -68,6 +69,9 @@ web application, Generative Design, integrated development environment
 
 \tableofcontents
 
+%%%% Acronyms in the abstract have to be repeated.
+\acresetall
+
 %----------------------------------------------------
 %NAVintroduction
 \section{Introduction}
@@ -75,25 +79,25 @@ web application, Generative Design, integrated development environment
 	Many people have understood the power that comes from having a computer (or machine) doing the repetitive work and like so have adopted programming as a new tool.
 
 	%Introduce the need for IDEs. Introduce the demand for IDEs.
-	Expressing ideas or processes as programs requires the programmer to specify every detail of what he has in mind (sometimes too much detail), which forces him to really understand what they are.
+	Expressing ideas or processes as programs requires the programmer to specify every detail of what he has in mind (sometimes too much detail).
 	This is only possible with plenty of discipline from the programmer.
 	He has to write the program in a programming language.
 	He has to store it following a specific file structure.
-	If he uses an \ac{api}, he will need its documentation for quick reference.
+	If he uses an \ac{api}, he needs its documentation for quick reference.
 	He may have to compile the program in order to run it.
 	The compiler might detect syntactical errors that have to be corrected.
-	If he notices that the program is misbehaving, he will have to find the reason, which normally involves starting the program and attaching a debugger to it.
-	When he finds the reason, he will have to make corrections and test the program.
+	If he notices that the program is misbehaving, he has to find the reason, which normally involves starting the program and attaching a debugger to it.
+	When he finds the reason, he has to make corrections and test the program.
 	And so on and so forth.
 
-	All of this demands great time and effort from the programmer and all those small steps have to be learned and articulated by the programmer.
+	All of this demands time and effort from the programmer and all those small steps have to be learned and articulated by the programmer.
 	It is an inevitably complex activity and the programmer's productivity and enjoyment suffers from it.
 	This suggests that we should find a way of lifting some of the work from the programmer, and that is where \acp{ide} come in.
 
-	\acp{ide} bring together all the tools needed while programming and automates all its small steps.
+	\acp{ide} bring together all the tools needed while programming and automate all its small steps.
 	They might do it so well that the programmer might forget that those steps still exist.
 	We can imagine that novice programmers using these environments would simply be unaware of them.
-	Programmers still have to write, run and debug their programs but they do so without losing time performing all those steps.
+	Programmers still have to write, run and debug their programs but they do so without wasting time performing all those steps.
 	This has made \acp{ide} essential to the programming activity.
 	
 	%Go from software production IDEs to architecture specific IDEs.
@@ -103,12 +107,12 @@ web application, Generative Design, integrated development environment
 	They help programmers navigate big software projects and let them configure complex building processes.
 	They also help them organizing the work on their software projects.
 	
-	What software production \acp{ide} do not do is help non-programmers use programming for specific domains.
+	What software production \acp{ide} do not do is help non-specialist use programming for specific domains.
 	They are intended to be general purpose and to be used by professional programmers and like so have complex interfaces and assume users know how to program.
 	If someone wants to make a small program to solve his problem he will want something more specific that is not as complicated to use.
 	
 	%IDEs domain specific.
-	IPython and Impromptu are \acp{ide} that are intended for two specific domains.
+	As an example, consider IPython and Impromptu, which are \acp{ide} that are intended for two specific domains.
 	IPython helps scientists by providing them what is relevant to their work, such as automating gathering of data, transforming and visualizing it in order to draw conclusions.
 	It integrates taking notes and programming.
 	They no longer have to join the pieces of information into a single space since it is already done by the environment.
@@ -120,18 +124,38 @@ web application, Generative Design, integrated development environment
 	The results and ways to visualize (or hear) them are integrated into the environment.
 
 	%IDEs architecture specific.
-	Following the trend of using programming in their work, architects started using programming to generate the 3D models of the buildings they are designing. 
-	They use a process called \acl{gd}\cite{terzidis2003expressive,Maeda:2001:DN:559503}.
+	Following the trend of using programming in their work, architects started using programming to generate the 3D models of the buildings they are designing, a process called \acf{gd}\cite{terzidis2003expressive,Maeda:2001:DN:559503}.
 	While using \ac{gd}, they develop algorithms that describe how a 3D model of a design is built; when parameterized, these algorithms can easily create different versions of the design; this in turn enables architects to search for a version that satisfies them.
-	Writing the algorithms as computer programs is the normal way of doing \ac{gd} as manually applying them is impractical.
 	
 	As with scientists and musicians, architects can benefit from having \acp{ide} specific to their programming needs.
-	In their case, having a way to visualize the 3D models generated by their programs is the minimum required feature.
+	In their case, as they are designing buildings, having a way to visualize the 3D models generated by their programs is the minimum required feature.
 
 	There are several \acp{ide} that make it easier to program for \ac{gd}. 
-	First, some \ac{cad} software packages used by architects have support for \ac{gd} provided by a plug-in or a set of plug-ins.
+	First, some \ac{cad} software packages used by architects have support for \ac{gd} provided by a plug-in or a set of plug-ins, as Visual Lisp in AutoCAD and Grasshopper in Rhinoceros3D.
 	Second, there are standalone programming environments like Processing\cite{reas2007processing} or Rosetta\cite{de2012modern}; the first is a programming environment for the visual arts and the second is an environment thought specifically for \ac{gd}.
+	
+	%TODO desktop to web bullshit
+	%%%% 
+	IDEs for GD still depend on a specific OS and on the installation of a software package.
+	If the architect wants to make a quick test for a design, he is only able to do so in a computer that has one IDE installed.
+	The number of computers that have an IDE installed is not equal to the number of computers the architect has access. 
+		Well, he has his laptop where he has the IDE installed. Better access to the IDE lets people try it without compromise.
+	
+	While these IDEs allow architects to do GD, they still depend on installing software on their computers that may only work on a specific OS.
+	If the architect wants to test a GD design, he may be slowed by having to go to the computer that has the IDE installed.
+	If he does not have one computer with the IDE installed the problem is worse as he needs to download and install it.
+	
+	While these IDEs allow architects to do GD, they still depend on installing software on their computers that may only work on a specific OS.
+	
+	Using an IDE that is dependent on a specific OS or that requires installation means that it can only be used in computers where it has been installed.
+	This is a problem when many computers are used with different OSs.
+	%%%%
 
+	%TODO explain web page because the reader is so stupid he wouldn't understand anything
+	%%%%
+	
+	%%%%
+	
 	One thing that can improve \acp{ide} for \ac{gd} is the possibility of working in any computer with any \ac{os}.
 	This suggests a web-based \ac{ide}, a web page, that supports visualization of the designs implemented by the designer or architect.
 	With a web-based \ac{ide}, architects only have to access its web page with a web browser and no longer have to worry about the computer or its \ac{os}.
@@ -141,24 +165,20 @@ web application, Generative Design, integrated development environment
 	These applications are more independent from the details of the computer where they are running.
 	They all share the same platform, the web browser.
 
-	While there are web pages where \ac{gd} can be applied its support is primitive.
+	While there are web pages where \ac{gd} can be applied, its support is primitive.
 	As an example, OpenJSCAD (the best of the examples for \ac{gd}) lets programmers write and run programs that generate 3D objects and displays its results in a 3D view with a movable camera.
 	Unfortunately, it does not provide constant feedback to changes to the program.
 	When the programmer makes changes to his program the only way he has to get feedback from the program is by explicitly running it.
 
-	We propose a web-based \ac{ide} for \ac{gd}. 
-	Such environment will allow architects, or anyone interested in \ac{gd}, to edit \ac{gd} programs and visualize their results while not requiring any installation. 
-	It will thus allow them to do \ac{gd} on any computer that has a web browser independently from its \ac{os}.
+	In order to solve these problems, we propose a web-based \ac{ide} for \ac{gd}. 
+	Such environment will allow anyone interested in \ac{gd} to edit \ac{gd} programs and visualize their results while not requiring any installation. 
+	It will thus allow them to do \ac{gd} on any computer that has a web browser, independently from its \ac{os}.
 	
 	
 %----------------------------------------------------
 %NAVobjectives
 \subsection{Objectives}
 	The aim of this project is to provide architects and designers interested in creating 3D models with an environment that fosters the \acl{gd} approach while being accessible wherever there is a web browser and an internet connection.
-
-	%Why does it need to be accessible wherever the architect is?
-	Architects imagine buildings and they have to immediately apply their ideas so they do not forget them.
-	We have to provide means to translate ideas and it has to be accessible wherever they are.
 
 	When architects look for an environment to program they are not looking for a software development \ac{ide} like Eclipse or Visual Studio because, as explained before, these are excessively complex \acp{ide}, aimed for professional programmers using industrial programming languages.
 	On the contrary, what architects look for in an \ac{ide} is a simple interface that considerably simplifies the development of \ac{gd} programs written in the dynamic languages typically used in \ac{gd}. 
@@ -179,37 +199,40 @@ web application, Generative Design, integrated development environment
 \subsection{IDE for GD}
 	Developing and maintaining large software systems is a complex task.
 	To deal with this complexity, software developers have many tools at their disposal and many of them are software systems themselves.
-	Things like generating diagrams from source code (like class hierarchy diagrams and control-flow diagrams), source code versioning and management, testing frameworks, issue trackers, refactoring, debuggers and code editors with syntax highlighting and code completion are some of them.
+	Things like generating diagrams from source code (like class hierarchy diagrams and control-flow diagrams), source code versioning and management, testing frameworks, issue trackers, refactoring tools, debuggers and code editors with syntax highlighting and code completion are some of them.
 
 	Using all of these tools in conjunction can be a difficult task since the developer needs to know the specific way to use each of them, both separately and together.
 	This difficulty gave rise to \ac{ide}s that integrate all of these tools in one user interface.
 	The \ac{ide} connects all the tools together so that developers do not have to worry about it and thus decreases the difficulty of using them.
-	Overall \ac{ide}s decrease the complexity of developing large software.
+	Overall, \ac{ide}s decrease the complexity of developing large software.
 
-	Reducing the complexity of developing large software makes one wonder whether \acp{ide} can do the same to people programming for other purpose, such as \ac{gd}.
-	It is not as simple as showing the \ac{ide} to them and hoping they will know how to use it.
+	Reducing the complexity of developing large software makes one wonder whether \acp{ide} can do the same to people programming for other purposes, such as \ac{gd}.
+	It is not as simple as showing them the \ac{ide} and hoping they will know how to use it.
 	In all likelihood they will be scared off by the sheer amount of buttons and menus the \ac{ide} has.
 	The amount of time they would need to learn how to use it would be too much and they would rather solve their problem without programming.
 	All those buttons and menus would act as a barrier; a barrier that would obscure the power hidden behind it.
 	
-	In order to be able to effectively use an \ac{ide}, architects need different \acp{ide} with tools adapted to their concerns.
+	Nowadays, architects are starting to use programming and, therefore, need an \ac{ide}. 
+	In order to effectively use an \ac{ide}, architects need specialized \acp{ide} with tools adapted to their needs.
 	Since they are not concerned with making programs as complex as the ones from software development, the \ac{ide} does not have to be as complex.
 	Without this complexity, the \ac{ide} can then provide tools that make programming for \ac{gd} easier.
-	Displaying 3D models, for example, is essential as most \ac{gd} programs produce 3D models.
+	Displaying 3D models, for example, is essential as most \ac{gd} programs are intended to produce 3D models.
 	
 	\ac{ide}s like Dynamo\cite{dynamo2015site} and Rosetta\cite{de2012modern} already provide this and have gone further.
 	Apart from being able to display 3D models, they have expressive programming languages and mechanisms to show the relation between the program and its results.
-	They also have means to transfer the results of programs to \ac{cad} software normally used by architects.
+	They also have means to transfer the results of programs to the \ac{cad} software normally used by architects.
 	
 	Developing a new \ac{ide} for \ac{gd} requires us to study such \ac{ide}s.
 	We can also look at \acp{ide} from other areas where programming is less complex than in software development.
-	Tech savvy musicians use computers in live performances as their instruments and take advantage of their programmability through \ac{ide}s like Impromptu.
+	For example, tech savvy musicians use computers in live performances as their instruments and take advantage of their programmability through \ac{ide}s like Impromptu.
 	Designers and visual artists use Processing and its \ac{ide}, the \ac{pde}, to program for their projects.
 	Others can use IPython to document and inform their experiments by using Python's many libraries.
 	All of these provide inspiration for an \ac{ide} for \ac{gd} and deserve to be further discussed.
 	
 %Domain-specific IDEs.
 \subsubsection{Impromptu.}
+	%TODO Why are there graphics in a IDE for live performance?!
+
 	Impromptu\cite{sorensen2005impromptu,sorensen2010programming}(Fig. \ref{fig:ex:impromptu}) is a programming environment developed to explore manipulation of musical structure in live performance; an \ac{ide} for musicians and sound artists.
 	
 	%What is live-performance?
@@ -221,13 +244,13 @@ web application, Generative Design, integrated development environment
 	The first three components make up the runtime environment, responsible for producing the sound, while the last provides an user interface, where the musician writes programs and sends them to the runtime. 
 	
 	%Describe live programming experience of impromptu.
-	As he sends code, the musician builds the algorithm that produces the music incrementally\footnote{
-		The code sent to the runtime can define/redefine functions or variables, and schedule audio or functions to be played or run later.}.
+	As he sends code, the musician builds the algorithm that produces the music incrementally.
+	\footnote{The code sent to the runtime can define/redefine functions or variables, and schedule audio or functions to be played or run later.}
 	To be able to keep producing sound for the audience he can program simple patterns, send them to the runtime and then change them as he programs more elements to compose the music.
-	As he adds more elements he can start to make small changes to some of them which will be audible immediately.
+	As he adds more elements he can start to make small changes to some of them which will be immediately audible.
 	
 	The immediacy from program changes to audible ones also lets the musician experiment with new ideas.
-	Someone doing \ac{gd} will also benefit from having this immediacy in his \ac{ide}.
+	Similarly, someone doing \ac{gd} will also benefit from having this immediacy in his \ac{ide}.
 	
 	\begin{figure}
 		\centering
@@ -241,8 +264,8 @@ web application, Generative Design, integrated development environment
 	IPython\cite{PER-GRA:2007} is a notepad-like environment (Fig. \ref{fig:ipython:notebook}) directed towards providing better, more straightforward scientific computing. 
 	%\emph{It makes me remember Mathematica's notebooks.} 
 	As its name suggests, IPython's main programming language is Python. 
-	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, or Julia\footnote{
-		More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}.
+	While Python is its main programming language, other popular programming languages can be used in IPython, particularly those popular in the scientific community like R, or Julia.
+	\footnote{More language kernels can be found in IPython's github page: https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages}
 		
 	\begin{figure}
 		\centering
@@ -261,14 +284,15 @@ web application, Generative Design, integrated development environment
 	
 	%Why is it important? I cannot imagine designers using it.
 	The style of producing notebooks in IPython is one that mixes programming, writing and exploring. 
-	This style is also part of a designer's processes. 
+	Interestingly, this style is also part of a designer's processes. 
 	Like a scientist, the designer also has to do exploration of ideas (design ideas in his case), reach conclusions (finished designs) and share his work with others (fellow designers, clients, friends, blog readers). 
-	IPython notebooks are natural tools for exploration but they do not provide domain specific functionality for architecture.
+	Unfortunately, although IPython notebooks are natural tools for exploration, they do not provide domain specific functionality for architecture.
 	
 	
 %Domain-specific IDEs for graphics, games, 3d modeling and Generative Design.
 \subsubsection{Processing.}
-	Processing\cite{reas2007processing} is a programming language and a development environment aimed at ``promoting software literacy in the visual arts and visual literacy within technology''.\footnote{Quoting www.processing.org, 9/Nov/2015.}
+	Processing\cite{reas2007processing} is a programming language and a development environment aimed at ``promoting software literacy in the visual arts and visual literacy within technology''.
+	\footnote{Quoting www.processing.org, 9/Nov/2015.}
 	It has an heavy focus on encouraging interaction between its users and so has attracted a big community.
 	
 	Processing makes it easy to start writing programs that produce visual output. 
@@ -277,9 +301,9 @@ web application, Generative Design, integrated development environment
 	Its website also provides a set of tutorials and documentation to help users learn how to use it.
 	
 	We decided to analyze Processing due to its use in producing visual output (both 2D and 3D) and to its success.
-	
 	We start by analyzing its programming language, then move to its development environment and finish by evaluating it against \emph{our learnable programming principles}.
 	
+	%TODO fucking shrink processing description
 	%\subsubsubsection{Processing's programming language}
 	Processing's programming language aims to provide Java-style programming while making it easy to quickly write functioning programs. 
 	
@@ -373,8 +397,8 @@ void draw() {
 	
 	%DesignScript editor(s)
 	Editing DesignScript programs can be done either by writing or by creating a graph. 
-	The graph is a more natural representation of the dependency graph among the variables of the program when the associative paradigm is being used; it can also be viewed as a data-flow graph. 
-	The written representation of DesignScript is a sequence of statements that specify the relationship between a variable and other variables; defining functions, using the imperative paradigm and reassigning variables is also possible; features that are less encouraged by a graph.
+	The graph is a more natural representation of the dependencies between the variables of the program when the associative paradigm is being used; it can also be viewed as a data-flow graph. 
+	The written representation of DesignScript is a sequence of statements that specify the relationship between a variable and other variables; defining functions, using the imperative paradigm and reassigning variables is also possible; features that are less encouraged when a graph representation is being used.
 	
 	DesignScript is used in several environments. 
 	These include a textual editor in Autodesk AutoCAD (Fig. \ref{fig:ds:autocad}), a dedicated graph editor called DesignScript Studio (Fig. \ref{fig:ds:dsstudio}) and later Dynamo (Fig. \ref{fig:ds:dynamo}). 
@@ -402,9 +426,9 @@ void draw() {
 	\end{figure} 
 	
 	Debugging DesignScript programs depends on the environment being used. 
-	The textual environment allowed to follow the execution of the program step-by-step while also supporting watches and breakpoints. 
-	The graph based environments allow highlighting and listing results of each node. 
-	Both the textual and the graph based environments provide a preview of the execution of programs.
+	The textual environment allows to follow the execution of the program step-by-step while also supporting watches and breakpoints. 
+	The graph-based environments allow highlighting and listing results of each node. 
+	Both the textual and the graph-based environments provide a preview of the execution of programs.
 	
 	%Editing a DesignScript program is usually done in its dedicated development environment. DesignScript development environment provides auto-complete and debugging capabilities both of which are common features among programming environments.
 	
@@ -428,6 +452,8 @@ void draw() {
 		\label{fig:rosetta:ex}
 	\end{figure} 
 	
+	%TODO simplify rosetta
+	%%%%
 	Its authors argue that most environments for \ac{gd}, developed for a specific \ac{cad}, do not provide portability of programs developed inside them.
 	They also argue that \ac{vpl}s, based on data-flow graphs, do not provide good abstraction mechanisms; programs on such languages are therefore hard to understand and modify.
 	
@@ -436,6 +462,7 @@ void draw() {
 	A survey of the most used \ac{gd} systems showed that the most popular \ac{tpl}s for \ac{gd}, like AutoLisp, RhinoScript, and GDL, are old, provide little domain-specific features and make it difficult to define them\cite{de2012modern,leitao2012programming}.
 	It also showed that \ac{vpl}s for \ac{gd}, like Grasshopper and GenerativeComponents, enforce a very restricted programming paradigm and programs scale poorly with size and complexity, making them suitable only for small throwaway prototypes. 
 	It also showed that \ac{cad} applications, being based on direct user interaction and imposing their own programming environments and languages, lock their users to the application's product family and make it difficult to achieve correctness, performance and portability.
+	%%%%
 	
 	The design principles followed by Rosetta are:
 	\begin{itemize}
@@ -481,6 +508,10 @@ void draw() {
 	The programming language and the programming environment are essential parts of the programming experience.
 	The programming language allows the programmer to express himself in a clear, specific way; the programming environment allows him to write programs and understand what they actually do.
 	
+	%TODO clarify what PL must do
+	%%%%
+	
+	%%%%
 	Programs written in the programming language need to reflect something from the programmer that is useful for programming.
 	They should be about things the programmer can identify with (something that he knows); should allow him to talk about different parts of the problem separately; should allow him to bring those parts together; and should be readable.
 	
@@ -491,12 +522,11 @@ void draw() {
 	Web browsers did not start as feature-rich and performant as they are now.
 	They started as hypertext browsers that made it easier to read hypertext.
 	They could display images and text and could jump from page to page by following hyperlinks or following URLs.
-	Only with the development of new features and the demand for more performance and features did they slowly get into the shape they are now.
+	Only with the development of new features and the demand for more performance did they slowly get into the shape they are now.
 
 	The number of devices connected to the internet is big enough to say that internet access is almost ubiquitous.
 	People no longer have to rely on a single device because many of the things they do on that device can be migrated to the internet as distributed systems.
-	If viewed this way, devices can become interfaces to distributed systems on the internet.
-	With such idea people can start to use any device to access those distributed systems.
+	If viewed this way, devices can become interfaces to distributed systems on the internet and people can start to use any device to access those distributed systems.
 
 	There must be a platform to support (as in display) such interfaces and Web browsers are a good possibility.
 	Almost any of these devices have web browsers.
@@ -508,20 +538,20 @@ void draw() {
 	All of these have forced web browsers to evolve into a performant, feature-rich platform.
 	The extent of their performance and features makes them even capable of hosting desktop applications from code editors to video games (without plugins like Adobe Flash).
 
+	%TODO do not begin with "And"
 	And this has caught on.
 	More and more people are replacing their desktop applications with web based ones.
 	Web browsers are effectively replacing \ac{os}-level applications.
-	And this also comes as an advantage for developers as the browser acts an uniform platform across all different devices they want to develop for.
+	And this also comes as an advantage for developers as the browser acts as an uniform platform across all different devices they want to develop for.
 
 	It is in this time where web browsers are so capable that it becomes possible to develop a \ac{gd} \ac{ide} for the web.
+	In the next sections, we describe a few relevant \ac{ide} that run on web browsers.
 
 %Inspiration from anything about IDEs.
 \subsubsection{LightTable.}
-	LightTable\cite{lighttable2015site} is an example of a desktop application that uses Web technologies.
-	More specifically, it uses node-webkit as its runtime allowing it to use html layout engine for its user interface, to use Javascript as its programming language and to use node.js\cite{tilkov2010node} modules.
+	LightTable\cite{lighttable2015site} is a code editor for the Clojure programming language[6] and is an example of a desktop application that uses Web technologies.
+	More specifically, it uses node-webkit as its runtime allowing it to use the html layout engine for its user interface, to use Javascript as its programming language and to use node.js\cite{tilkov2010node} modules.
 	LightTable is written in ClojureScript\cite{10.1109/MIC.2011.148}, a subset of Clojure that compiles to Javascript.
-
-	LightTable is a code editor for the Clojure programming language\cite{hickey2008clojure}. 
 
 	%Disclaimer
 	%Most of the features described here are only present in LightTable's several experimental versions. 
@@ -530,14 +560,15 @@ void draw() {
 
 	%Why is LightTable relevant?
 	%As of now, LightTable does not seem to be fulfilling its potential.
-	LightTable uses the drafting table as its metaphor\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/ at Nov/2015.}. 
+	LightTable uses the drafting table as its metaphor.
+	\footnote{http://www.chris-granger.com/2012/04/12/light-table---a-new-ide-concept/ at Nov/2015.}
 	The metaphor comes from looking at the way work is done in other fields of engineering, where engineers spread all materials relevant to their work over large tables, from tools to reference information. 
 	Instead of displaying the contents of entire files, LightTable divides the code into meaningful units and displays them as small editors spread over the table's surface. 
 	In one of its experimental versions, LightTable also supported displaying running programs in the table. 
 	Fig. \ref{fig:lt:draft:table} shows an example of this metaphor.
 
 	This metaphor has some resemblances to node-based programming environments. 
-	The programmer still has think of how to arrange what is on the table.
+	The programmer still has to think of how to arrange what is on the table.
 	What makes it different is allowing to choose what is on the table instead of having everything on it all the time.
 
 	\begin{figure}
@@ -549,7 +580,7 @@ void draw() {
 
 	%LightTable "function navigation"
 	LightTable also helps navigating Clojure code bases.
-	In Clojure functions are defined inside namespaces and all Clojure definitions (functions, variables, macros) are stored in text files. 
+	In Clojure, functions are defined inside namespaces and all Clojure definitions (functions, variables, macros) are stored in text files. 
 	Navigating among definitions and the current namespace structure should not get in the way of editing code. 
 	To make editing easier, LightTable provides a \emph{namespace browser} that eases finding functions and a \emph{code document} where functions can be added for editing without moving them out of their namespace or displaying entire files where they are defined. 
 	Fig. \ref{fig:lt:clojure:table} shows an experiment where these two are used.
@@ -576,7 +607,7 @@ void draw() {
 	\end{figure}
 
 	The main design pattern used in LightTable is the \ac{bot} pattern. 
-	As described by one of its developers\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/ at Nov/2015.}, LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. 
+	As described by one of its developers,\footnote{http://www.chris-granger.com/2013/01/24/the-ide-as-data/ at Nov/2015.} LightTable can be described as a set of \emph{Objects}, each having a set of \emph{Behaviors} and being tagged with a set of \emph{Tags}. 
 	The \emph{Behaviors} describe how an \emph{Object} reacts when events are raised on it. \emph{Tags} are groups of \emph{Behaviors}. 
 	When an event is raised on an \emph{Object} both its \emph{Behaviors} and those from its \emph{Tags} are notified.
 
@@ -589,19 +620,19 @@ void draw() {
 	To actually model in OpenJSCAD the user has to write a program in either OpenJSCAD's language or OpenSCAD's language.
 
 	It is also possible to import 3D models from files commonly used for 3D printing like STL and AMF files.
-	Upon import, the file's content is converted to a jscad program that produces the same model. 
+	Upon import, the file's content is converted to a JSCAD program that produces the same model. 
 	%(I do not see the point of doing this.)
 
 	OpenJSCAD provides two user interfaces, one command-line interface and one graphical user interface as a web page.
 	The first can be used for batch processing (running programs) while the second integrates an editor to edit a program and a 3D view for viewing the results of that program.
 
-	OpenJSCAD's language supports two syntaxes, one based on message passing (or method invoking) and one based on calling functions.
+	%TODO fucking better explain dot syntax
+	OpenJSCAD's language supports two syntaxes, one based on message passing (or method invocation/dot syntax) and one based on calling functions.
 	Both of these syntaxes are already present in Javascript. 
 	Many operations provided produce a new object and do not change their parameters. 
 	This allows us to follow a functional programming paradigm and since there are fewer side-effects to know about it is easier to understand a program written using them.
 
-	A problem that can arise while writing and testing jscad programs is that there is no help on getting the parameters for operations right.
-	It will be frustrating to spend more time than acceptable trying to understand why a certain operation is not producing the desired result. 
+	A problem that can arise while writing and testing jscad programs is that there is no help on getting the parameters for operations right and it is frustrating to spend more time than acceptable trying to understand why a certain operation is not producing the desired result. 
 	This problem is even more relevant when most of the operations have multiple optional parameters and parameters that replace others. 
 	Currently the only help available is OpenJSCAD's documentation (a tour on its functionality), the online community around OpenJSCAD and, since Javascript is the core of the language, web browsers' Javascript developer tools.
 
@@ -610,6 +641,7 @@ void draw() {
 	This is especially true if a simple text editor is used. 
 	%While assigning intermediary results to variables can help ``unnesting'' but it is sometimes inconvenient. 
 	On top of this, OpenJSCAD is mainly just Javascript and like so Javascript's strange behavior about semicolon insertion is carried over. 
+	%TODO fucking explain javascript semicolons
 
 	%A good thing about being based on Javascript is that functions are first-class citizens.
 	%It enables the programmer to specify parameters of functions as other functions 
@@ -626,13 +658,14 @@ void draw() {
 %----------------------------------------------------
 %NAVarchitecture
 \section{Architecture}
+	In this section we discuss the architecture of the system we plan to develop to overcome the limitations of the systems previously described.
 
 \subsection{Decomposing the problem}
 	To better understand how to solve the problem of helping to make programs for GD, we decomposed it into several parts that can be more or less thought about and solved separately.
 	
 	\paragraph{The programming language.}
 	One part that has to be set is \textbf{what is the language} used to make the programs.
-	This aspect involves things like what control flow mechanisms are available, whether side-effects exist or not, and what is the syntax for each component of the language.
+	This aspect involves things like what control flow mechanisms are available, whether side-effects are allowed or not, and what is the syntax for each component of the language.
 	It deals with how the language works.
 
 	\paragraph{Help when writing and reading.}
@@ -640,18 +673,19 @@ void draw() {
 	In the light of \cite{victor2012learnable}, the system should have good answers to the questions proposed on what is a good programming environment.
 
 	\paragraph{Primitive operations.}
-	Another part is the \textbf{implementation of primitives} of the language like constructive solid geometry, lofts, sweeps and many other 3D modeling operations.
+	Another part is the \textbf{implementation of the primitive operations} of the language like constructive solid geometry, lofts, sweeps and many other 3D modeling operations.
 	Without them architects will not be able to make any Generative Design.
 	One thing to keep in mind is that these operations have to be translated into other tools used in architecture.
 
 	\paragraph{Documenting programs.}
-	Other part is how the system lets users \textbf{document their programs}. 
+	Another part is how the system lets users \textbf{document their programs}. 
 	It is normal to forget how some part of the program works and so documentation is needed (or anything that is faster to understand than interpreting the program manually).
-	The system could support having drawings juxtaposed to the program in addition to previews of results like those present in DesignScript Studio, Dynamo and Grasshopper. 
+	The system could support having sketches juxtaposed to the program in addition to previews of results like those present in DesignScript Studio, Dynamo and Grasshopper. 
 	It will also be useful to look at how current programming languages are usually documented. 
 
 	\paragraph{Persisting programs.}
-	Other part is the \textbf{persistence of programs} between usage sessions, in cases the system crashes or even across multiple devices.
+	%TODO persistence of programs
+	Another part is the \textbf{persistence of programs} between usage sessions, in case the system crashes or even across multiple devices.
 	In case of persistence between sessions, the user can close the browser or the tab at any moment, it would be useful to keep record of the current program in some way. 
 	In case of persistence in case of crashes, if the user program itself crashed the page it should not be executed immediately to allow its retrieval or edition (as it could crash the page again). 
 	With persistence of programs also comes the need for holding different versions of the same program. 
@@ -659,7 +693,7 @@ void draw() {
 	Maybe because he did not anticipate the need for something he deleted or maybe because he wants to see how his programs have progressed.
 
 	\paragraph{Passing results on.}
-	Other part is the way programs can be \textbf{applied to other modeling applications} used by architects.
+	Another part is the way programs can be \textbf{applied to other modeling applications} used by architects.
 	Without a way to do this the system is rendered useless as it can hardly be integrated into the architect's normal process. 
 	Rosetta uses the concept of selecting a back-end, a specific interface to a modeling application. 
 	After selecting a back-end for a modeling application, Rosetta connects to it and results of running the program are passed to the application. 
@@ -671,6 +705,7 @@ void draw() {
 	%It should enumerate the various aspects of concern to be considered while making the solution. It may as well provide some alternatives to some aspects that are already known. These alternatives can refer to products already available.
 
 \subsection{General Architecture of the Solution}
+	%TODO more connection to requirements
 	%Taking into account the aspects described above a version of the architecture of the solution was made.
 	
 	\begin{figure}
@@ -753,12 +788,11 @@ void draw() {
 
 	The example programs try to emphasize functional programming techniques like using higher-order functions and minimal use of side-effects.
 
-	The overall feedback from the potential users was positive (they wanted to see it on a real application).
+	The overall feedback we already obtained from the potential users was positive (they wanted to see it on a real application).
 
 	The prototype is implemented using HTML, Javascript, CSS and also two Javascript libraries; the first, Ace\footnote{http://ace.c9.io/}, provides the text editor and the second, THREE.js\footnote{http://threejs.org/}, provides a high-level interface with WebGL rendering.
 
-	With its naive implementation, the use of the prototype has already made one problem clear: always trying to run a program while it is being changed can lead to poor responsiveness or even permanent lockup of the interface.
-	The usual cause being the increasing complexity of the program or the presence of infinite loops in the program. 
+	With its naive implementation, the use of the prototype has already made one problem clear: always trying to run a program while it is being changed can lead to poor responsiveness or even permanent lockup of the interface, the usual cause being the increasing complexity of the program or the presence of infinite loops in the program. 
 	This problem will have to be addressed in order to have a usable interface. 
 	Some alternatives to solve the problem could be running the program asynchronously and retrieving the results afterwards or instrumenting the program so it could be run interleaved with interface handling and stopped if necessary.
 
@@ -783,7 +817,6 @@ void draw() {
 	
 	Close to the end of the implementation we will start to assemble the thesis document and its defense.
 	We will be writing parts of the document as candidates to publication in Architecture and Programming conferences.
-	(Themes being results and reasons of our work.)
 	
 	Some work has already been done.
 	The proof-of-concept prototype is part of that work, more specifically part of the work on the editor.
@@ -796,10 +829,10 @@ void draw() {
 	People making \ac{gd} need an \ac{ide} that is different from those used in software development. 
 	Most of the time their programming projects are much simpler than the typical software development project.
 	They also do not have as much programming knowledge as software developers.
-	With this in mind it becomes clear that software development \ac{ide}s do not fit their needs.
+	With this in mind it becomes clear that software development \acp{ide} (like Visual Studio or Eclipse) do not fit their needs.
 	
 	\ac{ide}s like Impromptu, IPython, Processing, DesignScript and Rosetta are examples of \ac{ide}s for programming purposes other than software development.
-	They drop most of the functionality from software development \ac{ide}s (like Visual Studio or Eclipse) keeping only what is useful for beginners and add new functionality that will help them while programming for their specific purposes.
+	They drop most of the functionality from software development \ac{ide}s  keeping only what is useful for beginners and adding new functionality that will help them while programming for their specific purposes.
 	
 	With the current state of web browsers it has become possible to host applications inside web pages. 
 	Applications that in the past could only be executed by running a native executable can now be moved to web pages.
@@ -815,6 +848,8 @@ void draw() {
 	A particular element in making it is the overall responsiveness of the user interface and other is the amount of primitives available for \ac{gd}.
 	
 	In the future, a better solution for storing the programs users make and for running them in \ac{cad}s may be explored.
+	
+	%TODO even more independent conclusions
 	
 %----------------------------------------------------
 %NAVappendix
