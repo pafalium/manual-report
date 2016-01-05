@@ -133,7 +133,7 @@ web application, Generative Design, integrated development environment
 	First, some \ac{cad} software packages used by architects have support for \ac{gd} provided by a plug-in or a set of plug-ins, as Visual Lisp in AutoCAD and Grasshopper in Rhinoceros3D.
 	Second, there are standalone programming environments like Processing\cite{reas2007processing} or Rosetta\cite{de2012modern}; the first is a programming environment for the visual arts and the second is an environment thought specifically for \ac{gd}.
 	
-	These \acp{ide} need to be installed which is a problem when the architect wants to make a \ac{gd} program for a quick experiment but doesn't have it installed in his computer.
+	These \acp{ide} need to be installed which is a problem when the architect wants to make a \ac{gd} program for a quick experiment but does not have it installed in his computer.
 	It can become worse if the \ac{ide} he wants to use does not support the \ac{os} of his computer.
 
 	One way to solve this problem is to move the \ac{ide} to a web page which is then accessed with a web browser.
@@ -539,28 +539,29 @@ void draw() {
 	It deals with how the language works.
 
 	\paragraph{Help when writing and reading.}
-	Another part is the \textbf{amount of help, documentation or reaction} the system has to support the user while he is thinking about and making the program.
-	In the light of \cite{victor2012learnable}, the system should have good answers to the questions proposed on what is a good programming environment.
+	Another part is the \textbf{amount of help, documentation or reaction} the system has to support the architect while he is thinking about and making the program.
+	In the light of \cite{victor2012learnable}, the system should have good answers to the questions proposed on what is a good \ac{ide}.
 
 	\paragraph{Primitive operations.}
 	Another part is the \textbf{implementation of the primitive operations} of the language like constructive solid geometry, lofts, sweeps and many other 3D modeling operations.
 	Without them architects will not be able to make any Generative Design.
-	One thing to keep in mind is that these operations have to be translated into other tools used in architecture.
+	%One thing to keep in mind is that these operations have to be translated into other tools used in architecture.
 
 	\paragraph{Documenting programs.}
 	Another part is how the system lets users \textbf{document their programs}. 
 	It is normal to forget how some part of the program works and so documentation is needed (or anything that is faster to understand than interpreting the program manually).
 	The system could support having sketches juxtaposed to the program in addition to previews of results like those present in DesignScript Studio, Dynamo and Grasshopper. 
-	It will also be useful to look at how current programming languages are usually documented. 
+	%It will also be useful to look at how current programming languages are usually documented. 
 
 	\paragraph{Persisting programs.}
-	%TODO persistence of programs
-	Another part is the \textbf{persistence of programs} between usage sessions, in case the system crashes or even across multiple devices.
-	In case of persistence between sessions, the user can close the browser or the tab at any moment, it would be useful to keep record of the current program in some way. 
-	In case of persistence in case of crashes, if the user program itself crashed the page it should not be executed immediately to allow its retrieval or edition (as it could crash the page again). 
-	With persistence of programs also comes the need for holding different versions of the same program. 
-	These become useful as the user makes changes and wants to look back in time for some reason. 
-	Maybe because he did not anticipate the need for something he deleted or maybe because he wants to see how his programs have progressed.
+	Another part is the way the system handles \textbf{persistence of programs} as it is essential for any kind of programming.
+	
+	Without the system explicitly supporting persistence, the architect will have to manually copy the program's source code to a text editor in order to save it.
+	This becomes impossible when if the program is made of more than text. 
+	
+	Since a lot of work can be lost in case of a crash, it is also important to support an automatic saving mechanism.
+
+	Saving multiple versions of programs and persisting them remotely are also useful features as the user may want to look at older versions or access his programs from different computers.
 
 	\paragraph{Passing results on.}
 	Another part is the way programs can be \textbf{applied to other modeling applications} used by architects.
@@ -571,8 +572,6 @@ void draw() {
 	This approach requires the setup of a communication channel between the browser where the system is running and Rosetta. 
 	The system could alternatively use a language that Rosetta already supports. 
 	When the user wants to pass the result of the program to the application he only has to select the desired back-end and run the program inside Rosetta.
-
-	%It should enumerate the various aspects of concern to be considered while making the solution. It may as well provide some alternatives to some aspects that are already known. These alternatives can refer to products already available.
 
 \subsection{General Architecture of the Solution}
 	%TODO more connection to requirements
