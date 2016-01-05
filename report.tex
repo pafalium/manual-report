@@ -358,7 +358,16 @@ void draw() {
 
 \subsubsection{Rosetta.}
 	Rosetta\cite{de2012modern,lopes2011portable}, shown in Fig. \ref{fig:rosetta:ex}, is a platform for \ac{gd}.
-	It grew from the desire to give the freedom to architects using the \ac{gd} to write their programs using the programming language they want and to easily switch where it takes effect.
+	It grew from the desire to allow architects to choose which programming language to use for their \ac{gd} programs despite the \ac{cad} software they have installed as most \acp{cad} only have one programming language and their primitive operations are not equivalent.
+	As an example, if one writes a program for AutoCAD in AutoLisp he cannot use it in Rhinoceros3D; he has to rewrite the program in RhinoScript, the scripting language of Rhinoceros3D, taking into account the differences between primitive operations of both \acp{cad}.
+	Using Rosetta, he writes only one program that works on both \acp{cad}.
+	
+	Rosetta does this by allowing the architect to choose the front-end programming language and the back-end where the primitive operations will be performed.
+	\footnote{Some front-ends supported by Rosetta are AutoLisp, Javascript, Racket and Python; some of the supported back-ends include Autodesk AutoCAD, Autodesk Revit, Sketchup, Rhinoceros 3D, TikZ and OpenGL.}
+	This way, the architect can experiment with \ac{gd} without having to switch \ac{cad} and he can also share programs with others using different \acp{cad}.
+
+	Rosetta also allows programs written in one programming language to use not only parts from programs written in the same language, but also from programs written in other languages.
+	This eliminates the need to use the same programming language throughout a program and enables the use of programs written in any programming languages.
 	
 	\begin{figure}
 		\centering
@@ -366,99 +375,45 @@ void draw() {
 		\caption{A Rosetta program in DrRacket (left) and AutoCAD displaying its results (right). The program is written in Javascript.}
 		\label{fig:rosetta:ex}
 	\end{figure} 
-	
-	%TODO simplify rosetta
-	%%%%
-	Its authors argue that most environments for \ac{gd}, developed for a specific \ac{cad}, do not provide portability of programs developed inside them.
-	They also argue that \ac{vpl}s, based on data-flow graphs, do not provide good abstraction mechanisms; programs on such languages are therefore hard to understand and modify.
-	
-	It is also stated that industrial programming languages, like C, C++, Java and C\#, do not provide domain-specific abstractions from \ac{gd} and so they are inadequate.
-	
-	A survey of the most used \ac{gd} systems showed that the most popular \ac{tpl}s for \ac{gd}, like AutoLisp, RhinoScript, and GDL, are old, provide little domain-specific features and make it difficult to define them\cite{de2012modern,leitao2012programming}.
-	It also showed that \ac{vpl}s for \ac{gd}, like Grasshopper and GenerativeComponents, enforce a very restricted programming paradigm and programs scale poorly with size and complexity, making them suitable only for small throwaway prototypes. 
-	It also showed that \ac{cad} applications, being based on direct user interaction and imposing their own programming environments and languages, lock their users to the application's product family and make it difficult to achieve correctness, performance and portability.
-	%%%%
-	
-	The design principles followed by Rosetta are:
-	\begin{itemize}
-		\item portability: program independence from \ac{cad} applications; enabling reuse of programs across different \ac{cad} application communities.
-		\item parametric elements: do not require designers to manually transform parametric elements into geometric shapes \ac{cad}s understand.
-		\item functional operations: operations do not consume their arguments; do not leak \ac{cad} implementation details into \ac{gd} languages.
-		\item dimension independent operations: uniform, predictable treatment of shapes of different dimensions.
-		\item algebra of sets: shapes as point sets in three dimensional sets; support for operations on sets.
-		\item algebraic equivalences: to handle support discrepancies of set operations across \ac{cad}s and for optimization.
-		\item traceability: between the parts of the program and their results.
-		\item immediate feedback: to changes made to the program and its input.
-	\end{itemize}
-	
-	A modern programming environment for \ac{gd} should:
-	\begin{itemize}
-		\item be pedagogic
-		\item provide domain-specific features
-		\item provide multiple Programming Languages
-		\item provide multiple \ac{cad} applications
-	\end{itemize}
-	
-	Generative Design needs:
-	\begin{itemize}
-		\item Portability
-		\item Mathematical and geometric strictness
-		\item Correlation between programs and models
-		\item Multiple paradigms and techniques
-		\item Modern and pedagogic system
-	\end{itemize}
-	
-	It enables this by providing several front-end programming languages and several back-ends which take the results of the program. 
-	The programs written in a front-end language are compiled into an intermediate language which then translates its semantics to the selected back-end\cite{lopes2011portable}.
-	
-	Some front-ends supported by Rosetta are AutoLisp, Javascript, Racket and Python; some of the supported back-ends include Autodesk AutoCAD, Autodesk Revit, Sketchup, Rhinoceros 3D, TikZ and OpenGL.
-	
-	%Rosetta has been extensively used for teaching programming to architecture students at \ac{ist}. 
+
 
 \subsubsection{Learnable Programming.}
-	Writing a program in a programming language can be difficult even if it was designed to be easy to use. 
-	When a programming language is coupled with an environment specifically designed for it the programming experience improves drastically. 
+	Writing a computer program can be difficult even if the programming language was designed to be easy to use. 
+	When a programming language is coupled with an \ac{ide} specifically designed for it, the programming experience improves drastically. 
 	In his essay\cite{victor2012learnable}, Bret Victor described design principles over systems for learning programming.
+	As non-specialist programmers, architects can benefit from an \ac{ide} that follows these principles.
+
+	\paragraph{Programming language.}
+	The programming language must have an inherent way of thinking that will allow the programmer to solve problems.
+	The programming language should have something the programmer can identify with; should allow him to decompose the problem into smaller parts to solve them separately; should allow him to bring those together to solve the problem; and should be readable.
 	
-	The programming language and the programming environment are essential parts of the programming experience.
-	The programming language allows the programmer to express himself in a clear, specific way; the programming environment allows him to write programs and understand what they actually do.
-	
-	%TODO clarify what PL must do
-	%%%%
-	
-	%%%%
-	Programs written in the programming language need to reflect something from the programmer that is useful for programming.
-	They should be about things the programmer can identify with (something that he knows); should allow him to talk about different parts of the problem separately; should allow him to bring those parts together; and should be readable.
-	
-	The environment needs to help understand the meaning of the parts of the program; understand the way the program execution evolves; understand the way the state of the program evolves; assemble parts together; and create new parts from existing ones.
-	It should make these things easy to do, after all these can be done by the programmer himself if he is willing to.
+	\paragraph{\ac{ide}.}
+	The \ac{ide} must help the programmer make programs and also understand them.
+	It needs to help understand the meaning of the parts of the program; understand the way the program execution evolves; understand the way the state of the program evolves; assemble parts together; and create new parts from existing ones.
+
 
 \subsection{Moving to the Web}
 	Web browsers did not start as feature-rich and performant as they are now.
 	They started as hypertext browsers that made it easier to read hypertext.
-	They could display images and text and could jump from page to page by following hyperlinks or following URLs.
+	They could display images and text and could jump from page to page by following hyperlinks and URLs.
 	Only with the development of new features and the demand for more performance did they slowly get into the shape they are now.
 
 	The number of devices connected to the internet is big enough to say that internet access is almost ubiquitous.
 	People no longer have to rely on a single device because many of the things they do on that device can be migrated to the internet as distributed systems.
 	If viewed this way, devices can become interfaces to distributed systems on the internet and people can start to use any device to access those distributed systems.
 
-	There must be a platform to support (as in display) such interfaces and Web browsers are a good possibility.
+	There must be a platform to support (as in display) such interfaces and web browsers are a good possibility.
 	Almost any of these devices have web browsers.
-	These not only include the traditional desktop and laptop computers but also the new smartphones, tablets, gaming consoles, smart appliances and the list goes on and on.
+	These not only include the traditional desktop and laptop computers but also the new smartphones, tablets, gaming consoles, smart appliances.
 
 	Web browsers enable devices to connect their users to the \ac{www} and in many cases to the rest of the internet, as \ac{www} is often used as an interface to services on the internet.
-	Some of those interfaces are as simple as a series of web pages generated by the service as they are used and some are as complex as pages interactively evolving with user input while at the same time exchanging information with many servers.
+	Some of those interfaces are as simple as a series of web pages generated by the service as they are used and some are as complex as pages interactively evolving with user input while at the same time exchanging information with servers.
 	Most blogs are examples of the first, technically simple, and most social networking sites are examples of the second, technically complex.
 	All of these have forced web browsers to evolve into a performant, feature-rich platform.
-	The extent of their performance and features makes them even capable of hosting desktop applications from code editors to video games (without plugins like Adobe Flash).
 
-	%TODO do not begin with "And"
-	And this has caught on.
-	More and more people are replacing their desktop applications with web based ones.
-	Web browsers are effectively replacing \ac{os}-level applications.
-	And this also comes as an advantage for developers as the browser acts as an uniform platform across all different devices they want to develop for.
-
+	This has allowed web-based alternatives to desktop applications to appear from code editors to video games.
+	And it also comes as an advantage for developers as the browser acts as a platform across all different devices they want to develop for.
+	
 	It is in this time where web browsers are so capable that it becomes possible to develop a \ac{gd} \ac{ide} for the web.
 	In the next sections, we describe a few relevant \ac{ide} that run on web browsers.
 
