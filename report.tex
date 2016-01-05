@@ -293,10 +293,9 @@ void draw() {
 	
 
 \subsubsection{DesignScript.}
-	%collections can be used everywhere one thing can be used
-	%handling collections (replication guides, etc)
-	DesignScript\cite{aish2012designscript} is a programming language that was designed to suit the needs of architecture related design and engineering.
+	DesignScript\cite{aish2012designscript} is a programming language that was designed to suit the needs of architecture related design.
 	
+	\paragraph{The programming language.}
 	%DesignScript programming paradigms
 	DesignScript uses concepts from multiple programming paradigms like object-oriented, functional and associative programming. 
 	Entities have properties that can be either data or functions like in object-oriented languages; functions' most important role is to take some input and produce some output without producing side-effects like in functional languages; and dependencies among variables are retained like in associative languages.
@@ -305,15 +304,20 @@ void draw() {
 	The programmer can choose to have portions of the code following one type of control flow and other portions following the other.
 	
 	%DesignScript primitives
-	Being a domain-specific language for architecture, DesignScript includes not only primitives to make building 3d models but also operations from the rest of the architecture process such as energy related analysis and architectural elements (like creating or editing \ac{bim} families).
-	%\emph{It may be better to provide a list of example primitives and operations.}
+	Being a domain-specific language for architecture, DesignScript provides functions for 3D modeling such as creating concrete 3D objects, like cubes and spheres, as well as abstract geometry, like planes and points, that used as scaffolding.
 	
-	Having modeling primitives close to those normally used in architecture software and combining several programming paradigms allows the designer to draw from knowledge about architecture modeling while empowering him to express the processes in which those primitives are used.
+	DesignScript also supports lists of values and lets them be used in place of single parameters in calls to functions.
+	This lets architects use lists more easily as they do not have to use loops to extract values and the function.
+	\footnote{If only one of its parameters is receiving a list instead of a value, the function is called once with each value on the list.
+	If more than one parameter is receiving a list, the function is called with the values combined by either a cross product or a zip of the lists.}
 	
+	Having modeling primitives and combining several programming paradigms allows the architect to draw from knowledge about architecture modeling while empowering him to express the processes in which those primitives are used.
+	
+	\paragraph{Editing DesignScript.}
 	%DesignScript editor(s)
 	Editing DesignScript programs can be done either by writing or by creating a graph. 
 	The graph is a more natural representation of the dependencies between the variables of the program when the associative paradigm is being used; it can also be viewed as a data-flow graph. 
-	The written representation of DesignScript is a sequence of statements that specify the relationship between a variable and other variables; defining functions, using the imperative paradigm and reassigning variables is also possible; features that are less encouraged when a graph representation is being used.
+	The written representation of DesignScript is a sequence of statements that specify the relationship between a variable and other variables; defining functions, using the imperative paradigm and reassigning variables is also possible.
 	
 	DesignScript is used in several environments. 
 	These include a textual editor in Autodesk AutoCAD (Fig. \ref{fig:ds:autocad}), a dedicated graph editor called DesignScript Studio (Fig. \ref{fig:ds:dsstudio}) and later Dynamo (Fig. \ref{fig:ds:dynamo}). 
