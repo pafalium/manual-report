@@ -565,8 +565,28 @@ void draw() {
 	When the user wants to pass the result of the program to the application he only has to select the desired back-end and run the program inside Rosetta.
 
 \subsection{General Architecture of the Solution}
-	%TODO more connection to requirements
-	%Taking into account the aspects described above a version of the architecture of the solution was made.
+	With the parts of the problem from the last section in mind, we can start to develop the architecture of the \ac{ide}.
+	It should be made clear that the solution presented here does not provide an answer to all parts presented earlier.
+	It is to be viewed as a starting point for a complete solution.
+	
+	The architecture of the solution is composed of the \emph{export module}, the \emph{program persistence module}, the \emph{editing environment} and the \emph{visualizer} as shown in Fig. \ref{fig:gen:sol}.
+	
+	The editing environment is responsible for all the editing of programs and the respective interaction with the user.
+	It is the main module where help reading/writing programs and the documenting programs problem is covered and like so it needs to be aware of the programming language being used.
+	
+	To enable the user to actually see the results of programs, the editing environment runs the program and passes the results to the visualizer that draws the primitives operations on a 3D view.
+	
+	To help reading programs, the editing environment provides sliders that the programmer can use to change numerical constants (Fig. \ref{fig:ui:mock} (c)) and highlights the results of the parts of the program that the programmer is currently hovering with the mouse (Fig. \ref{fig:ui:mock} (a) and (b)).
+	
+	The export module is responsible for passing results on to \acp{cad}.
+	It will send programs to a server running Rosetta which then passes the results to a selected \ac{cad}.
+	
+	As its name suggests, the program persistence module is responsible for persisting programs both locally and remotely.
+	It is also responsible for automatically saving the current program.
+	
+	The programming language that is going to be used is Javascript as it is natively run by web browsers and supports first-class functions and consequently higher-order functions.
+	
+	The primitive operations that will be implemented correspond to the primitives of Rosetta.	
 	
 	\begin{figure}
 		\centering
@@ -575,19 +595,8 @@ void draw() {
 		\label{fig:ui:mock}
 	\end{figure}
 	
-	The center of the \ac{ide} is composed by an editing environment, where source code is edited, and a visualizer, where results of running a program are visualized in 3D.
-	Both of these are hosted within the web browser of the user and like so after the \ac{ide}'s web page is served to the browser it is no longer dependent on external computers.
-	
-	As starting ideas for features that will help users understand programs there is highlighting the 3D objects in the resulting scene that were ``affected'' by a part of the program (Fig. \ref{fig:ui:mock} (a) and (b)) and also letting users change the value of constants in source code using widgets, like sliders, to see their effects on results (Fig. \ref{fig:ui:mock} (c)).
-	
-	Interacting with programs and their results will only be possible if the \ac{ide} can display results or update them fast enough so a great part of our work will be in making sure it is.
+	Interacting with programs and their results will only be possible if the \ac{ide} can display results or update them fast enough, so a great part of our work will be in making sure the \ac{ide} remains responsive.
 	This may involve compromising the quality of the 3D scene that represents the results to get faster.
-	
-	Since there is no dependency on other machines, supporting program persistence and allowing the results of programs to get to other software are limited to what a web browser can do.
-	Since web browsers allow some local storage to web pages, programs can be persisted there, at least temporarily.
-	On the side of getting results into other software, without communication with the outside we are limited to either using a programming language supported by Rosetta or exporting to a widely supported file format.
-	
-	The architecture of the editing environment and the visualizer together with the program persistence module and the export module can be visualized in Fig. \ref{fig:gen:sol}.
 	
 	\begin{figure}
 		\centering
@@ -595,6 +604,7 @@ void draw() {
 		\caption{A diagram of the architecture of the solution. Rectangles represent components, dashed rectangles represent where components will run and lines represent communication between components.}
 		\label{fig:gen:sol}
 	\end{figure}	
+	
 
 %----------------------------------------------------
 %NAVevaluation
@@ -686,30 +696,32 @@ void draw() {
 %----------------------------------------------------
 %NAVconclusions
 \section{Conclusions}
-	People making \ac{gd} need an \ac{ide} that is different from those used in software development. 
-	Most of the time their programming projects are much simpler than the typical software development project.
-	They also do not have as much programming knowledge as software developers.
-	With this in mind it becomes clear that software development \acp{ide} (like Visual Studio or Eclipse) do not fit their needs.
+	In this report we argue that a web-based \ac{ide} for \ac{gd} can give architects more flexibility than the desktop-based \acp{ide} they currently use.
+
+	By doing this work, we aim to develop an \acf{ide} for \acf{gd} as a single-page web application that lets architects program for \ac{gd} without having to install a complete \ac{cad} software.
+
+	Architects making \ac{gd} need an \ac{ide} that is different from those used in software development.
+	As most of their programming projects are much simpler than the typical software development project and as they do not have as much programming knowledge as software developers, it becomes clear that software development \acp{ide} (like Visual Studio or Eclipse) do not fit their needs.
+	As opposed to software development \acp{ide}, \acp{ide} like Impromptu, IPython, Processing, DesignScript and Rosetta are examples of \acp{ide} that were designed to help programming outside of software development.
+	They drop most of the functionality from software development \acp{ide}  keeping only what is useful for simpler projects and add new functionality that will help while programming for their specific domain.
 	
-	\ac{ide}s like Impromptu, IPython, Processing, DesignScript and Rosetta are examples of \ac{ide}s for programming purposes other than software development.
-	They drop most of the functionality from software development \ac{ide}s  keeping only what is useful for beginners and adding new functionality that will help them while programming for their specific purposes.
-	
-	With the current state of web browsers it has become possible to host applications inside web pages. 
+	With the current state of web browsers it becomes possible to host applications inside web pages. 
 	Applications that in the past could only be executed by running a native executable can now be moved to web pages.
 	LightTable and OpenJSCAD are examples of it.
 	
 	With the need for a different \ac{ide} for people doing \ac{gd} and the possibility of running applications in the browser, it is not only possible to build an \ac{ide} for \ac{gd} in the web browser but it is also advantageous for users.
-	With it, they can quickly open up a web browser on its web page, start to write down their \ac{gd} ideas and immediately run them.
+	With it, they can quickly open its web page in a web browser, start to write down their \ac{gd} ideas and immediately run them.
+	To allow users to have a good usage experience requires more development.
+	A particular way of making it is improving the overall responsiveness of the user interface and another is providing primitives that are more useful for \ac{gd}.
+	An \ac{ide} for \ac{gd} in the browser needs to have at least two components, a source code editor and a visualizer.
+	Having a source code editor and a visualizer lets people make programs and see their results with just a web browser.
+	Programs will be written in Javascript and will use Rosetta's primitive operations so they can be run inside Rosetta.
+	To make it possible to show the results of a program in the web browser, it is necessary to implement the same primitive operations.
+	While implementing the primitive operations we can use 3D graphics Javascript libraries, such as Three.js, to implement them faster.
 	
-	To have a working \ac{ide} for \ac{gd} in the browser at least two components need to exist, a source code editor and a visualizer.
-	This way people will be able to make programs and see their results with just a web browser.
+	Overall, the objective of the work is to decrease the effort required from the architect to start doing \ac{gd} so he can be more satisfied.
+	As this project is still in development we expect to reach better results than current \ac{gd} \acp{ide}.
 	
-	Making the user experience good will require special care.
-	A particular element in making it is the overall responsiveness of the user interface and other is the amount of primitives available for \ac{gd}.
-	
-	In the future, a better solution for storing the programs users make and for running them in \ac{cad}s may be explored.
-	
-	%TODO even more independent conclusions
 	
 %----------------------------------------------------
 %NAVappendix
