@@ -2,7 +2,7 @@ pdflatex report
 bibtex report
 pdflatex report
 pdflatex report
-del *.aux
+del *.auxalfaiate_321
 del *.bbl
 del *.blg
 del *.lof
